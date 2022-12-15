@@ -12,23 +12,23 @@ h1{
     margin: auto;
     width: 30%;
     margin-top: 20px;
-    font-family: Comic Sans Ms;
-line-height: 1.8;
+    font-family: Comic;
+line-height: 1.8em;
 }
 .checklist{
     margin: auto;
     width: 617px;
     margin-top: 10px;
-    font-family: Comic Sans Ms;
-    line-height: 1.2;
+    font-family: Comic;
+    line-height: 1.2em;
 }
 
 .steps{
     margin: auto;
     width: 539px;
     margin-top: 20px;
- font-family: Comic Sans Ms;
- line-height: 1.2;
+ font-family: Comic;
+ line-height: 1.2em;
     
 }
 .method{
@@ -36,7 +36,7 @@ line-height: 1.8;
     margin: auto;
     width: 30%;
     margin-top: 19px;
-    line-height: 1.6;
+    line-height: 1.6em;
     
    
 }

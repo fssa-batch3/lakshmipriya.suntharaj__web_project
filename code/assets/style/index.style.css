@@ -81,7 +81,7 @@
 .menu {
     height: 16px;
     margin-left: -5px;
-    margin-top: -6p
+    margin-top: -6p;
 }
 
 .slogan {
@@ -104,8 +104,8 @@
     
     padding: 40px;
     font-size: large;
-    font-family: comic Sans Ms;
-    line-height: 1.6;
+    font-family: comic;
+    line-height: 1.6em;
     
 }
 body{
@@ -128,4 +128,5 @@ img{
 span{
     color:#08490d;
     font-size: medium;
+    font-family: Comic;
 }
