@@ -1,0 +1,54 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+h1{
+    margin: auto;
+    width: 865px;
+}
+.ingredients{
+    font-weight: bolder;
+    margin: auto;
+    width: 30%;
+    margin-top: 20px;
+}
+.checklist{
+    margin: auto;
+    width: 617px;
+    margin-top: 10px
+}
+
+.steps{
+    margin: auto;
+    width: 539px;
+    margin-top: 20px
+ 
+    
+}
+.method{
+    font-weight: bolder;
+    margin: auto;
+    width: 30%;
+    margin-top: 19px;
+    
+    
+   
+}
+    
+
+.forms{
+    padding-left: 100px;
+}
+.body{
+    background-image: url(https://i.ytimg.com/vi/ggL1HHCxkIE/maxresdefault.jpg);
+}
+.image{
+    display: block;
+    
+    object-fit: cover;
+    width: 100%;
+    height: 30vh;
+    min-height: 30vh;
+ 
+}

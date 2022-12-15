@@ -1,0 +1,90 @@
+
+.header-image {
+    width: 100%;
+    height: 400px;
+}
+.slogan {
+    position: relative;
+    color:#08490d;
+    bottom: 300;
+    margin-left: 250px;
+    margin-top: 80px;
+    font-family: Comic Sans MS;
+    font-size: xx-large;
+}
+.recipe{
+    display: flex;
+    margin-top: 20px;
+    justify-content: center;
+    line-height: 20px;
+    margin-left: -25px;
+}
+body{
+    background-color: #c7daa9;
+}
+.about{
+    
+    padding: 40px;
+    font-size: large;
+    font-family: comic Sans Ms;
+    line-height: 1.6;
+}
+.login-btn {
+    display: inline;
+    float: right;
+    margin-bottom: 30px;
+    width: 100px;
+    border: none;
+    border-radius: 20px;
+    height: 50px;
+    cursor: pointer;
+    background-color: #6c8540;
+    color: white;
+    font-weight: bold;
+}
+
+.veg-recipe {
+    display: inline;
+    float: right;
+    margin-bottom: 30px;
+    width: 100px;
+    border: none;
+    border-radius: 20px;
+    height: 50px;
+    margin-right: 20px;
+    cursor: pointer;
+    background-color: #6c8540;
+    color: white;
+    font-weight: bold;
+}
+
+
+.non-veg {
+    display: inline;
+    float: right;
+    margin-bottom: 30px;
+    width: 110px;
+    border: none;
+    border-radius: 20px;
+    height: 50px;
+    margin-right: 20px;
+    cursor: pointer;
+    background-color: #6c8540;
+    color: white;
+    font-weight: bold;
+}
+
+.snacks {
+    display: inline;
+    float: right;
+    margin-bottom: 30px;
+    width: 100px;
+    border: none;
+    border-radius: 20px;
+    height: 50px;
+    margin-right: 20px;
+    cursor: pointer;
+    background-color: #6c8540;
+    color: white;
+    font-weight: bold;
+}
