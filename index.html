@@ -18,8 +18,11 @@
                     </button>
 
                 </a>
-
-                <a href="./pages/veg.html">
+                <a href="./pages/signin.html">
+                    <button class="signin">
+                        Signin
+                    </button>
+                </a> <a href="./pages/veg.html">
                     <button class="Veg-Recipe">
                         Veg Recipe
                     </button>
@@ -49,11 +52,12 @@
 
 
     </div>
-    <div class="all-recipe">
-        <div class="recipe">
+    <!-- <div class="all-recipe"> -->
+    <!-- <div class="recipe">
             <div class="chicken">
                 <a href="./pages/page4.html">
-                    <img class="recipe1" src="./assets/images/chickenfry.jpg" height="300px" width="600px" alt="chicken">
+                    <img class="recipe1" src="./assets/images/chickenfry.jpg" height="300px" width="600px"
+                        alt="chicken">
                 </a>
             </div>
             <div class="about">
@@ -63,11 +67,106 @@
                     set of ingredients for the recipe can vary.....
                 </p>
             </div>
-        </div>
+        </div> -->
+
+    <script>
+
+let recipe = [
 
 
 
-        <div class="recipe">
+
+
+{
+    img_recipe1 : "./assets/images/chickenfry.jpg",
+    h2_cardtitle: "chicken",
+    p_para: "Chicken 65 is a spicy, deep-fried chicken dish originating from Hotel Buhari, Chennai, India, as an entrée, or quick snack. The flavour of the dish can be to red chillies, but the exact set of ingredients for the recipe can var",
+},
+
+{
+    img_recipe1: "./assets/images/mutton.jpeg",
+    h2_cardtitle: "mutton",
+    p_para: "Mutton is not very regular in our menu but whenever we get it, its mostly biriyani or Mutton Sukk as its our family favourite. I wanted to share ammas chettinad version of mutton chukka and hereit is for you all..",
+},
+
+{
+    img_recipe1: "./assets/images/diamond.jpg",
+    h2_cardtitle: "mutton",
+    p_para: "Mutton is not very regular in our menu but whenever we get it, its mostly biriyani or Mutton Sukka as its our family favourite. I wanted to share ammas chettinad version of mutton chukka and hereit is for you all."
+
+},
+{
+    img_recipe1: "./assets/images/fish.JPG",
+    h2_cardtitle: "fish",
+    p_para: "Mutton is not very regular in our menu but whenever we get it, its mostly biriyani or Mutton Sukka as its our family favourite. I wanted to share ammas chettinad version of mutton chukka and hereit is for you all."
+
+},
+{
+    img_recipe1: "./assets/images/masalapuri.jpg",
+    h2_cardtitle: "fish",
+    p_para: "Mutton is not very regular in our menu but whenever we get it, its mostly biriyani or Mutton Sukka as its our family favourite. I wanted to share ammas chettinad version of mutton chukka and hereit is for you all."
+
+},
+
+]
+
+
+for (let i = 0; i < recipe.length; i++) {
+
+        let div_all;
+        let div_recipe;
+        let div_chicken;
+        let img_recipe1;
+        let div_about;
+        let h2_cardtitle;
+        let p_para;
+
+        div_all = document.createElement("div");
+        div_all.setAttribute("class", "all_recipe");
+
+        div_recipe = document.createElement("div");
+        div_recipe.setAttribute("class", "recipe");
+        div_all.append(div_recipe);
+
+        div_chicken = document.createElement("div");
+        div_chicken.setAttribute("class", "chicken");
+        div_all.append(div_chicken);
+
+
+        img_recipe1 = document.createElement("img");
+        img_recipe1.setAttribute("class", "recipe1");
+        img_recipe1.setAttribute("src", recipe[i]["img_recipe1"]);
+        // img_recipe1.setAttribute("src",  "./assets/images/mutton.jpeg");
+        img_recipe1.setAttribute("height", "300px");
+        img_recipe1.setAttribute("weight", "500px");
+        div_chicken.append(img_recipe1);
+
+
+
+        div_about = document.createElement("div");
+        div_about.setAttribute("class", "about");
+        div_recipe.append(div_about);
+
+
+        h2_cardtitle = document.createElement("h2");
+        h2_cardtitle.innerText = recipe[i]["h2_cardtitle"]
+        div_about.append(h2_cardtitle);
+
+        p_para = document.createElement("p");
+        p_para.innerText = recipe[i]["p_para"]
+        div_about.append(p_para);
+
+        document.querySelector("body").append(div_all);
+}
+
+      
+
+
+
+
+    </script>
+
+    <!-- <div class="recipe">
             <div>
                 <a href="./pages/page5.html">
                     <img class="recipe1" src="./assets/images/mutton.jpeg" height="300px" width="600px" alt="mutton">
@@ -129,7 +228,7 @@
                     <img class="recipe1" src="./assets/images/ravadosa.jpg" height="300px" width="600px" alt="rava dosa">
             </div>
             </a>
-            <div class="about">
+            <div class="about" id="about-recipe">
 
 
                 <h2>RAVA DOSA</h2>
@@ -139,8 +238,8 @@
                 </p>
             </div>
         </div>
-    </div>
-    </div>
+     </div> -->
+
     <footer class="footer">
         <div class="container">
             <div class="row">
@@ -176,6 +275,56 @@
             </div>
         </div>
     </footer>
+    <!-- <script>
+    let div_col;
+    let div_card;
+    let img_card;
+    let div_card_body;
+    let h5_card_title;
+    let p_card_text;
+
+
+
+        //  <div class="col"> </div>
+    div_col = document.createElement("div");
+    div_col.setAttribute("class", "col");
+    console.log(div_col);
+
+        //  <div class="card"> </div>
+    div_card = document.createElement("div");
+    div_card.setAttribute("class", "card");
+    div_col.append(div_card);
+
+        //  <img src="" class="card-img-top" alt="" />
+    img_card = document.createElement("img");
+    img_card.setAttribute("src", "https://via.placeholder.com/500x150");
+    img_card.setAttribute("alt", "image_placeholder");
+    img_card.setAttribute("class", "card-img-top");
+    div_card.append(img_card);
+
+        //  <div class="card-body"> </div>
+    div_card_body = document.createElement("div");
+    div_card_body.setAttribute("class", "card-body");
+    div_card.append(div_card_body);
+
+
+        //  <h5 class="card-title"> </h5>
+    h5_card_title = document.createElement("h5");
+    h5_card_title.setAttribute("class", "card-title");
+    h5_card_title.innerText = "Card title"
+    div_card_body.append(h5_card_title);
+
+        //  <p class="card-text"> </p>
+    p_card_text = document.createElement("p");
+    p_card_text.setAttribute("class", "card-text");
+    p_card_text.innerText = "This is a longer card with supporting text below as a natural lead-in to additional content.This content is a little bit longer.";
+    div_card_body.append(p_card_text);
+
+    document.querySelector("div.row.row-cols-1").append(div_col);
+
+
+
+</script> -->
 
 </body>
 

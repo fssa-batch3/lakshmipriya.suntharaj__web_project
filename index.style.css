@@ -231,14 +231,14 @@ width: 50px;
 .recipe1:hover{
     transform: scale(1.1); 
 }
-.all-recipe{
+.all_recipe{
    
 display:block;
 }
 
 @media screen and (max-width:600px) {
 
-    .all-recipe {
+    .all_recipe {
         display: none;
        flex-wrap: wrap; 
        align-items: center;
