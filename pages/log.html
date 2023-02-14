@@ -1,0 +1,58 @@
+<html>
+<link rel="stylesheet" href="../assets/style/log.css">
+<div class="login-card">
+  <!-- <a href="../index.html"></a> -->
+    <div class="card-header">
+      <div class="log">Login</div>
+    </div>
+    <form id="form">
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input required="" name="email" id="email" type="text">
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input required="" name="password" id="password" type="password">
+      </div>
+      <div class="form-group">
+        <button value="Login" type="submit" id="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+  <script>
+  let logIn = document.getElementById("form");
+  logIn.addEventListener("submit", (event) => {
+    event.preventDefault();
+    let preventDefault = JSON.parse(localStorage.getItem("register"));
+    console.log(preventDefault);
+    const getEmail = document.getElementById("email").value;
+    const getPassword = document.getElementById("password").value;
+    for (let i = 0; i < preventDefault.length; i++) {
+      if (
+        getEmail == preventDefault[i].getEmail &&
+        getPassword == preventDefault[i].getConPass
+      ) {
+        match = true;
+        break;
+      } else {
+        match = false;
+        break;
+      }
+    }
+
+if (("match = true")){
+alert("successfully completed");
+const object = preventDefault.find(l =>l['getEmail'] == getEmail)
+const user = JSON.stringify(object);
+localStorage.setItem("data", user );
+window.location.href = "../index.html";
+
+}
+else{
+  alert("failed");
+}
+
+  })
+</script>
+  </html>
+  <!-- <a href="../pages/log.html"></a> -->

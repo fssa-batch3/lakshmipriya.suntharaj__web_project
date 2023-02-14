@@ -1,0 +1,71 @@
+<html>
+  <body>
+    
+  
+<link rel="stylesheet" href="../assets/style/profile.css">
+<form class="profileform" id="profileform">
+  <div class="form-group">
+    <label for="name">Name:</label>
+    <input  type="text" class="form-control personName" id="name" placeholder="Enter your name">
+  </div>
+  <div class="form-group">
+    <label for="email">Email:</label>
+    <input type="email" class="form-control personEmail " id="email" placeholder="Enter your email">
+  </div>
+  <div class="form-group">
+    <label for="name">password:</label>
+    <input  type="text" class="form-control personpassword" id="name" placeholder="Enter your name">
+  </div>
+  <!-- <div class="form-group">
+    <label for="bio">Bio:</label>
+    <textarea class="form-control  personBio" id="bio" rows="3" placeholder="Enter a brief bio"></textarea>
+  </div> -->
+  <button type="submit" class="btn btn-primary">Submit</button>
+
+<!-- <div>
+<p>
+  NAME: <span class="form-control personEmail">S.lakshmipriya</span>
+
+</p>
+
+<p>
+  EMAIL: <span class="form-control personpassword">lakshmipriya@gmail.com</span>
+</p>
+ 
+<p>
+  PASSWORD: <span class="form-control personpassword">1234</span>
+</p>
+
+</div> -->
+
+
+
+
+
+</form>
+
+<script>
+const user = JSON.parse(localStorage.getItem("data"))
+    console.log(user);
+    const usename = document.querySelector(".personName")
+    const useemail = document.querySelector(".personEmail")
+    const usePassword = document.querySelector(".personpassword")
+
+
+    usename.value = user['getname']
+    useemail.value = user['getEmail']
+    usePassword.value = user['getPassword']
+
+
+// edit profile
+// get data from form
+
+const userDetails = document.getElementById("profileform")
+
+
+
+
+</script>
+</body>
+
+</html>

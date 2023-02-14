@@ -1,0 +1,63 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/style/yoges.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>REQUEST FORM </title>
+</head>
+<body>
+    <div class="details">
+        <h1>Fill the Details</h1>
+        <hr>
+        <form>
+            <div class="photo">
+                <div><i class="fa fa-add"></i></div>
+                <p>Upload photo</p>
+            </div>
+            <div class="address">
+                <label>enter email</label><br />
+                <input type="text" placeholder="Enter your email" id="name" /><br />
+                <label>Phone no:</label><br />
+                <input type="tel" placeholder="Enter your number" maxlength="10" id="phone number" /><br />
+                <label>Address</label><br />
+                <input type="text" placeholder="Enter your address" id="address" /><br />
+            </div>
+            <button type="submit" onclick="getData()">Submit</button>
+        </form>
+        <div class="collection">
+            <h3>Garbage Collection cycling</h3><br>
+            <input type="checkbox"> Everyday Collection<br>
+            <input type="checkbox">Once Every two days collection<br>
+        </div>
+        <div class="dust-bin">
+            <h3>Your Need New Dust Bin</h3><br>
+            <input type="checkbox">Yes<br>
+            <input type="checkbox">No
+        </div>
+        <hr>
+    </div>
+    <!--java-->
+    <script>
+        // function getData() {
+        //     const email = document.getElementIdby(email).value;
+        //     const phonenumber = document.getElementIdby(phonenumber).value;
+        //     const address = document.getElementIdby(address).value
+        //     console.log(name)
+        //     console.log(phonenumber)
+        //     console.log(address)
+        //     window.location.href = ""
+        // }
+        // const user_email= localStorage.getItem("user_email");
+        // console.log(user_email);
+        const email = document.getElementById("email").value;
+        console.log(email)
+        document.getElementById("email").value= user_email;
+    </script>
+</body>
+</html>
+ 

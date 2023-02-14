@@ -1,0 +1,145 @@
+<html>
+  <link rel="stylesheet" href="../assets/style/register.css" />
+
+  <body>
+    <div class="card">
+      <div class="card-header">
+        <div class="text-header">Register</div>
+      </div>
+      <div class="card-body">
+        <form id="signup">
+          <div class="form-group">
+            <label for="username">Username:</label>
+            <input
+              class="form-control"
+              name="username"
+              id="username"
+              type="text"
+              placeholder="Enterusername"
+              autocomplete="username"
+              required="true"
+            />
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input
+              class="form-control"
+              name="email"
+              id="email"
+              type="email"
+              placeholder=" enter your email"
+              autocomplete="email
+          "
+              required="true"
+            />
+          </div>
+          <div class="form-group">
+            <label for="password">Password:</label>
+            <input
+              class="form-control"
+              name="password"
+              id="password"
+              type="password"
+              placeholder="enter your password"
+              autocomplete="current-password"
+              required="true"
+            />
+          </div>
+          <div class="form-group">
+            <label for="confirm-password">Confirm Password:</label>
+            <input
+              class="form-control"
+              name="confirm-password"
+              id="confirm-password"
+              type="password"
+              placeholder="enter your confirm-password"
+              autocomplete="current-password"
+              required="true"
+            />
+          </div>
+          <button type="submit" class="btn" value="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+  </body>
+  <script>
+
+    let match = false;
+
+    const form = document.getElementById("signup");
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      let newData = [];
+      if (localStorage.getItem("register") != null) {
+        newData = JSON.parse(localStorage.getItem("register"));
+      }
+      const getName = document.getElementById("username").value.trim();
+      const getEmail = document.getElementById("email").value.trim();
+      const getPassword = document.getElementById("password").value.trim();
+      const getConfirmPassword = document
+        .getElementById("confirm-password")
+        .value.trim();
+
+      // if (getName == "" || getName == null) {
+      //   alert("enter your Name");
+      //   getName.focus();
+      //   return false;
+      // }
+      // if (getEmail == "" || getEmail == null) {
+      //   alert("Enter your Email ID");
+      //   return false;
+      // }
+      // if (getPassword.length < 6) {
+      //   alert("enter your password ,password should be more than 6 characters");
+      //   return false;
+      // }
+      // if (getConfirmPassword.length < 6) {
+      //   alert("your password and confirm password should be same");
+      //   return false;
+      // }
+      // let match = true;
+
+
+      let userData = {
+          getname: getName,
+          getEmail: getEmail,
+          getPassword: getPassword,
+          getConfirmPassword: getConfirmPassword,
+        };
+
+
+
+      for (let i = 0; i < newData.length; i++) {
+        if (getEmail === newData[i]["getEmail"] ) {
+          match = true;
+          alert("This email is already exists");
+          break;
+        } else {
+          match = false;
+        }
+      }
+
+      // if ((match = true)) {
+      //   alert("This email is already exists");
+      // } else {
+      //   let userData = {
+      //     getname: getName,
+      //     getEmail: getEmail,
+      //     getPassword: getPassword,
+      //     getConfirmPassword: getConfirmPassword,
+      //   };
+      // }
+
+      if(match === false){
+      if (getPassword === getConfirmPassword) {
+        newData.push(userData);
+        const str = JSON.stringify(newData);
+        localStorage.setItem("register", str);
+        window.location.href = "../pages/log.html";
+      } else {
+        alert("Invalid password");
+      }
+    }
+    });
+  </script>
+</html>
