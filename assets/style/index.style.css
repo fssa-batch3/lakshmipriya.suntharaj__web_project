@@ -68,6 +68,7 @@
     color: white;
     font-weight: bolder;
     font-family: Comic Sans Ms;
+    margin-left: 20px;
 }
 /* snack-btn */
 .snacks {
@@ -84,7 +85,9 @@
     color: white;
     font-weight:bolder;
     font-family: Comic Sans Ms;
+    margin-right: 6px;
 }
+
 
 
 
@@ -231,14 +234,14 @@ width: 50px;
 .recipe1:hover{
     transform: scale(1.1); 
 }
-.all-recipe{
+.all_recipe{
    
 display:block;
 }
 
 @media screen and (max-width:600px) {
 
-    .all-recipe {
+    .all_recipe {
         display: none;
        flex-wrap: wrap; 
        align-items: center;

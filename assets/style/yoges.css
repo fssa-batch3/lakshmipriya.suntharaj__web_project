@@ -1,0 +1,93 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+body{
+    background-image:#f3f3f3;
+    background-size: cover;
+}
+.details{
+    margin-top: 45px;
+    margin-left: 500px;
+    margin-right: 600px;
+    background-color: #F5F5F5;
+    padding: 35px;
+    width: 500px;
+    height: 750px;
+    border-radius: 25px;
+    font-size: 20px;
+}
+.details h1{
+    text-align: center;
+}
+.photo{
+    margin-left: 10px;
+    margin-top: 70px;
+    border: solid 1px black;
+    width: 120px;
+    height: 150px;
+    padding: 30px 35px;
+    text-align: center;
+}
+.address{
+margin-left: 250px;
+margin-top: -220px;
+}
+.address label{
+   font-size: 30px;
+}
+.address input{
+    padding: 15px;
+     font-size: 20px;
+    border: none;
+    box-sizing: 4px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.collection{
+     margin-top: 10px;
+     margin-left: 20px;
+}
+.collection h3{
+    font-weight: bolder;
+    font-size: 25px;
+    margin-left: -25px;
+    color: #0B1320;
+}
+.dust-bin h3{
+    font-weight: bolder;
+    font-size: 20px;
+    margin-left: -25px;
+    color: #0B1320;
+}
+.collection input{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.dust-bin{
+    margin-top: 10px;
+    margin-left: 20px;
+}
+.dust-bin input{
+    margin-bottom: 10px;
+}
+button{
+    margin-top: 30px;
+    margin-left: 200px;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 13px;
+    width: 120px;
+    border: none;
+    border-radius: 25px;
+    background-color: rgb(17, 119, 183);
+    color: white;
+}
+button:hover{
+    background-color: black;
+    opacity: 0.7;
+}
+button:active{
+    background-color: green;
+}

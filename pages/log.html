@@ -1,0 +1,54 @@
+<html>
+<link rel="stylesheet" href="../assets/style/log.css">
+<div class="login-card">
+  <!-- <a href="../index.html"></a> -->
+    <div class="card-header">
+      <div class="log">Login</div>
+    </div>
+    <form id="form">
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input required="" name="email" id="email" type="text">
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input required="" name="password" id="password" type="password">
+      </div>
+      <div class="form-group">
+        <button value="Login" type="submit" id="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+  <script>
+  let logIn = document.getElementById("form");
+  logIn.addEventListener("submit", (event) => {
+    event.preventDefault();
+    let preventDefault = JSON.parse(localStorage.getItem("register"));
+    // console.log(preventDefault);
+    let getEmail = document.getElementById("email").value;
+    let getPassword = document.getElementById("password").value;
+  
+    let ifmatch = false;
+
+
+    for (let i = 0; i < preventDefault.length; i++) {
+      localStorage.setItem("data",JSON.stringify(preventDefault[i].getEmail))
+      if (
+        getEmail == preventDefault[i].getEmail &&
+        getPassword == preventDefault[i].getPassword
+      ) {
+        ifmatch = true;
+        break;
+      } 
+    }
+    if(ifmatch==true){
+      alert("successfully completed");
+      window.location.href = "../index.html";
+    }
+    else{
+      alert("failed")
+    }
+  })
+</script>
+  </html>
+  

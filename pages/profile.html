@@ -1,0 +1,195 @@
+<html>
+  <body>
+    
+  
+<link rel="stylesheet" href="../assets/style/profile.css">
+<form class="profile" id="profileform">
+  <div class="form-group">
+    <label for="name">Name:</label>
+    <input  type="text" class="form-control personName" id="name" placeholder="Enter your name">
+  </div>
+  <div class="form-group">
+    <label for="email">Email:</label>
+    <input disabled type="email" class="form-control personEmail " id="email" placeholder="Enter your email">
+  </div>
+  <!-- <div class="form-group">
+    <label for="name">password:</label>
+    <input  type="text" class="form-control personpassword" id="password" placeholder="Enter your name">
+  </div> -->
+  <!-- <div class="form-group">
+    <label for="bio">Bio:</label>
+    <textarea class="form-control  personBio" id="bio" rows="3" placeholder="Enter a brief bio"></textarea>
+  </div> -->
+  <button type="submit" class="btn btn-primary">Submit</button>
+
+<!-- <div>
+<p>
+  NAME: <span class="form-control personEmail">S.lakshmipriya</span>
+
+</p>
+
+<p>
+  EMAIL: <span class="form-control personpassword">lakshmipriya@gmail.com</span>
+</p>
+ 
+<p>
+  PASSWORD: <span class="form-control personpassword">1234</span>
+</p>
+
+</div> -->
+
+
+
+
+
+</form>
+
+<script>
+let current_email = JSON.parse(localStorage.getItem("data"))
+let user_details = JSON.parse(localStorage.getItem("register"))
+
+let  user_obj = user_details.find(function (user){
+  let check_email = user["getEmail"]
+  if(current_email === check_email){
+    return true;
+  }
+})
+// console.log(user_obj);
+
+
+let  name = document.getElementById("name");
+let email = document.getElementById("email");
+
+
+name.value = user_obj["getname"];
+email.value  = current_email;
+
+let pro_info = document.getElementById("profileform");
+        pro_info.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+let getname = document.getElementById("name").value;
+let getEmail = document.getElementById("email").value;
+
+
+let user_object ={
+  getname,
+  getEmail,
+}
+
+let checked_obj = Object.assign(user_obj,user_object)
+// console.log(checked_obj);
+
+let index = user_details.indexOf(user_obj);
+// console.log(index);
+
+user_details[index] = checked_obj;
+
+localStorage.setItem("register" , JSON.stringify(user_details));
+
+alert("successfully changed");
+
+// location.reload()
+} )
+
+// location.reload();
+
+        // let present_details = user_about.find(function (user) {
+        //     let check_email = user["user_email"]
+        //     if (current_email === check_email) {
+        //       let name = document.getElementById("name");
+           
+        //     let email = document.getElementById("email");
+
+        //     name.value = user["user_name"];
+           
+        //     email.value = current_email;
+          
+        //     }})
+        
+      
+// let form = document.getElementById("profileform");
+// form. addEventListener("submit"), function (event){
+//   event.preventDefault();
+// }
+
+// let user_name = document.getElementById("name").value;
+// let user_email = document.getElementById("email").value;
+
+
+
+
+
+
+
+// edit profile
+// get data from form
+
+
+
+
+// const newData = JSON.parse(localStorage.getItem("newData"))
+//         console.log(newData)
+//         const email = (document.getElementById("email").value = newData["getEmail"])
+//         console.log(email)
+//         const proname = (document.getElementById("name").value = newData["getName"])
+//         console.log(proname)
+//         const pass = (document.getElementById("password").value = newData["getPassword"])
+
+
+
+
+
+
+
+
+
+
+// const disable = document.querySelectorAll(".form-control")
+//         console.log(disable)
+//         function edit() {
+//             for (let i = 0; i < disable.length; i++) {
+//                 disable[i].removeAttribute("disabled")
+//             }
+//         }
+//         const profileform = document.getElementById("profileform");
+//         console.log(profileform)
+//         profileform.addEventListener("submit", function (event) {
+//             event.preventDefault();
+//             const editName = document.getElementById("name").value.trim()
+//             const editEmail = document.getElementById("email").value.trim()
+//             const editPassword = document.getElementById("password").value.trim()
+//             let userEditData = {
+//                 getname: editName,
+//               getEmail: editEmail,
+//                 getPassword: editPassword,
+//             }
+//             console.log(userEditData)
+//             const returnData = JSON.parse(localStorage.getItem("data"))
+//             console.log(returnData)
+//             console.log(returnData.getEmail)
+//             console.log(editEmail)
+//             // const check = returnData.find((e) => e.userEmail == editEmail)
+//              console.log(returnData.Email)
+//             if (returnData.getEmail != editEmail) {
+//                 alert("You can't change the email")
+//                 return flase
+//             }
+//             else {
+//                 const assignData = Object.assign(returnData, userEditData)
+//                 console.log(assignData)
+//                 const regisData = JSON.parse(localStorage.getItem("register"))
+//                 console.log(regisData)
+//                 const check = regisData.find((e) => e.getemail == editEmail)
+//                 console.log(check)
+//                 const finalfind = regisData.indexOf(check)
+//                 console.log(finalfind)
+//                 regisData[finalfind] = assignData;
+//                 localStorage.setItem("register", JSON.stringify(regisData));
+//             }
+//         });
+
+</script>
+</body>
+
+</html>
