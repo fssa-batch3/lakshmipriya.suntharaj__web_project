@@ -15,11 +15,7 @@ delete user [pending]24 hours
 Feature-2
 
 1.recipe crud
-
 2. recipe-list
-
 3. recipe details
-
 4.update-recipe
-
 5.close& deactive
