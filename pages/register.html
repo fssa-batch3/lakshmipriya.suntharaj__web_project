@@ -79,7 +79,7 @@
       let getEmail = document.getElementById("email").value.trim();
       let getPassword = document.getElementById("password").value.trim();
       let getConfirmPassword = document.getElementById("confirm-password").value.trim();
-
+      let userId = Date.now();
      
       if (getPassword != getConfirmPassword) {
    alert("Invalid Credentials")
@@ -87,8 +87,8 @@
       }
       else{
         
-        for(let i=0;i>newData.length;i++){
-          if( getEmail === newData[i][getEmail]){
+        for(let i = 0; i < newData.length; i++){
+          if( getEmail === newData[i]["getEmail"]){
             match = true;
 
           }
@@ -98,6 +98,7 @@
         }
       else{
         let userData = {
+          "userId":userId,
           "getname": getName,
           "getEmail": getEmail.toLowerCase(),
           "getPassword": getPassword,

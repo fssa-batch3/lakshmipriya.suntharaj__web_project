@@ -1,0 +1,43 @@
+<html>
+    <body>
+        
+  
+<link rel="stylesheet" href="../assets/style/addrecipe.css">
+<div class="contact-form">
+    <span class="heading">Add New Recipe</span>
+    <form id="addrecipe">
+      <label for="name">Image Url</label>
+      <input type="url" required="" id="imgurl">
+      <!-- <label for="about">about</label>
+      <input type="text" id="email" name="email" required=""> -->
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" required=""></textarea>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+  <script>
+    let recipe = document.getElementById("addrecipe")
+    recipe.addEventListener("submit",function (event){
+        event.preventDefault();
+
+let array =[];
+if(localStorage.getItem("newRecipe")!=null){
+    array = JSON.parse(localStorage.getItem("newRecipe"))
+}
+
+let Image = document.getElementById("imgurl").value
+let about = document.getElementById("message").value
+
+let newrecipe = {
+    "image_url" :Image,
+    "message":about
+}
+array.push(newrecipe);
+let imgabout = JSON.stringify(array);
+localStorage.setItem("newRecipe",imgabout);
+
+    })
+  </script>
+</body>
+  </html>
+  
