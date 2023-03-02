@@ -1,0 +1,106 @@
+<html>
+
+<body>
+    <link rel="stylesheet" href="../assets/style/profile.css" />
+    <form class="profile" id="profileform">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control personName" id="name" placeholder="Enter your name" />
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input disabled type="email" class="form-control personEmail" id="email" placeholder="Enter your email" />
+        </div>
+
+        <!-- <div class="form-group">
+          <label for="delete">Delete</label>
+          <input disabled type="delete" id="delete" class="form-control personEmail"  placeholder="Enter your email" />
+      </div> -->
+        <!-- <div class="form-group">
+    <label for="name">password:</label>
+    <input  type="text" class="form-control personpassword" id="password" placeholder="Enter your name">
+  </div> -->
+        <!-- <div class="form-group">
+    <label for="bio">Bio:</label>
+    <textarea class="form-control  personBio" id="bio" rows="3" placeholder="Enter a brief bio"></textarea>
+  </div> -->
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit"  id ="delete" class="btn btn-primary">Delete</button>
+
+        <!-- <div>
+<p>
+  NAME: <span class="form-control personEmail">S.lakshmipriya</span>
+</p>
+<p>
+  EMAIL: <span class="form-control personpassword">lakshmipriya@gmail.com</span>
+</p>
+ 
+<p>
+  PASSWORD: <span class="form-control personpassword">1234</span>
+</p>
+</div> -->
+    </form>
+
+    <script>
+        let current_email = JSON.parse(localStorage.getItem("data"));
+        let user_details = JSON.parse(localStorage.getItem("register"));
+
+        let user_obj = user_details.find(function (user) {
+            let check_email = user["getEmail"];
+            if (current_email === check_email) {
+                return true;
+            }
+        });
+        // console.log(user_obj);
+
+        let name = document.getElementById("name");
+        let email = document.getElementById("email");
+
+        name.value = user_obj["getname"];
+        email.value = current_email;
+
+        let pro_info = document.getElementById("profileform");
+        pro_info.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            let getname = document.getElementById("name").value;
+            let getEmail = document.getElementById("email").value;
+
+            let user_object = {
+                getname,
+                getEmail,
+            };
+
+            let checked_obj = Object.assign(user_obj, user_object);
+            // console.log(checked_obj);
+
+            let index = user_details.indexOf(user_obj);
+            // console.log(index);
+
+            user_details[index] = checked_obj;
+
+            localStorage.setItem("register", JSON.stringify(user_details));
+
+            alert("successfully changed");
+
+
+            // location.reload()
+        }
+        )
+        let user_delete = document.getElementById("delete");
+        user_delete.addEventListener("click", function (event) {
+            event.preventDefault()
+            let Index= user_details.indexOf(user_obj)
+            let msg = confirm("Are you sure want to delete your account")
+            if (msg !== true) {
+                return
+            }
+            else {
+              user_details.splice(Index, 1);
+                console.log(user_details);
+                localStorage.setItem("register", JSON.stringify(user_details))
+                // location.reload()
+        
+          }
+
+        })
