@@ -107,11 +107,13 @@
     line-height: 20px;
     margin-left: -25px;
     flex-wrap: wrap;
-
+    margin-left: 437px;
 }
 .recipe1{
  border: none;
     padding-bottom: 30px; 
+ margin-top: -297px;;
+    margin-left: 207px;
  
 }
 /* recipeabout */
@@ -130,6 +132,7 @@
     border-radius: px;
     transition: transform .1s;
     flex-wrap: wrap;
+    margin-left: 189px;
 }
 
 .about:hover{
