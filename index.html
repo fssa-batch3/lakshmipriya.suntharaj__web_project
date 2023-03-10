@@ -69,7 +69,7 @@
             </div>
             <div class="about">
                 <h2>CHICKEN FRY</h2>
-                <p>Chicken 65 is a spicy, deep-fried chicken dish originating from Hotel Buhari, Chennai, India, as
+                <p id = "p">Chicken 65 is a spicy, deep-fried chicken dish originating from Hotel Buhari, Chennai, India, as
                     an entrée, or quick snack. The flavour of the dish can be to red chillies, but the exact
                     set of ingredients for the recipe can vary.....
                 </p>
@@ -78,50 +78,64 @@
  
       <script>
 
- let recipe = [
+//  let recipe = [
 
 
 
 
- {    img_recipe1 : "./assets/images/chickenfry.jpg",
-    h2_cardtitle: "CHICKEN",
-    p_para: "Chicken 65 is a spicy, deep-fried chicken dish originating from Hotel Buhari, Chennai, India, as an entrée, or quick snack. The flavour of the dish can be to red chillies, but the exact set of ingredients for the recipe can var",
-},
+//  {    img_recipe1 : "./assets/images/chickenfry.jpg",
+//     h2_cardtitle: "CHICKEN",
+//     p_para: "Chicken 65 is a spicy, deep-fried chicken dish originating from Hotel Buhari, Chennai, India, as an entrée, or quick snack. The flavour of the dish can be to red chillies, but the exact set of ingredients for the recipe can var",
+// },
 
-{
-    img_recipe1: "./assets/images/mutton.jpeg",
-    h2_cardtitle: "MUTTON",
-    p_para: "Mutton is not very regular in our menu but whenever we get it, its mostly biriyani or Mutton Sukk as its our family favourite. I wanted to share ammas chettinad version of mutton chukka and hereit is for you all..",
-},
+// {
+//     img_recipe1: "./assets/images/mutton.jpeg",
+//     h2_cardtitle: "MUTTON",
+//     p_para: "Mutton is not very regular in our menu but whenever we get it, its mostly biriyani or Mutton Sukk as its our family favourite. I wanted to share ammas chettinad version of mutton chukka and hereit is for you all..",
+// },
 
-{
-    img_recipe1: "./assets/images/diamond.jpg",
-    h2_cardtitle: "DIAMOND FRY",
-    p_para: "I would say that this recipe will be a easy but tasty snack which you can make for diwali..I madeit in minutes and it tasted divine....So crispy and so yummy..I hope you will try this out andlet me know how it turned out for you."
+// {
+//     img_recipe1: "./assets/images/diamond.jpg",
+//     h2_cardtitle: "DIAMOND FRY",
+//     p_para: "I would say that this recipe will be a easy but tasty snack which you can make for diwali..I madeit in minutes and it tasted divine....So crispy and so yummy..I hope you will try this out andlet me know how it turned out for you."
 
-},
-{
-    img_recipe1: "./assets/images/fish.JPG",
-    h2_cardtitle: "FISH",
-    p_para: "A fish fry is a meal containing battered or breaded fried fish. It usually also includes french fries, coleslaw, macaroni salad, , hot sauce,malt vinegar and dessert. by coating fish with semolina and egg yolk...."
+// },
+// {
+//     img_recipe1: "./assets/images/fish.JPG",
+//     h2_cardtitle: "FISH",
+//     p_para: "A fish fry is a meal containing battered or breaded fried fish. It usually also includes french fries, coleslaw, macaroni salad, , hot sauce,malt vinegar and dessert. by coating fish with semolina and egg yolk...."
 
-},
-{
-    img_recipe1: "./assets/images/masalapuri.jpg",
-    h2_cardtitle: "MASALA PURI",
-    p_para: "Masala puri is an awesome street food snack made with layers of crunchy puri, creamy and spicy white peas gravy, rich spices and fresh veggies. Our easywhenever you a craving a fun and flavorful chaat!"
-},
-
-
-{
-    img_recipe1: "./assets/images/ravadosa.jpg",
-    h2_cardtitle: "RAVA DOSA",
-    p_para: "Today's recipe, Rawa Dosa, is one such favorite for all, which I have been urging to post for a  while now. Anyone who had eaten at a restaurant serving South Indian cuisine would definitel had order this crispy dosa atleast once."
-},
+// },
+// {
+//     img_recipe1: "./assets/images/masalapuri.jpg",
+//     h2_cardtitle: "MASALA PURI",
+//     p_para: "Masala puri is an awesome street food snack made with layers of crunchy puri, creamy and spicy white peas gravy, rich spices and fresh veggies. Our easywhenever you a craving a fun and flavorful chaat!"
+// },
 
 
-]
+// {
+//     img_recipe1: "./assets/images/ravadosa.jpg",
+//     h2_cardtitle: "RAVA DOSA",
+//     p_para: "Today's recipe, Rawa Dosa, is one such favorite for all, which I have been urging to post for a  while now. Anyone who had eaten at a restaurant serving South Indian cuisine would definitel had order this crispy dosa atleast once."
+// },
 
+// {
+//     img_recipe1: "./assets/images/ravadosa.jpg",
+//     h2_cardtitle: "RAVA DOSA",
+//     p_para: "Today's recipe, Rawa Dosa, is one such favorite for all, which I have been urging to post for a  while now. Anyone who had eaten at a restaurant serving South Indian cuisine would definitel had order this crispy dosa atleast once."
+// },
+
+// ]
+
+const recipe = [];
+
+let recipelist = JSON.parse(localStorage.getItem("newRecipe"));
+console.log(recipelist);
+
+for (i = 0 ;i<recipelist.length;i++){
+    recipe.push(recipelist[i]) ;
+    console.log(recipe);
+}
 
 for (let i = 0; i < recipe.length; i++) {
 
@@ -147,7 +161,7 @@ for (let i = 0; i < recipe.length; i++) {
 
         img_recipe1 = document.createElement("img");
         img_recipe1.setAttribute("class", "recipe1");
-        img_recipe1.setAttribute("src", recipe[i]["img_recipe1"]);
+        img_recipe1.setAttribute("src", recipe[i]["image_url"]);
         // img_recipe1.setAttribute("src",  "./assets/images/mutton.jpeg");
         img_recipe1.setAttribute("height", "300px");
         img_recipe1.setAttribute("weight", "500px");
@@ -163,9 +177,10 @@ for (let i = 0; i < recipe.length; i++) {
         h2_cardtitle = document.createElement("h2");
         h2_cardtitle.innerText = recipe[i]["h2_cardtitle"]
         div_about.append(h2_cardtitle);
+        console.log(h2_cardtitle);
 
         p_para = document.createElement("p");
-        p_para.innerText = recipe[i]["p_para"]
+        p_para.innerText = recipe[i]["message"]
         div_about.append(p_para);
 
         document.querySelector("body").append(div_all);
@@ -179,7 +194,7 @@ for (let i = 0; i < recipe.length; i++) {
     </script>
 
      <!-- <div class="recipe">
-    <!-- <div class="recipe">
+     <div class="recipe">
             <div>
                 <a href="./pages/page5.html">
                     <img class="recipe1" src="./assets/images/mutton.jpeg" height="300px" width="600px" alt="mutton">

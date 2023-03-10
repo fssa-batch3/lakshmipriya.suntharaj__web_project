@@ -110,10 +110,13 @@
     margin-left: 437px;
 }
 .recipe1{
+    height: 300px;
+    width: 500px;
+    
  border: none;
     padding-bottom: 30px; 
  margin-top: -297px;;
-    margin-left: 207px;
+ margin-left: 242px;
  
 }
 /* recipeabout */
@@ -136,7 +139,7 @@
 }
 
 .about:hover{
-    transform: scale(1.1); 
+    /* transform: scale(1.1);  */
 }
 
 body{
@@ -231,11 +234,11 @@ width: 50px;
     padding-left:10px ;
 }
 .recipe1{
-    transition: transform .1s;
+    /* transition: transform .1s; */
 
 }
 .recipe1:hover{
-    transform: scale(1.1); 
+    /* transform: scale(1.1);  */
 }
 .all_recipe{
    
