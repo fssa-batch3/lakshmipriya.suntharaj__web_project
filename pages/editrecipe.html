@@ -22,22 +22,6 @@
     </div>
 </body>
 <script>
-    function editProduct(recipeID) {
-  let array = JSON.parse(localStorage.getItem("newRecipe"));
-  let recipe = array.find(item => item.id === recipeID);
-  document.getElementById("imgurl").value = recipe.image_url;
-  document.getElementById("h2_cardtitle").value = recipe.h2_cardtitle;
-  document.getElementById("message").value = recipe.message;
-  let editButton = document.createElement("button");
-  editButton.innerHTML = "Update";
-  editButton.addEventListener("click", function() {
-    recipe.image_url = document.getElementById("imgurl").value;
-    recipe.h2_cardtitle = document.getElementById("h2_cardtitle").value;
-    recipe.message = document.getElementById("message").value;
-    localStorage.setItem("newRecipe", JSON.stringify(array));
-    window.location.href = "../index.html";
-  });
-  document.getElementById("addrecipe").appendChild(editButton);
-}
+    
 </script>
 </html>
