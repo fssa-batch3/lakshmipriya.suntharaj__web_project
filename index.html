@@ -50,14 +50,15 @@
                     <h1> MULLAI'S RECIPE</h1>
                 </div>
         </header>
-
+<!-- github -->
     </div>
 
+    ]
     <div>
 
         <img class="header-image" src="https://media.tenor.com/yZCowKJy4UoAAAAd/anime-anime-gif.gif" alt="head">
 
-
+<a href="./pages/page4.html"></a>
  </div>
     <!-- <div class="all-recipe">
      <div class="recipe">
@@ -158,14 +159,19 @@ for (let i = 0; i < recipe.length; i++) {
         div_chicken.setAttribute("class", "chicken");
         div_all.append(div_chicken);
 
-
+         a = document.createElement("a")
+         a.setAttribute("href","./pages/page4.html")
+         div_chicken.append(a)
         img_recipe1 = document.createElement("img");
         img_recipe1.setAttribute("class", "recipe1");
         img_recipe1.setAttribute("src", recipe[i]["image_url"]);
         // img_recipe1.setAttribute("src",  "./assets/images/mutton.jpeg");
         img_recipe1.setAttribute("height", "300px");
         img_recipe1.setAttribute("weight", "500px");
-        div_chicken.append(img_recipe1);
+        // img_recipe1.setAttribute("href","./pages/page4.html?id=" + recipe[i].recipe_id)
+        a.append(img_recipe1);
+
+
 
 
 
@@ -186,87 +192,7 @@ for (let i = 0; i < recipe.length; i++) {
         document.querySelector("body").append(div_all);
 }
 
-      
-
-
-
-
     </script>
-
-     <!-- <div class="recipe">
-     <div class="recipe">
-            <div>
-                <a href="./pages/page5.html">
-                    <img class="recipe1" src="./assets/images/mutton.jpeg" height="300px" width="600px" alt="mutton">
-                </a>
-            </div>
-            <div class="about">
-                <h2>MUITTON CHUKKA</h2>
-                <p>Mutton is not very regular in our menu but whenever we get it, its mostly biriyani or Mutton Sukka
-                    as its our family favourite. I wanted to share ammas chettinad version of mutton chukka and here
-                    it is for you all..</p>
-            </div>
-        </div>
-        <div class="recipe">
-            <div>
-                <a href="./pages/page7.html">
-                    <img class="recipe1" src="./assets/images/diamond.jpg" width="600px" height="300px"
-                        alt="masala diamond">
-                </a>
-            </div>
-            <div class="about">
-                <h2>MASALA DIAMOND</h2>
-                <p>I would say that this recipe will be a easy but tasty snack which you can make for diwali..I made
-                    it in minutes and it tasted divine....So crispy and so yummy..I hope you will try this out and
-                    let me know how it turned out for you.</p>
-            </div>
-        </div>
-        <div class="recipe">
-            <div>
-                <a href="./pages/page8.html">
-                    <img class="recipe1" src="./assets/images/fish.JPG" height="300px" width="600px" alt="fish">
-                </a>
-            </div>
-            <div class="about">
-                <h2>FISH FRY</h2>
-                <p>
-                    A fish fry is a meal containing battered or breaded fried fish. It usually also includes french
-                    fries, coleslaw, macaroni salad, , hot sauce,malt vinegar and dessert.
-                    by coating fish with semolina and egg yolk....
-                </p>
-            </div>
-        </div>
-        <div class="recipe">
-            <div>
-                <a href="./pages/page9.html">
-                    <img class="recipe1" src="./assets/images/masalapuri.jpg" height="300px" width="600px"
-                        alt="masala puri">
-                </a>
-            </div>
-            <div class="about">
-                <h2>MASALA PURI</h2>
-                <p>Masala puri is an awesome street food snack made with layers of crunchy puri, creamy and spicy white
-                    peas gravy, rich spices and fresh veggies. Our easy
-                    whenever you a craving a fun and flavorful chaat!</p>
-            </div>
-        </div>
-        <div class="recipe">
-            <div>
-                <a href="./pages/page10.html">
-                    <img class="recipe1" src="./assets/images/ravadosa.jpg" height="300px" width="600px" alt="rava dosa">
-            </div>
-            </a>
-            <div class="about" id="about-recipe">
-
-
-                <h2>RAVA DOSA</h2>
-                <p>Today's recipe, Rawa Dosa, is one such favorite for all, which I have been urging to post for a
-                    while now. Anyone who had eaten at a restaurant serving South Indian cuisine would definitely
-                    had order this crispy dosa atleast once.
-                </p>
-            </div>
-        </div>
-     </div> -->
 
     <footer class="footer">
         <div class="container">

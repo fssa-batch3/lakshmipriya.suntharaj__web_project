@@ -11,6 +11,10 @@
       <form id="addrecipe">
         <label for="image">Image Url</label>
         <input type="url" required="" id="imgurl">
+
+        <label for="image">recipe id</label>
+        <input type="text"  class="recipe_id" id="recipe_id" disabled>
+
         <label for="head">recipe Name</label>
         <input type="text" required="" id="h2_cardtitle">
         <!-- <label for="name" id="h2">RecipeName</label>
@@ -22,6 +26,45 @@
     </div>
 </body>
 <script>
+
+  const one_recipe_card = JSON.parse(localStorage.getItem("newRecipe"));
+
+let recipe = one_recipe_card.find(function (event){
+  let recipe_name = event[""]
+})
+      
+    
+
+
+        const Image = document.getElementById("imgurl").setAttribute("src",recipe["image_url"]);
+        const para = document.getElementById("h2_cardtitle").innerHTML = recipe["h2_cardtitle"];
+        const about = document.getElementById("message").innerHTML = recipe["message"];
+        const recipe_id = document.getElementById("recipe_id").innerHTML = recipe["recipe_id"];
+      
+  // edit product
+  let editr_recipe = document.getElementById("addrecipe")
+  editr_recipe.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        let edit_card = JSON.parse(localStorage.getItem("newRecipe"));
+        
+
+        let Image = document.getElementById("imgurl").value;
+        let para = document.getElementById("h2_cardtitle").value;
+        let about = document.getElementById("message").value;
+
+        let newrecipe = {
+          "image_url": Image,
+          "h2_cardtitle": para,
+          "message": about,
+        }
+        edit_card.push(newrecipe);
+        let imgabout = JSON.stringify(edit_card);
+        localStorage.setItem("newRecipe", imgabout);
+        window.location.href = "../index.html";
+
+        
+      })
     
 </script>
 </html>

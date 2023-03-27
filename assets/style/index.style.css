@@ -202,7 +202,7 @@ ul{
 }
 footer{
     line-height: 1.5;
-    background-color: white;
+    background-color:rgb(237, 246, 223)
 }
 .footer-col h4::before{
     content: '';
