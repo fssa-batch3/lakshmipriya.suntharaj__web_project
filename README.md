@@ -39,11 +39,21 @@ View list of recipe
 Scenario 1: Successfully view list of recipe
 Steps:
 Log in as a admin.
-Navigate to the products page.
-View the list of products.
+Navigate to the recipe page.
+View the list of recipes.
 Expected Result:
 The admin can view their list of recipe.
 
 
-
+Edit product recipe
+Scenario 1: Successfully editrecipe
+Steps:
+Log in as a admin.
+Navigate to the recipe page.
+Select a select the recipe to edit.
+Click the "Edit recipe" button.
+Update the recipe details.
+Click the "Save Changes" button.
+Expected Result:
+The recipe details are updated.
 
