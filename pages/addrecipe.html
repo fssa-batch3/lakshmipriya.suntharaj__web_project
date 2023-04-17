@@ -17,7 +17,9 @@
         <input type="text"> -->
         <textarea id="message" name="message" required="" type="textarea">about</textarea>
         <button type="submit">Submit</button>
-        <button type="submit" id="edit_card">Edit</button>
+         <!-- <button type="submit" id="edit_card">Edit</button> -->
+         <button type="submit" id="edit_card" data-id="{{recipe.recipe_id}}">Edit</button>
+
       </form>
     </div>
     <script>
@@ -45,37 +47,19 @@
         let imgabout = JSON.stringify(array);
         localStorage.setItem("newRecipe", imgabout);
         window.location.href = "../index.html";
-      })
-
-  //     // edit product
-  //     let editr_ecipe = document.getElementById("edit_card")
-  //     recipe.addEventListener("click", function (event) {
-  //       event.preventDefault();
-
-        
-  //     })
-
-  //     function editProduct(productID) {
-  //   let array = JSON.parse(localStorage.getItem("newRecipe"));
-  //   let product = array.find(item => item.id === productID);
-  //   document.getElementById("imgurl").value = product.image_url;
-  //   document.getElementById("h2_cardtitle").value = product.h2_cardtitle;
-  //   document.getElementById("message").value = product.message;
-  //   addButton.style.display = "none";
-  //   editButton.style.display = "inline-block";
-  //   editButton.addEventListener("click", function() {
-  //     product.image_url = document.getElementById("imgurl").value;
-  //     product.h2_cardtitle = document.getElementById("h2_cardtitle").value;
-  //     product.message = document.getElementById("message").value;
-  //     localStorage.setItem("newRecipe", JSON.stringify(array));
-  //     window.location.href = "../index.html";
-  //   });
-  // }
+      });
 
   
-
+//       let editBtns = document.querySelectorAll("#edit_card");
+// editBtns.forEach(btn => {
+//   btn.addEventListener("click", function(event) {
+//     event.preventDefault();
+//     let recipe_id = this.getAttribute("data-id");
+//     populateForm(recipe_id);
+//   });
+//   window.location.href = "../index.html";
+// });
 
     </script>
 </body>
-
 </html>

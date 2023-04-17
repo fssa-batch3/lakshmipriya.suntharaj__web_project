@@ -189,6 +189,16 @@ for (let i = 0; i < recipe.length; i++) {
         p_para.innerText = recipe[i]["message"]
         div_about.append(p_para);
 
+        edit = document.createElement("button");
+        edit.setAttribute("class","edit")
+        edit.innerText = "Edit"
+        div_about.append(edit);
+
+        deleteBtn = document.createElement("button");
+        deleteBtn.setAttribute("class","deleteBtn")
+        deleteBtn.innerText = "delete"
+        div_about.append(deleteBtn);
+        
         document.querySelector("body").append(div_all);
 }
 

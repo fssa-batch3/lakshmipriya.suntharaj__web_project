@@ -8,7 +8,7 @@
     <form id="form">
       <div class="form-group">
         <label for="email">Email:</label>
-        <input required="" name="email" id="email" type="text">
+        <input required="" name="email" id="email" type="email">
       </div>
       <div class="form-group">
         <label for="password">Password:</label>
@@ -25,8 +25,8 @@
     event.preventDefault();
     let preventDefault = JSON.parse(localStorage.getItem("register"));
     // console.log(preventDefault);
-    let getEmail = document.getElementById("email").value;
-    let getPassword = document.getElementById("password").value;
+    let getEmail = document.getElementById("email").value.trim();
+    let getPassword = document.getElementById("password").value.trim();
   
     let ifmatch = false;
 
