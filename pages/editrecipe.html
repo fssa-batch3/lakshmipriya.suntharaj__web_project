@@ -3,68 +3,113 @@
 <link rel="stylesheet" href="../assets/style/addrecipe.css">
 
 <body>
+  <div class="contact-form">
+    <span class="heading">Add New Recipe</span>
+    <form id="addrecipe">
+      <label for="image">Image Url</label>
+      <input type="url" required="" id="imgurl">
+      <label for="head">recipe Name</label>
+      <input type="text" required="" id="recipeName">
+      <label for="head">About</label>
+      <input type="text" required="" id="About">
+      <label for="head">Ingredients</label>
+      <input type="text" required="" id="Ingredients">
+      <label for="head">Step1</label>
+      <input type="text" required="" id="Step1">
+      <label for="head">Step2</label>
+      <input type="text" required="" id="Step2">
+      <label for="head">Step3</label>
+      <input type="text" required="" id="Step3">
+      <label for="head">Step4</label>
+      <input type="text" required="" id="Step4">
+      <label for="head">Step5</label>
+      <input type="text" required="" id="Step5"> 
+      <button type="submit">Submit</button>
+    </form>
+  </div>
 
-  
+  <script>
+    const array = JSON.parse(localStorage.getItem("newRecipe"));
 
-    <div class="contact-form">
-      <span class="heading">Add New Recipe</span>
-      <form id="addrecipe">
-        <label for="image">Image Url</label>
-        <input type="url" required="" id="imgurl">
 
-        <label for="image">recipe id</label>
-        <input type="text"  class="recipe_id" id="recipe_id" disabled>
+    const url= window.location.search
+    const Url_params = new URLSearchParams(url)
+    const get_id = Url_params.get("id")
+    console.log(get_id);
+    let editrecipe =array.find(function(newRecipe){
+      let checkid = newRecipe["id"]
+      if(get_id == checkid){
+        return true
+      }
+    })
 
-        <label for="head">recipe Name</label>
-        <input type="text" required="" id="h2_cardtitle">
-        <!-- <label for="name" id="h2">RecipeName</label>
-        <input type="text"> -->
-        <textarea id="message" name="message" required="" type="textarea"></textarea>
-        
-        <button type="submit">Edit</button>
-      </form>
-    </div>
+    console.log(editrecipe)
+        let image = document.getElementById("imgurl");
+        let recipename = document.getElementById("recipeName");
+        let About = document.getElementById("About");
+        let Ingredients = document.getElementById("Ingredients");
+        let Step1 = document.getElementById("Step1");
+        let Step2 = document.getElementById("Step2");
+        let Step3 = document.getElementById("Step3");
+        let Step4 = document.getElementById("Step4");
+        let Step5 = document.getElementById("Step4");
+
+
+        image.value = editrecipe["imgurl"];
+        recipename.value = editrecipe["recipeName"]
+        About.value = editrecipe["About"]
+        Ingredients.value  = editrecipe["Ingredients"]
+        step1.value = editrecipe["Step1"]
+        step2.value = editrecipe["Step2"]
+        step3.value = editrecipe["Step3"]
+        step4.value = editrecipe["Step4"]
+        step5.value = editrecipe["Step5"]
+
+
+        let pro_info = document.getElementById("addrecipe");
+        pro_info.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            let image = document.getElementById("imgurl").value
+        let recipename = document.getElementById("recipeName").value
+        let About = document.getElementById("About").value
+        let Ingredients = document.getElementById("Ingredients").value
+        let Step1 = document.getElementById("Step1").value
+        let Step2 = document.getElementById("Step2").value
+        let Step3 = document.getElementById("Step3").value
+        let Step4 = document.getElementById("Step4").value
+        let Step5 = document.getElementById("Step4").value
+
+            let  editrecipeObject = {
+               imgurl,
+               recipename,
+               About,
+               Ingredients,
+               Step1,
+               Step2,
+               Step3,
+               Step4,
+               Step5
+            };
+
+            let checked_obj = Object.assign(editrecipe, editrecipeObject );
+            // console.log(checked_obj);
+
+            let index = user_details.indexOf(editrecipe);
+            // console.log(index);
+
+            user_details[index] = checked_obj;
+
+            localStorage.setItem("newRecipe", JSON.stringify(array));
+
+            alert("successfully changed");
+
+
+            // location.reload()
+        }  );
+
+  </script>
 </body>
-<script>
-
-  const one_recipe_card = JSON.parse(localStorage.getItem("newRecipe"));
-
-let recipe = one_recipe_card.find(function (event){
-  let recipe_name = event[""]
-})
-      
-    
 
 
-        const Image = document.getElementById("imgurl").setAttribute("src",recipe["image_url"]);
-        const para = document.getElementById("h2_cardtitle").innerHTML = recipe["h2_cardtitle"];
-        const about = document.getElementById("message").innerHTML = recipe["message"];
-        const recipe_id = document.getElementById("recipe_id").innerHTML = recipe["recipe_id"];
-      
-  // edit product
-  let editr_recipe = document.getElementById("addrecipe")
-  editr_recipe.addEventListener("submit", function (event) {
-        event.preventDefault();
-
-        let edit_card = JSON.parse(localStorage.getItem("newRecipe"));
-        
-
-        let Image = document.getElementById("imgurl").value;
-        let para = document.getElementById("h2_cardtitle").value;
-        let about = document.getElementById("message").value;
-
-        let newrecipe = {
-          "image_url": Image,
-          "h2_cardtitle": para,
-          "message": about,
-        }
-        edit_card.push(newrecipe);
-        let imgabout = JSON.stringify(edit_card);
-        localStorage.setItem("newRecipe", imgabout);
-        window.location.href = "../index.html";
-
-        
-      })
-    
-</script>
 </html>

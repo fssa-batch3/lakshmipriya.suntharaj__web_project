@@ -3,23 +3,28 @@
 <link rel="stylesheet" href="../assets/style/addrecipe.css">
 
 <body>
-
-  
-
     <div class="contact-form">
       <span class="heading">Add New Recipe</span>
       <form id="addrecipe">
         <label for="image">Image Url</label>
         <input type="url" required="" id="imgurl">
         <label for="head">recipe Name</label>
-        <input type="text" required="" id="h2_cardtitle">
-        <!-- <label for="name" id="h2">RecipeName</label>
-        <input type="text"> -->
-        <textarea id="message" name="message" required="" type="textarea">about</textarea>
+        <input type="text" required="" id="recipename">
+        <label for="head">About</label>
+        <input type="text" required="" id="About">
+        <label for="head">Ingredients</label>
+        <input type="text" required="" id="Ingredients">
+        <label for="head">Step1</label>
+        <input type="text" required="" id="Step1">
+        <label for="head">Step2</label>
+        <input type="text" required="" id="Step2">
+        <label for="head">Step3</label>
+        <input type="text" required="" id="Step3">
+        <label for="head">Step4</label>
+        <input type="text" required="" id="Step4">
+        <label for="head">Step5</label>
+        <input type="text" required="" id="Step4"> 
         <button type="submit">Submit</button>
-         <!-- <button type="submit" id="edit_card">Edit</button> -->
-         <button type="submit" id="edit_card" data-id="{{recipe.recipe_id}}">Edit</button>
-
       </form>
     </div>
     <script>
@@ -33,33 +38,32 @@
         }
 
         let Image = document.getElementById("imgurl").value
-        let para = document.getElementById("h2_cardtitle").value
-        let about = document.getElementById("message").value
+        let para = document.getElementById("recipename").value
+        let about = document.getElementById("About").value
+        let ingredients = document.getElementById("Ingredients").value
+        let Step1 = document.getElementById("Step1").value
+        let Step2 = document.getElementById("Step2").value
+        let Step3 = document.getElementById("Step3").value
+        let Step4 = document.getElementById("Step4").value
         let recipe_id = Date.now();
 
         let newrecipe = {
-          "image_url": Image,
-          "h2_cardtitle": para,
-          "message": about,
-          "recipe_id":recipe_id,
+          image_url: Image,
+          h2_cardtitle: para,
+          message: about,
+          ingredients:Ingredients,
+          Step1:Step1,
+          Step2:Step2,
+          Step3:Step3,
+          Step4:Step4,
+          recipe_id:recipe_id,
         }
         array.push(newrecipe);
         let imgabout = JSON.stringify(array);
         localStorage.setItem("newRecipe", imgabout);
         window.location.href = "../index.html";
+        alert("submitted")
       });
-
-  
-//       let editBtns = document.querySelectorAll("#edit_card");
-// editBtns.forEach(btn => {
-//   btn.addEventListener("click", function(event) {
-//     event.preventDefault();
-//     let recipe_id = this.getAttribute("data-id");
-//     populateForm(recipe_id);
-//   });
-//   window.location.href = "../index.html";
-// });
-
     </script>
 </body>
 </html>
