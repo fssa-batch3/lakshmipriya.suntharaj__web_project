@@ -23,7 +23,23 @@ Feature-2
 4.recipe delete[currently working]
 
 RECIPE:
-Admin:
+User:
+Create an account
+Scenario 1: Successfully create an account
+    Steps:
+        1. Navigate to the registration page.
+        2. Enter the required information such as name, email, and password.
+        3. Click the "submit" button.
+    Expected Result:
+         The user is redirected to the login page
+
+      Scenario 1: Successfully login in to account
+     Steps:
+        1. Navigate to the login page.
+        2. Enter the required information such as email, and password.
+        3. Click the "login" button.
+    Expected Result:
+        The user is redirected to the user profile page.
 create recipe:
 Scenario 1: Successfully create a new recipe
 Steps:
@@ -33,11 +49,6 @@ Enter the product details such as name, photo, describ, and stock.
 Upload product images.
 Click the "Create Product" button.
 Expected Result:
-<<<<<<< HEAD
-The new recipe is created and added to the new recipe's list of products.
-
-
-=======
 The new recipe is created and added to the new recipe's list of products.  
 
 View list of recipe
@@ -61,5 +72,4 @@ Update the recipe details.
 Click the "Save Changes" button.
 Expected Result:
 The recipe details are updated.
->>>>>>> a193f925473e9f4b95ad93121e4c9375d4b39c36
 
