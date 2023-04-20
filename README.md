@@ -33,7 +33,33 @@ Enter the product details such as name, photo, describ, and stock.
 Upload product images.
 Click the "Create Product" button.
 Expected Result:
+<<<<<<< HEAD
 The new recipe is created and added to the new recipe's list of products.
 
 
+=======
+The new recipe is created and added to the new recipe's list of products.  
+
+View list of recipe
+Scenario 1: Successfully view list of recipe
+Steps:
+Log in as a admin.
+Navigate to the recipe page.
+View the list of recipes.
+Expected Result:
+The admin can view their list of recipe.
+
+
+Edit product recipe
+Scenario 1: Successfully editrecipe
+Steps:
+Log in as a admin.
+Navigate to the recipe page.
+Select a select the recipe to edit.
+Click the "Edit recipe" button.
+Update the recipe details.
+Click the "Save Changes" button.
+Expected Result:
+The recipe details are updated.
+>>>>>>> a193f925473e9f4b95ad93121e4c9375d4b39c36
 
