@@ -33,43 +33,19 @@ Scenario 1: Successfully create an account
     Expected Result:
          The user is redirected to the login page
 
-      Scenario 1: Successfully login in to account
+ Scenario 2: Successfully login in to account
      Steps:
         1. Navigate to the login page.
         2. Enter the required information such as email, and password.
         3. Click the "login" button.
     Expected Result:
         The user is redirected to the user profile page.
-create recipe:
-Scenario 1: Successfully create a new recipe
-Steps:
-Log in as a as admin.
-Navigate to the product creation page.
-Enter the product details such as name, photo, describ, and stock.
-Upload product images.
-Click the "Create Product" button.
-Expected Result:
-The new recipe is created and added to the new recipe's list of products.  
-
-View list of recipe
-Scenario 1: Successfully view list of recipe
-Steps:
-Log in as a admin.
-Navigate to the recipe page.
-View the list of recipes.
-Expected Result:
-The admin can view their list of recipe.
-
-
-Edit product recipe
-Scenario 1: Successfully editrecipe
-Steps:
-Log in as a admin.
-Navigate to the recipe page.
-Select a select the recipe to edit.
-Click the "Edit recipe" button.
-Update the recipe details.
-Click the "Save Changes" button.
-Expected Result:
-The recipe details are updated.
-
+ View products/items
+ Scenario 1: Successfully view products/items
+     Steps:
+        1. Log in as a user.
+        2. Navigate to the recipe listing page.
+        3. View the list of available products/items.
+    Expected Result:
+        The user can view the list of available recipe.
+        

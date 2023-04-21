@@ -1,245 +1,121 @@
-<html lang="en">
+<html>
+  <link rel="stylesheet" href="./assets/style/index.css" />
 
-<head>
-    <link rel="stylesheet" href="./assets/style/index.style.css">
-    <title>cooking website</title>
-    <meta name="view port" content="width=device-width, initial-scale=1.0">
+  <body>
+    <div class="card">
+      <div class="card-header">
+        <div class="text-header">Register</div>
+      </div>
+      <div class="card-body">
+        <form id="signup">
+          <div class="form-group">
+            <label for="username">Username:</label>
+            <input
+              class="form-control"
+              name="username"
+              id="username"
+              type="text"
+              placeholder="Enterusername"
+              autocomplete="username"
+              required pattern="[A-Za-z0-9]+" title="Make sure name shouldnot contains space"
 
-</head>
-
-<body>
-    <div class="menu">
-        <header>
-
-            <div>
-                <a href="./pages/profile.html">
-                    <button class="non-veg">
-                        profile
-                    </button>
-                </a>
-
-                 <!-- <a href="./pages/log.html">
-                    <button class="login-btn">
-                        Login
-                    </button> 
-
-                </a> -->
-                 <!-- <a href="./pages/register.html">
-                    <button class="signin">
-                        Signin
-                    </button>
-                </a>  -->
-                <a href="./pages/veg.html">
-                    <button class="Veg-Recipe">
-                        Veg Recipe
-                    </button>
-                </a>
-                <a href="./pages/non-veg.html">
-                    <button class="non-veg">
-                        Non-veg
-                    </button>
-                </a>
-                <a href="./pages/snacks.html">
-                    <button class="snacks">
-                        Snacks
-                    </button>
-                </a>
-
-
-                <div class="header">
-                    <img class="logo" src="./assets/images/yellow logo.png" height="50px" width="50px" alt="logo">
-                    <h1> MULLAI'S RECIPE</h1>
-                </div>
-        </header>
-        <!-- github -->
+                            
+            />
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input
+              class="form-control"
+              name="email"
+              id="email"
+              type="email"
+              placeholder=" enter your email"
+              autocomplete="email"
+              required 
+            />
+          </div>
+          <div class="form-group">
+            <label for="password">Password:</label>
+            <input
+              class="form-control"
+              name="password"
+              id="password" id="validation" pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\S+$).{6,}$" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+              type="password"
+              placeholder="enter your password"
+              autocomplete="current-password"
+              required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+            />
+          </div>
+          <div class="form-group">
+            <label for="confirm-password">Confirm Password:</label>
+            <input
+              class="form-control"
+              name="confirm-password"
+              id="confirm-password"
+              type="password"
+              placeholder="enter your confirm-password"
+              autocomplete="current-password"
+              required pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\S+$).{6,}$" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+            />
+          </div>
+          <button type="submit" class="btn" value="submit">Submit</button>
+        </form>
+      </div>
     </div>
+  </body>
+  <script>
 
-    <div>
+    let match = false;
 
-        <img class="header-image" src="https://media.tenor.com/yZCowKJy4UoAAAAd/anime-anime-gif.gif" alt="head">
+    const form = document.getElementById("signup");
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      let newData = [];
+      if (localStorage.getItem("register") != null) {
+        newData = JSON.parse(localStorage.getItem("register"));
+      }
+      let match = false;
+      let getName = document.getElementById("username").value.trim();
+      let getEmail = document.getElementById("email").value.trim();
+      let getPassword = document.getElementById("password").value.trim();
+      let getConfirmPassword = document.getElementById("confirm-password").value.trim();
+      let userId = Date.now();
+      
+     
+      if (getPassword != getConfirmPassword) {
+   alert("Invalid Credentials")
+ }
+      else{
+        
+        for(let i = 0; i < newData.length; i++){
+          if( getEmail === newData[i]["getEmail"]){
+            match = true;
 
-        <a href="./pages/page4.html"></a>
-    </div>
-    <!-- <div class="all-recipe">
-     <div class="recipe">
-            <div class="chicken">
-                <a href="./pages/page4.html">
-                    <img class="recipe1" src="./assets/images/chickenfry.jpg" height="300px" width="600px"
-                        alt="chicken">
-                </a>
-            </div>
-            <div class="about">
-                <h2>CHICKEN FRY</h2>
-                <p id = "p">Chicken 65 is a spicy, deep-fried chicken dish originating from Hotel Buhari, Chennai, India, as
-                    an entrée, or quick snack. The flavour of the dish can be to red chillies, but the exact
-                    set of ingredients for the recipe can vary.....
-                </p>
-            </div>
-        </div>  -->
-
-    <script>
-
-        //  let recipe = [
-
-
-
-
-        //  {    img_recipe1 : "./assets/images/chickenfry.jpg",
-        //     h2_cardtitle: "CHICKEN",
-        //     p_para: "Chicken 65 is a spicy, deep-fried chicken dish originating from Hotel Buhari, Chennai, India, as an entrée, or quick snack. The flavour of the dish can be to red chillies, but the exact set of ingredients for the recipe can var",
-        // },
-
-        // {
-        //     img_recipe1: "./assets/images/mutton.jpeg",
-        //     h2_cardtitle: "MUTTON",
-        //     p_para: "Mutton is not very regular in our menu but whenever we get it, its mostly biriyani or Mutton Sukk as its our family favourite. I wanted to share ammas chettinad version of mutton chukka and hereit is for you all..",
-        // },
-
-        // {
-        //     img_recipe1: "./assets/images/diamond.jpg",
-        //     h2_cardtitle: "DIAMOND FRY",
-        //     p_para: "I would say that this recipe will be a easy but tasty snack which you can make for diwali..I madeit in minutes and it tasted divine....So crispy and so yummy..I hope you will try this out andlet me know how it turned out for you."
-
-        // },
-        // {
-        //     img_recipe1: "./assets/images/fish.JPG",
-        //     h2_cardtitle: "FISH",
-        //     p_para: "A fish fry is a meal containing battered or breaded fried fish. It usually also includes french fries, coleslaw, macaroni salad, , hot sauce,malt vinegar and dessert. by coating fish with semolina and egg yolk...."
-
-        // },
-        // {
-        //     img_recipe1: "./assets/images/masalapuri.jpg",
-        //     h2_cardtitle: "MASALA PURI",
-        //     p_para: "Masala puri is an awesome street food snack made with layers of crunchy puri, creamy and spicy white peas gravy, rich spices and fresh veggies. Our easywhenever you a craving a fun and flavorful chaat!"
-        // },
-
-
-        // {
-        //     img_recipe1: "./assets/images/ravadosa.jpg",
-        //     h2_cardtitle: "RAVA DOSA",
-        //     p_para: "Today's recipe, Rawa Dosa, is one such favorite for all, which I have been urging to post for a  while now. Anyone who had eaten at a restaurant serving South Indian cuisine would definitel had order this crispy dosa atleast once."
-        // },
-
-        // {
-        //     img_recipe1: "./assets/images/ravadosa.jpg",
-        //     h2_cardtitle: "RAVA DOSA",
-        //     p_para: "Today's recipe, Rawa Dosa, is one such favorite for all, which I have been urging to post for a  while now. Anyone who had eaten at a restaurant serving South Indian cuisine would definitel had order this crispy dosa atleast once."
-        // },
-
-        // ]
-
-        const recipe = [];
-
-        let recipelist = JSON.parse(localStorage.getItem("newRecipe"));
-        console.log(recipelist);
-
-        for (i = 0; i < recipelist.length; i++) {
-            recipe.push(recipelist[i]);
-            console.log(recipe);
+          }
         }
-
-        for (let i = 0; i < recipe.length; i++) {
-
-            let div_all;
-            let div_recipe;
-            let div_chicken;
-            let img_recipe1;
-            let div_about;
-            let h2_cardtitle;
-            let p_para;
-
-            div_all = document.createElement("div");
-            div_all.setAttribute("class", "all-recipe");
-
-            div_recipe = document.createElement("div");
-            div_recipe.setAttribute("class", "recipe");
-            div_all.append(div_recipe);
-
-            div_chicken = document.createElement("div");
-            div_chicken.setAttribute("class", "chicken");
-            div_all.append(div_chicken);
-
-            a = document.createElement("a")
-            a.setAttribute("href", "./pages/page4.html")
-            a.setAttribute("href", "./pages/page4.html?id" + recipe[i]["recipe_id"])
-            div_chicken.append(a)
-
-            img_recipe1 = document.createElement("img");
-            img_recipe1.setAttribute("class", "recipe1");
-            img_recipe1.setAttribute("src", recipe[i]["image_url"]);
-
-            // img_recipe1.setAttribute("src",  "./assets/images/mutton.jpeg");
-            img_recipe1.setAttribute("height", "300px");
-            img_recipe1.setAttribute("weight", "500px");
-
-            a.append(img_recipe1);
-            div_about = document.createElement("div");
-            div_about.setAttribute("class", "about");
-            div_recipe.append(div_about);
-
-
-            h2_cardtitle = document.createElement("h2");
-            h2_cardtitle.innerText = recipe[i]["h2_cardtitle"]
-            div_about.append(h2_cardtitle);
-            console.log(h2_cardtitle);
-
-            p_para = document.createElement("p");
-            p_para.innerText = recipe[i]["message"]
-            div_about.append(p_para);
-
-            edit = document.createElement("a");
-            edit.setAttribute("class", "edit")
-            edit.setAttribute("href", "./pages/editrecipe.html?id" + recipe[i]["recipe_id"])
-            edit.innerText = "Edit"
-            div_about.append(edit);
-
-
-            deleteBtn = document.createElement("a");
-            deleteBtn.setAttribute("class", "deleteBtn")
-            deleteBtn.innerText = "delete"
-            div_about.append(deleteBtn);
-
-            document.querySelector("body").append(div_all);
+        if (match === true  ){
+          alert("This email is already exists")
         }
+      else{
+        let userData = {
+          "userId":userId,
+          "getname": getName,
+          "getEmail": getEmail.toLowerCase(),
+          "getPassword": getPassword,
+          "getConfirmPassword": getConfirmPassword,
 
-    </script>
+          
+        };
+        newData.push(userData);
+        const str = JSON.stringify(newData);
+        localStorage.setItem("register", str);
+        alert("User Register is successful")
+        window.location.href = "../pages/log.html";
+      }
 
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="footer-col">
-                    <h3>Company</h3>
-                    <ul>
-                        <li><a href="#healthy">Healthy</a></li>
-                        <li><a href="#teasty">Teasty</a></li>
-                        <li><a href="#energy">Energy</a></li>
-                        <li><a href="#like">like</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h3> Get help</h3>
-                    <ul>
-                        <li><a href="#video">Video</a></li>
-                        <li><a href="#ingredients">Ingredients</a></li>
-                        <li><a href="#steps">Steps</a></li>
-                        <li><a href="#tips">Tips</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h3>online</h3>
-                    <ul>
-                        <li><a href="#video">Video</a></li>
-                        <li><a href="#ingredients">Ingredients</a></li>
-                        <li><a href="#steps">Steps</a></li>
-                        <li><a href="#tips">Tips</a></li>
-                    </ul>
-                </div>
+      }
+    })
 
 
-            </div>
-        </div>
-    </footer>
-
-</body>
-
+  </script>
 </html>
