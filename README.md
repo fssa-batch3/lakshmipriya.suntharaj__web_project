@@ -22,16 +22,19 @@ Feature-2
 
 4.recipe delete[currently working]
 
-RECIPE:
-User:
-Create an account
-Scenario 1: Successfully create an account
-    Steps:
+
+# Recipe
+ 
+## User  
+
+### Create an account
+- Scenario 1: Successfully create an account
+    - Steps:
         1. Navigate to the registration page.
         2. Enter the required information such as name, email, and password.
-        3. Click the "submit" button.
-    Expected Result:
-         The user is redirected to the login page
+        3. Click the "Create Account" button.
+    - Expected Result:
+        - The user is redirected to the login page.
 
  Scenario 2: Successfully login in to account
      Steps:
