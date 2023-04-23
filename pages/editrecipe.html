@@ -35,15 +35,9 @@
     const url= window.location.search
     const Url_params = new URLSearchParams(url)
     const get_id = Url_params.get("id")
-    console.log(get_id);
-    let editrecipe =array.find(function(newRecipe){
-      let checkid = newRecipe["id"]
-      if(get_id == checkid){
-        return true
-      }
-    })
+    console.log(array);
+    let editrecipe = array.find((recipe)=> recipe.recipe_id == get_id)
 
-    console.log(editrecipe)
         let image = document.getElementById("imgurl");
         let recipename = document.getElementById("recipeName");
         let About = document.getElementById("About");
@@ -55,15 +49,15 @@
         let Step5 = document.getElementById("Step4");
 
 
-        image.value = editrecipe["imgurl"];
-        recipename.value = editrecipe["recipeName"]
-        About.value = editrecipe["About"]
-        Ingredients.value  = editrecipe["Ingredients"]
-        step1.value = editrecipe["Step1"]
-        step2.value = editrecipe["Step2"]
-        step3.value = editrecipe["Step3"]
-        step4.value = editrecipe["Step4"]
-        step5.value = editrecipe["Step5"]
+        image.value = editrecipe["image_url"];
+        recipename.value = editrecipe["h2_cardtitle"]
+        About.value = editrecipe["message"]
+        Ingredients.value  = editrecipe["ingredients"]
+        Step1.value = editrecipe["Step1"]
+        Step2.value = editrecipe["Step2"]
+        Step3.value = editrecipe["Step3"]
+        Step4.value = editrecipe["Step4"]
+        Step5.value = editrecipe["Step5"]
 
 
         let pro_info = document.getElementById("addrecipe");

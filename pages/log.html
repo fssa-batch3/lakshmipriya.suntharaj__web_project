@@ -8,17 +8,18 @@
     <form id="form">
       <div class="form-group">
         <label for="email">Email:</label>
-        <input required name="email" id="email" type="email">
+        <input required pattern="^\S+@\S+\.\S+$" name="email" id="email" type="email">
       </div>
       <div class="form-group">
         <label for="password">Password:</label>
-        <input required name="password" id="password" type="password" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+        <input required name="password" id="password" type="password" pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\S+$).{6,}$">
       </div>
       <div class="form-group">
         <button value="Login" type="submit" id="submit" >Submit</button>
       </div>
     </form>
   </div>
+
   <script>
   let logIn = document.getElementById("form");
   logIn.addEventListener("submit", (event) => {
@@ -43,7 +44,7 @@
     }
     if(ifmatch==true){
       alert("successfully completed");
-      window.location.href = "../index.html";
+      window.location.href = "./home.html";
     }
     else{
       alert("failed")
