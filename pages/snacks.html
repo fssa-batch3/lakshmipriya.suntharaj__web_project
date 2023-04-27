@@ -29,15 +29,19 @@
             </a>
             <a href="./non-veg.html">
                 <button class="non-veg">
-                    Non-veg
+                    NonVeg
                 </button>
             </a>
-            <a href="./addsnacks.html">
+            <a href="./snacks.html">
                 <button class="snacks">
+                    Snacks
+                </button>
+            </a>
+            <a href="./addnon.html">
+                <button class="Veg-Recipe">
                     Add New
                 </button>
             </a>
-    
     
                 <div class="header">
                     <img class="logo" src="../assets/images/yellow logo.png" height="50px" width="50px" alt="logo">
@@ -128,15 +132,13 @@
         <script>
             
         const recipe = [];
-
 let recipelist = JSON.parse(localStorage.getItem("newRecipe"));
 console.log(recipelist);
-
+const varitiesType = recipelist.filter((h)=> h.Varities == "Snacks");
 for (i = 0; i < recipelist.length; i++) {
-    recipe.push(recipelist[i]);
+    recipe.push(varitiesType[i]);
     console.log(recipe);
 }
-
 for (let i = 0; i < recipe.length; i++) {
     let div_recipe = document.createElement("div");
     div_recipe.classList.add("recipe");
@@ -175,7 +177,7 @@ for (let i = 0; i < recipe.length; i++) {
 
 </script>
 
-        </script>
+    
     
     </body>
 </html>

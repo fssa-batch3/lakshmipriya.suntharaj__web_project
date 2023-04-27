@@ -23,7 +23,13 @@
         <label for="head">Step4</label>
         <input type="text" required="" id="Step4">
         <label for="head">Step5</label>
-        <input type="text" required="" id="Step4"> 
+        <input type="text" required="" id="Step5"> 
+        <label for="head">Varities</label>
+        <select name="Varities" id="Varities">
+        <option value="1" id="snack">Snacks</option>
+        <option value="2" id="Non-veg">Non-veg</option>
+        <option value="3" id="Veg">Veg</option>
+      </select>
         <button type="submit">Submit</button>
       </form>
     </div>
@@ -31,12 +37,13 @@
       let recipe = document.getElementById("addrecipe")
       recipe.addEventListener("submit", function (event) {
         event.preventDefault();
-
+        let e = document.getElementById("Varities")
+        let value = e.value
+        let text = e.options[e.selectedIndex].text
         let array = [];
         if (localStorage.getItem("newRecipe") != null) {
           array = JSON.parse(localStorage.getItem("newRecipe"))
         }
-
         let Image = document.getElementById("imgurl").value
         let para = document.getElementById("recipename").value
         let about = document.getElementById("About").value
@@ -46,7 +53,6 @@
         let Step3 = document.getElementById("Step3").value
         let Step4 = document.getElementById("Step4").value
         let recipe_id = Date.now();
-
         let newrecipe = {
           image_url: Image,
           h2_cardtitle: para,
@@ -56,12 +62,13 @@
           Step2:Step2,
           Step3:Step3,
           Step4:Step4,
+          Varities:text,
           recipe_id:recipe_id,
         }
         array.push(newrecipe);
         let imgabout = JSON.stringify(array);
         localStorage.setItem("newRecipe", imgabout);
-        window.location.href = "../index.html";
+        window.location.href = "./non-veg.html";
         alert("submitted")
       });
     </script>

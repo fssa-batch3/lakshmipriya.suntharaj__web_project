@@ -44,6 +44,118 @@ margin-left: 60px
 body{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
-.whole-content{
-    border-style: ridge;
+.comment {
+    width: 40%;
+    height: 100px;
+    padding: 10px;
+    background-color: #d0e2bc;
+    font: 1.4em/1.6em cursive;
+    color: #095484;
+    margin-left: 575px;
+  }
+  .addcomment{
+    margin: auto;
+    margin-left: 575px;
+    line-height: 3.5;
+    font-size: x-large;
+  }
+  .btn{
+    margin-left: 577px;
+    width: 100px;
+    height: 40px;
+    /* line-height: 3.2; */
+    margin-top: 10px;
+   padding: 10px 10px 10px 10px;
+    align-items: center;
+  }
+  #commentbox{
+    margin-left: 577px;
+    margin-top: 30px;
+    width: 40%;
+    height: 700px;
+  }
+  
+  footer {
+    background-color: #f2f2f2;
+    padding: 50px 0;
+    margin-top: 20px;
+
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 20px;
+  }
+  
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .col-md-6 {
+    width: 50%;
+    padding: 0 20px;
+  }
+  
+  h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  li {
+    margin-bottom: 10px;
+  }
+  
+  a {
+    color: #333;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: #777;
+  }
+  /* .whole-content{
+    outline-style: solid;
+  } */
+  .comment-card {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    width: 560px;
+margin-left: 563px;
 }
+  
+
+  .comment-card img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 20px;
+  }
+
+  .comment-content h3 {
+    margin: 0;
+    font-size: 1.2rem;
+  }
+
+  .comment-content p {
+    margin: 10px 0 0;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  #Varities{
+    height: 40px;
+  }
+  

@@ -1,63 +1,276 @@
 <html lang="en">
-<title>chickenfry</title>
-<link rel="stylesheet" href="/assets/style/page4.style.css">
+  <title>chickenfry</title>
+  <link rel="stylesheet" href="/assets/style/page4.style.css" />
 
-<body>
-    
-        <img class="image" src="https://hips.hearstapps.com/hmg-prod/images/baked-avocado-boats-1647351478.jpg?crop=1.00xw:0.752xh;0,0.118xh&resize=1200:*"
-            alt="chicken image">
-    
-   
+  <body>
+    <img
+      class="image"
+      src="https://hips.hearstapps.com/hmg-prod/images/baked-avocado-boats-1647351478.jpg?crop=1.00xw:0.752xh;0,0.118xh&resize=1200:*"
+      alt="chicken image"
+    />
+
     <div class="whole-content">
-        <div class="Ingredients">
-            <h2>INGREDIENTS:</h2>
-
-
-            <ul class="listingre">
-                <li> 1/2kg chicken</li>
-                <li> 1/2tsb salt</li>
-                <li>1/2tsb termeric powder</li>
-                <li> 2 1/2tsb kashmiri red chilli powder</li>
-                <li> 1table spoon Garam masala</li>
-                <li> 1tsb ginger garlic</li>
-                <li> 2 curry leaves</li>
-                <li> 4tablespoon curd </li>
-                <li> 1tablespoon lemon juice</li>
-            </ul>
-
-        </div>
-
-
-
-        <div class="steps">
-            <h2> STEPS:</h2>
-            <ol class="step">
-                <li>
-                    Clean wash and cut the chicken as cubes
-                </li>
-                <li>
-                    Add all the other ingredients give above to chicken and mix well.<br> Add few drops of water if
-                    required
-
-                </li>
-                <li>
-                    Mix well so it is nicely combined
-                </li>
-                <li>
-                    Heat oil in kadai and cook the chicken till crispy and golden in color.
-                </li>
-                <li>
-                    Serve hot chicken fry.
-                </li>
-                <li>
-                    Squeeze some lime juice and enjoy the tangy chicken fry.
-                </li>
-            </ol>
-
-        </div>
+      <div class="Ingredients">
+        <h2>INGREDIENTS:</h2>
+        <ul class="listingre">
+          <li>1/2kg chicken</li>
+          <li>1/2tsb salt</li>
+          <li>1/2tsb termeric powder</li>
+          <li>2 1/2tsb kashmiri red chilli powder</li>
+          <li>1table spoon Garam masala</li>
+          <li>1tsb ginger garlic</li>
+          <li>2 curry leaves</li>
+          <li>4tablespoon curd</li>
+          <li>1tablespoon lemon juice</li>
+        </ul>
+      </div>
+      <div class="steps">
+        <h2>STEPS:</h2>
+        <ol class="step">
+          <li>Clean wash and cut the chicken as cubes</li>
+          <li>
+            Add all the other ingredients give above to chicken and mix well.<br />
+            Add few drops of water if required
+          </li>
+          <li>Mix well so it is nicely combined</li>
+          <li>
+            Heat oil in kadai and cook the chicken till crispy and golden in
+            color.
+          </li>
+          <li>Serve hot chicken fry.</li>
+          <li>Squeeze some lime juice and enjoy the tangy chicken fry.</li>
+        </ol>
+      </div>
     </div>
+    <span class="addcomment">Add a comment</span>
+    <form id="com">
+      <textarea class="comment" id="comment"></textarea>
+      <br />
+      <button id="send"type="button" class="btn" value="send" onclick="myFunction()">
+        Send
+      </button>
+    </form>
+    <!-- <div>
+    <input type="text" id="commentbox">
+  </div>  -->
+      <!-- <div class="comment-list">
+      <div class="comment-card" id="comment-card">
+        <div class="comment-content" id="comment-content">
+          <h3 id="userName"></h3>
+          <p id="userCom">
+            
+          </p>
+        </div>
+      </div>
+    </div> -->
+     <script> 
+      function myFunction() {
+  const comment = document.getElementById("comment").value;
+  const user = localStorage.getItem("register");
+  console.log(user);
+  console.log(comment);
+  console.log(JSON.parse(user));
+  console.log(JSON.parse(user)[0].getname);
+  let userComment = JSON.parse(localStorage.getItem("commentList"));
+  
+  if (userComment === undefined || userComment === null) {
+    userComment = [];
+    localStorage.setItem("commentList", JSON.stringify(userComment));
+  }
+  let addComment = {
+    name: JSON.parse(user)[0].getname,
+    commentKey: comment,
+    comment_id: Date.now(),
+  };
+  userComment.push(addComment);
+  console.log(userComment);
+  localStorage.setItem("commentList", JSON.stringify(userComment));
+  // const commentList = document.getElementById("comment-list");
+  console.log(userComment);
+  for (let i = 0; i < userComment.length; i++) {
+    const element = userComment[i];
+    console.log(element);
+    const Comment_list = document.createElement("div")
+    Comment_list.classList.add("comment-list")
+    const commentCard = document.createElement("div");
+    commentCard.classList.add("comment-card");
+    const commandTitle = document.createElement("h3");
+    commandTitle.innerText = element.name;
+    const commandContent = document.createElement("p");
+    commandContent.innerText = element.commentKey;
+
+
+    const editButton = document.createElement("button");
+    editButton.innerText = "Edit";
+    editButton.setAttribute("data-comment-id", element.comment_id);
+    editButton.addEventListener("click", handleEditClick);
+
+    const deleteButton = document.createElement("button");
+    deleteButton.innerText = "Delete";
+    deleteButton.setAttribute("data-comment-id", element.comment_id);
+    deleteButton.addEventListener("click", handleDeleteClick);
+
+
+    commentCard.appendChild(commandTitle);
+    commentCard.appendChild(commandContent);
+    commentCard.appendChild(editButton);
+    commentCard.appendChild(deleteButton);
+    Comment_list.appendChild(commentCard);
     
+    document.body.appendChild(Comment_list);
 
-</body>
 
+
+    // commentCard.appendChild(commandTitle);
+    // commentCard.appendChild(commandContent);
+    // Comment_list.appendChild(commentCard);
+    
+    // document.body.appendChild(Comment_list);
+  }
+}
+ 
+function handleEditClick(event) {
+  const commentId = event.target.getAttribute("data-comment-id");
+  const userComment = JSON.parse(localStorage.getItem("commentList"));
+  const commentIndex = userComment.findIndex(comment => comment.comment_id === commentId);
+  const editedComment = prompt("Enter the edited comment:");
+  if (editedComment !== null && editedComment !== "") {
+    userComment[commentIndex].commentKey = editedComment;
+    localStorage.setItem("commentList", JSON.stringify(userComment));
+    location.reload();
+  }
+}
+
+function handleDeleteClick(event) {
+  const commentId = event.target.getAttribute("data-comment-id");
+  let userComment = JSON.parse(localStorage.getItem("commentList"));
+  userComment = userComment.filter(comment => comment.comment_id !== commentId);
+  localStorage.setItem("commentList", JSON.stringify(userComment));
+  location.reload();
+}
+
+
+
+      // // create the outermost div element
+      // let div_card = document.createElement("div");
+      // div_card.classList.add("card");
+
+      // // create the div for the whole content
+      // let div_whole_content = document.createElement("div");
+      // div_whole_content.classList.add("whole-content");
+
+      // // create the div for the ingredients
+      // let div_ingredients = document.createElement("div");
+      // div_ingredients.classList.add("Ingredients");
+
+      // // create the heading for the ingredients
+      // let h2_ingredients = document.createElement("h2");
+      // // h2_ingredients.textContent = "INGREDIENTS:";
+
+      // // create the unordered list for the ingredients
+      // let ul_listingre = document.createElement("ul");
+      // // ul_listingre.classList.add("listingre");
+
+      // // create the list items for the ingredients
+      // let li_chicken = document.createElement("li");
+      // // li_chicken.textContent = "1/2kg chicken";
+
+      // let li_salt = document.createElement("li");
+      // // li_salt.textContent = "1/2tsb salt";
+
+      // let li_termeric_powder = document.createElement("li");
+      // // li_termeric_powder.textContent = "1/2tsb termeric powder";
+
+      // let li_red_chilli_powder = document.createElement("li");
+      // // li_red_chilli_powder.textContent = "2 1/2tsb kashmiri red chilli powder";
+
+      // let li_garam_masala = document.createElement("li");
+      // // li_garam_masala.textContent = "1table spoon Garam masala";
+
+      // let li_ginger_garlic = document.createElement("li");
+      // // li_ginger_garlic.textContent = "1tsb ginger garlic";
+
+      // let li_curry_leaves = document.createElement("li");
+      // // li_curry_leaves.textContent = "2 curry leaves";
+
+      // let li_curd = document.createElement("li");
+      // // li_curd.textContent = "4tablespoon curd";
+
+      // let li_lemon_juice = document.createElement("li");
+      // // li_lemon_juice.textContent = "1tablespoon lemon juice";
+
+      // // append the list items to the unordered list
+      // ul_listingre.appendChild(li_chicken);
+      // ul_listingre.appendChild(li_salt);
+      // ul_listingre.appendChild(li_termeric_powder);
+      // ul_listingre.appendChild(li_red_chilli_powder);
+      // ul_listingre.appendChild(li_garam_masala);
+      // ul_listingre.appendChild(li_ginger_garlic);
+      // ul_listingre.appendChild(li_curry_leaves);
+      // ul_listingre.appendChild(li_curd);
+      // ul_listingre.appendChild(li_lemon_juice);
+
+      // // append the heading and unordered list to the ingredients div
+      // div_ingredients.appendChild(h2_ingredients);
+      // div_ingredients.appendChild(ul_listingre);
+
+      // // create the div for the steps
+      // let div_steps = document.createElement("div");
+      // div_steps.classList.add("steps");
+
+      // // create the heading for the steps
+      // let h2_steps = document.createElement("h2");
+      // // h2_steps.textContent = "STEPS:";
+
+      // // create the ordered list for the steps
+      // let ol_step = document.createElement("ol");
+      // ol_step.classList.add("step");
+
+      // // create the list items for the steps
+      // let li_clean_wash_cut = document.createElement("li");
+      // // li_clean_wash_cut.textContent = "Clean wash and cut the chicken as cubes";
+
+      // let li_add_ingredients = document.createElement("li");
+      // // li_add_ingredients.innerHTML = "Add all the other ingredients give above to chicken and mix well.<br> Add few drops of water if required";
+
+      // let li_mix_well = document.createElement("li");
+      // // li_mix_well.textContent = "Mix well so it is nicely combined";
+
+      // let li_cook_chicken = document.createElement("li");
+      // // li_cook_chicken.textContent = "Heat oil in kadai and cook the chicken till crispy and golden in color.";
+
+      // let li_serve_hot
+      // const edit = document.createElement("a")
+    // edit.classList.add("edit");
+    // const delete_com = document.createElement("a")
+    // delete_com.classList.add("delete");
+    // edit.appendChild(commentCard);
+    // delete_com.appendChild(commentCard);
+     </script>
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <h3>About Us</h3>
+            <p>
+              We are a team of food enthusiasts who love to share our favorite
+              recipes with others. Our mission is to inspire people to cook
+              delicious and healthy meals at home.
+            </p>
+          </div>
+          <div class="col-md-6">
+            <h3>Contact Us</h3>
+            <ul>
+              <li>
+                <a href="mailto:info@yourwebsite.com">info@yourwebsite.com</a>
+              </li>
+              <li>123 Main Street</li>
+              <li>City, State Zip</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+  
 </html>

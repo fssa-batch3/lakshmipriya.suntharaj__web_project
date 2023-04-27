@@ -1,6 +1,9 @@
 form-group {
     margin-bottom: 1rem;
-  }
+    margin-top: 20px;
+    justify-content: center;
+}
+  
   
   label {
     font-weight: bold;
@@ -8,10 +11,11 @@ form-group {
   
   input, textarea {
     padding: 0.5rem;
-    width: 100%;
+    width: 600px;
     font-size: 1rem;
     border-radius: 5px;
     border: 1px solid gray;
+
   }
   
   button {

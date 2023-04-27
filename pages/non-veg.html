@@ -10,37 +10,39 @@
 <body>
     <header class="head">
 
-        <div>
-            <a href="./profile.html">
-                <button class="non-veg">
-                    profile
-                </button>
-            </a>
+        <a href="./profile.html">
+            <button class="non-veg">
+                profile
+            </button>
+        </a>
 
-            <!-- <a href="./pages/log.html">
-                    <button class="login-btn">
-                        Login
-                    </button> 
+        <!-- <a href="./pages/log.html">
+                <button class="login-btn">
+                    Login
+                </button> 
 
-                </a> -->
-           
-            <a href="./veg.html">
-                <button class="Veg-Recipe">
-                    Veg Recipe
-                </button>
-            </a>
-            <a href="./addnon.html">
-                <button class="non-veg">
+            </a> -->
+       
+        <a href="./veg.html">
+            <button class="Veg-Recipe">
+                Veg Recipe
+            </button>
+        </a>
+        <a href="./non-veg.html">
+            <button class="non-veg">
+                NonVeg
+            </button>
+        </a>
+        <a href="./snacks.html">
+            <button class="snacks">
+                Snacks
+            </button>
+        </a>
+        <a href="./addnon.html">
+            <button class="Veg-Recipe">
                 Add New
-                </button>
-            </a>
-            <a href="./snacks.html">
-                <button class="snacks">
-                    Snacks
-                </button>
-            </a>
-
-
+            </button>
+        </a>
             <div class="header">
                 <img class="logo" src="../assets/images/yellow logo.png" height="50px" width="50px" alt="logo">
                 <h1>RECIPE</h1>
@@ -53,24 +55,16 @@
 
     <!-- <img class="header-image" src="https://media.tenor.com/yZCowKJy4UoAAAAd/anime-anime-gif.gif" alt="head"> -->
     <div class="all-recipe">
-
     </div>
-
-
-
     <script>
-
-
         const recipe = [];
-
         let recipelist = JSON.parse(localStorage.getItem("newRecipe"));
         console.log(recipelist);
-
+        const varitiesType = recipelist.filter((h)=> h.Varities == "Non-veg");
         for (i = 0; i < recipelist.length; i++) {
-            recipe.push(recipelist[i]);
+            recipe.push(varitiesType[i]);
             console.log(recipe);
         }
-
         for (let i = 0; i < recipe.length; i++) {
             let div_recipe = document.createElement("div");
             div_recipe.classList.add("recipe");
@@ -78,7 +72,6 @@
             recipe_img.classList.add("recipe-img");
             recipe_img.setAttribute("height", "300px")
             recipe_img.setAttribute("width", "500px")
-
             let recipe_about = document.createElement("div");
             recipe_about.classList.add("about");
 
@@ -102,12 +95,9 @@
             recipe_about.appendChild(recipe_description);
             recipe_about.appendChild(detail_btn);
             div_recipe.appendChild(recipe_about);
-
             console.log(div_recipe);
             document.querySelector(".all-recipe").append(div_recipe);
         }
-
-
     //  <footer class="footer">
     //     <div class="container">
     //         <div class="row">

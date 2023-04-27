@@ -53,23 +53,15 @@ let current_email = JSON.parse(localStorage.getItem("data"));
                 getname,
                 getEmail,
             };
-
             let checked_obj = Object.assign(user_obj, user_object);
             // console.log(checked_obj);
-
             let index = user_details.indexOf(user_obj);
             // console.log(index);
-
             user_details[index] = checked_obj;
-
             localStorage.setItem("register", JSON.stringify(user_details));
-
             alert("successfully changed");
-
-
             // location.reload()
-        }  );
-      
+        });
         let user_delete = document.getElementById("delete");
         user_delete.addEventListener("click", function (event) {
             event.preventDefault()
@@ -82,7 +74,7 @@ let current_email = JSON.parse(localStorage.getItem("data"));
               user_details.splice(Index, 1);
                 console.log(user_details);
                 localStorage.setItem("register", JSON.stringify(user_details))
-                
+                window.location.href = "./index.html";
 
           }
 
