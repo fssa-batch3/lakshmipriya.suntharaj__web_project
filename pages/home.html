@@ -6,25 +6,20 @@
     <meta name="view port" content="width=device-width, initial-scale=1.0">
 
 </head>
-
 <body>
-
     <header class="head">
-
         <div>
             <a href="./profile.html">
                 <button class="non-veg">
                     profile
                 </button>
             </a>
-
             <!-- <a href="./pages/log.html">
                     <button class="login-btn">
                         Login
                     </button> 
 
                 </a> -->
-    
             <a href="./veg.html">
                 <button class="Veg-Recipe">
                     Veg Recipe
@@ -40,11 +35,11 @@
                     Snacks
                 </button>
             </a>
-            <a href="./addnon.html">
+            <!-- <a href="page4.html">
                 <button class="Veg-Recipe">
                     Add New
                 </button>
-            </a>
+            </a> -->
             <div class="header">
                 <img class="logo" src="../assets/images/yellow logo.png" height="50px" width="50px" alt="logo">
                 <h1>RECIPE</h1>
@@ -53,7 +48,6 @@
     </header>
     <!-- <img class="header-image" src="https://media.tenor.com/yZCowKJy4UoAAAAd/anime-anime-gif.gif" alt="head"> -->
     <div class="all-recipe">
-
     </div>
     <script>
         const recipe = [];
@@ -84,7 +78,7 @@
             recipe_img.src = recipe[i].image_url;
             recipe_title.textContent = recipe[i].h2_cardtitle;
             recipe_description.textContent = recipe[i].message;
-            detail_btn.href = "./editrecipe.html?id=" + recipe[i].recipe_id;
+            detail_btn.href = "page4.html?id=" + recipe[i].recipe_id;
             detail_btn.innerText = "Details"
             
             div_recipe.appendChild(recipe_img);
@@ -97,7 +91,6 @@
             document.querySelector(".all-recipe").append(div_recipe);
         }
     </script>
-
     <!-- <footer class="footer">
             <div class="container">
                 <div class="row">
@@ -128,12 +121,10 @@
                             <li><a href="#tips">Tips</a></li>
                         </ul>
                     </div>
-
-
                 </div>
             </div>
         </footer> -->
-        <footer>
+         <footer>
             <div class="container">
               <div class="row">
                 <div class="col-md-6">
@@ -151,7 +142,5 @@
               </div>
             </div>
           </footer>
-
 </body>
-
 </html>

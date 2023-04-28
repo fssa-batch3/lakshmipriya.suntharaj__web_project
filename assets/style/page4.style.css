@@ -25,12 +25,12 @@ h2{
 margin-bottom: 20px;
 }
 .Ingredients{
-margin-left: 590px;
+margin-left: 188px;
 margin-top: 70px;
 
 }
 .steps{
-margin-left: 590px;
+margin-left: 188px;
 margin-top: 42px;
 }
 .listingre{
@@ -51,16 +51,16 @@ body{
     background-color: #d0e2bc;
     font: 1.4em/1.6em cursive;
     color: #095484;
-    margin-left: 575px;
+    margin-left: 180px;
   }
   .addcomment{
     margin: auto;
-    margin-left: 575px;
+    margin-left:200px;
     line-height: 3.5;
     font-size: x-large;
   }
   .btn{
-    margin-left: 577px;
+    margin-left:200px;
     width: 100px;
     height: 40px;
     /* line-height: 3.2; */
@@ -137,7 +137,10 @@ body{
 margin-left: 563px;
 }
   
-
+.textarea{
+  height: 800px;
+  width: 1000px;
+}
   .comment-card img {
     width: 50px;
     height: 50px;

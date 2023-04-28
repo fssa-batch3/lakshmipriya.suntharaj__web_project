@@ -46,14 +46,21 @@
     <form id="com">
       <textarea class="comment" id="comment"></textarea>
       <br />
-      <button id="send"type="button" class="btn" value="send" onclick="myFunction()">
+      <button
+        id="send"
+        type="button"
+        class="btn"
+        value="send"
+        onclick="myFunction()"
+      >
         Send
       </button>
+      <!-- <button class="delete-button" data-comment-id="1">Delete Comment</button> -->
     </form>
     <!-- <div>
     <input type="text" id="commentbox">
   </div>  -->
-      <!-- <div class="comment-list">
+    <!-- <div class="comment-list">
       <div class="comment-card" id="comment-card">
         <div class="comment-content" id="comment-content">
           <h3 id="userName"></h3>
@@ -63,94 +70,155 @@
         </div>
       </div>
     </div> -->
-     <script> 
+    <div class="cmt"></div>
+
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <h3>About Us</h3>
+            <p>
+              We are a team of food enthusiasts who love to share our favorite
+              recipes with others. Our mission is to inspire people to cook
+              delicious and healthy meals at home.
+            </p>
+          </div>
+          <div class="col-md-6">
+            <h3>Contact Us</h3>
+            <ul>
+              <li>
+                <a href="mailto:info@yourwebsite.com">info@yourwebsite.com</a>
+              </li>
+              <li>123 Main Street</li>
+              <li>City, State Zip</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script>
       function myFunction() {
-  const comment = document.getElementById("comment").value;
-  const user = localStorage.getItem("register");
-  console.log(user);
-  console.log(comment);
-  console.log(JSON.parse(user));
-  console.log(JSON.parse(user)[0].getname);
-  let userComment = JSON.parse(localStorage.getItem("commentList"));
-  
-  if (userComment === undefined || userComment === null) {
-    userComment = [];
-    localStorage.setItem("commentList", JSON.stringify(userComment));
-  }
-  let addComment = {
-    name: JSON.parse(user)[0].getname,
-    commentKey: comment,
-    comment_id: Date.now(),
-  };
-  userComment.push(addComment);
-  console.log(userComment);
-  localStorage.setItem("commentList", JSON.stringify(userComment));
-  // const commentList = document.getElementById("comment-list");
-  console.log(userComment);
-  for (let i = 0; i < userComment.length; i++) {
-    const element = userComment[i];
-    console.log(element);
-    const Comment_list = document.createElement("div")
-    Comment_list.classList.add("comment-list")
-    const commentCard = document.createElement("div");
-    commentCard.classList.add("comment-card");
-    const commandTitle = document.createElement("h3");
-    commandTitle.innerText = element.name;
-    const commandContent = document.createElement("p");
-    commandContent.innerText = element.commentKey;
+        const comment = document.getElementById("comment").value;
+        const user = localStorage.getItem("register");
+        console.log(user);
+        console.log(comment);
+        console.log(JSON.parse(user));
+        console.log(JSON.parse(user)[0].getname);
+        let userComment = JSON.parse(localStorage.getItem("commentList"));
 
+        if (userComment === undefined || userComment === null) {
+          userComment = [];
+          localStorage.setItem("commentList", JSON.stringify(userComment));
+        }
+        let addComment = {
+          name: JSON.parse(user)[0].getname,
+          commentKey: comment,
+          comment_id: Date.now(),
+        };
+        userComment.push(addComment);
+        console.log(userComment);
+        localStorage.setItem("commentList", JSON.stringify(userComment));
+        // const commentList = document.getElementById("comment-list");
+        console.log(userComment);
+        for (let i = 0; i < userComment.length; i++) {
+          const element = userComment[i];
+          console.log(element);
+          const Comment_list = document.createElement("div");
+          Comment_list.classList.add("comment-list");
+          const commentCard = document.createElement("div");
+          commentCard.classList.add("comment-card");
+          const commandTitle = document.createElement("h3");
+          commandTitle.innerText = element.name;
+          const commandContent = document.createElement("p");
+          commandContent.innerText = element.commentKey;
+          const textArea = document.createElement("textarea");
+          textArea.classList.add("textarea");
 
-    const editButton = document.createElement("button");
-    editButton.innerText = "Edit";
-    editButton.setAttribute("data-comment-id", element.comment_id);
-    editButton.addEventListener("click", handleEditClick);
+          const editButton = document.createElement("button");
+          editButton.innerText = "Edit";
+          editButton.setAttribute("data-comment-id", element.comment_id);
+          editButton.addEventListener("click", handleEditClick);
 
-    const deleteButton = document.createElement("button");
-    deleteButton.innerText = "Delete";
-    deleteButton.setAttribute("data-comment-id", element.comment_id);
-    deleteButton.addEventListener("click", handleDeleteClick);
+          const deleteButton = document.createElement("button");
+          deleteButton.innerText = "Delete";
+          deleteButton.setAttribute("data-comment-id", element.comment_id);
+          deleteButton.addEventListener("click", handleDeleteClick);
 
+          commentCard.appendChild(commandTitle);
+          commentCard.appendChild(commandContent);
+          commentCard.appendChild(editButton);
+          commentCard.appendChild(deleteButton);
+          Comment_list.appendChild(commentCard);
+          textArea.appendChild(Comment_list);
+          document.querySelector(".cmt").prepend(Comment_list);
+          // document.footer.prepend(Comment_list);
 
-    commentCard.appendChild(commandTitle);
-    commentCard.appendChild(commandContent);
-    commentCard.appendChild(editButton);
-    commentCard.appendChild(deleteButton);
-    Comment_list.appendChild(commentCard);
-    
-    document.body.appendChild(Comment_list);
+          // commentCard.appendChild(commandTitle);
+          // commentCard.appendChild(commandContent);
+          // Comment_list.appendChild(commentCard);
 
+          // document.body.appendChild(Comment_list);
+        }
+      }
+      // function handleEditClick(event) {
+      //   const commentId = event.target.getAttribute("data-comment-id");
+      //   const userComment = JSON.parse(localStorage.getItem("commentList"));
+      //   const commentIndex = userComment.findIndex(comment => comment.comment_id === commentId);
+      //   const editedComment = prompt("Enter the edited comment:");
+      //   if (editedComment !== null && editedComment !== "") {
+      //     userComment[commentIndex].userComment = editedComment;
+      //     localStorage.setItem("commentList", JSON.stringify(userComment));
+      //     location.reload();
+      //   }
+      // }
 
+      function handleEditClick(event) {
+        const commentId = event.target.getAttribute("data-comment-id");
+        const userComment = JSON.parse(localStorage.getItem("commentList"));
+        const commentIndex = userComment.findIndex(
+          (xyz) => xyz.comment_id === JSON.parse(commentId)
+        );
+        if (commentIndex === -1) {
+          console.error("Comment not found");
+          return;
+        }
+        const editedComment = prompt(
+          "Enter the edited comment:",
+          userComment[commentIndex].userComment
+        );
+        if (editedComment !== null && editedComment !== ""){
+          userComment[commentIndex].userComment = editedComment;
+          localStorage.setItem("commentList", JSON.stringify(userComment));
+          // location.reload();
+        }
+      }
 
-    // commentCard.appendChild(commandTitle);
-    // commentCard.appendChild(commandContent);
-    // Comment_list.appendChild(commentCard);
-    
-    // document.body.appendChild(Comment_list);
-  }
-}
- 
-function handleEditClick(event) {
-  const commentId = event.target.getAttribute("data-comment-id");
-  const userComment = JSON.parse(localStorage.getItem("commentList"));
-  const commentIndex = userComment.findIndex(comment => comment.comment_id === commentId);
-  const editedComment = prompt("Enter the edited comment:");
-  if (editedComment !== null && editedComment !== "") {
-    userComment[commentIndex].commentKey = editedComment;
-    localStorage.setItem("commentList", JSON.stringify(userComment));
-    location.reload();
-  }
-}
+      // function handleDeleteClick(event) {
+      //   const commentId = event.target.getAttribute("data-comment-id");
+      //   let userComment = JSON.parse(localStorage.getItem("commentList"));
+      //   userComment = userComment.filter((xyz) => xyz.comment_id !== commentId);
+      //   localStorage.setItem("commentList", JSON.stringify(userComment));
+      //   // location.reload();
+      // }
+      const deleteButtons = document.querySelectorAll('.delete-button');
+
+deleteButtons.forEach(button => {
+  button.addEventListener('click', handleDeleteClick);
+});
 
 function handleDeleteClick(event) {
-  const commentId = event.target.getAttribute("data-comment-id");
-  let userComment = JSON.parse(localStorage.getItem("commentList"));
-  userComment = userComment.filter(comment => comment.comment_id !== commentId);
-  localStorage.setItem("commentList", JSON.stringify(userComment));
-  location.reload();
+  const commentId = event.target.getAttribute('data-comment-id');
+
+  
+  let userComments = JSON.parse(localStorage.getItem('commentList'));
+
+  userComments = userComments.filter(comment => comment.comment_id !== commentId);
+  localStorage.setItem('commentList', JSON.stringify(userComments));
+
+
+  const commentElement = document.querySelector(`[data-comment-id="${commentId}"]`);
+  commentElement.remove();
 }
-
-
-
       // // create the outermost div element
       // let div_card = document.createElement("div");
       // div_card.classList.add("card");
@@ -241,36 +309,11 @@ function handleDeleteClick(event) {
 
       // let li_serve_hot
       // const edit = document.createElement("a")
-    // edit.classList.add("edit");
-    // const delete_com = document.createElement("a")
-    // delete_com.classList.add("delete");
-    // edit.appendChild(commentCard);
-    // delete_com.appendChild(commentCard);
-     </script>
-    <footer>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6">
-            <h3>About Us</h3>
-            <p>
-              We are a team of food enthusiasts who love to share our favorite
-              recipes with others. Our mission is to inspire people to cook
-              delicious and healthy meals at home.
-            </p>
-          </div>
-          <div class="col-md-6">
-            <h3>Contact Us</h3>
-            <ul>
-              <li>
-                <a href="mailto:info@yourwebsite.com">info@yourwebsite.com</a>
-              </li>
-              <li>123 Main Street</li>
-              <li>City, State Zip</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </footer>
+      // edit.classList.add("edit");
+      // const delete_com = document.createElement("a")
+      // delete_com.classList.add("delete");
+      // edit.appendChild(commentCard);
+      // delete_com.appendChild(commentCard);
+    </script>
   </body>
-  
 </html>
