@@ -27,11 +27,9 @@
       <button type="submit">Submit</button>
     </form>
   </div>
-
+  
   <script>
     const array = JSON.parse(localStorage.getItem("newRecipe"));
-
-
     const url= window.location.search
     const Url_params = new URLSearchParams(url)
     const get_id = Url_params.get("id")
