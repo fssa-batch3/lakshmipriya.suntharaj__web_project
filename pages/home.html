@@ -76,7 +76,7 @@
             recipe_img.src = recipe[i].image_url;
             recipe_title.textContent = recipe[i].h2_cardtitle;
             recipe_description.textContent = recipe[i].message;
-            detail_btn.href = "page4.html?id=" + recipe[i].recipe_id;
+            detail_btn.href = "details.html?id=" + recipe[i].recipe_id;
             detail_btn.innerText = "Details"
             div_recipe.appendChild(recipe_img);
             recipe_about.appendChild(recipe_title);
@@ -88,102 +88,7 @@
 
 
 
-// create the outermost div element
-let div_card = document.createElement("div");
-      div_card.classList.add("card");
 
-      // create the div for the whole content
-      let div_whole_content = document.createElement("div");
-      div_whole_content.classList.add("whole-content");
-
-      // create the div for the ingredients
-      let div_ingredients = document.createElement("div");
-      div_ingredients.classList.add("Ingredients");
-
-      // create the heading for the ingredients
-      let h2_ingredients = document.createElement("h2");
-      // h2_ingredients.textContent = "INGREDIENTS:";
-
-      // create the unordered list for the ingredients
-      let ul_listingre = document.createElement("ul");
-      // ul_listingre.classList.add("listingre");
-
-      // create the list items for the ingredients
-      let li_chicken = document.createElement("li");
-      // li_chicken.textContent = "1/2kg chicken";
-
-      let li_salt = document.createElement("li");
-      // li_salt.textContent = "1/2tsb salt";
-
-      let li_termeric_powder = document.createElement("li");
-      // li_termeric_powder.textContent = "1/2tsb termeric powder";
-
-      let li_red_chilli_powder = document.createElement("li");
-      // li_red_chilli_powder.textContent = "2 1/2tsb kashmiri red chilli powder";
-
-      let li_garam_masala = document.createElement("li");
-      // li_garam_masala.textContent = "1table spoon Garam masala";
-
-      let li_ginger_garlic = document.createElement("li");
-      // li_ginger_garlic.textContent = "1tsb ginger garlic";
-
-      let li_curry_leaves = document.createElement("li");
-      // li_curry_leaves.textContent = "2 curry leaves";
-
-      let li_curd = document.createElement("li");
-      // li_curd.textContent = "4tablespoon curd";
-
-      let li_lemon_juice = document.createElement("li");
-      // li_lemon_juice.textContent = "1tablespoon lemon juice";
-
-      // append the list items to the unordered list
-      ul_listingre.appendChild(li_chicken);
-      ul_listingre.appendChild(li_salt);
-      ul_listingre.appendChild(li_termeric_powder);
-      ul_listingre.appendChild(li_red_chilli_powder);
-      ul_listingre.appendChild(li_garam_masala);
-      ul_listingre.appendChild(li_ginger_garlic);
-      ul_listingre.appendChild(li_curry_leaves);
-      ul_listingre.appendChild(li_curd);
-      ul_listingre.appendChild(li_lemon_juice);
-
-      // append the heading and unordered list to the ingredients div
-      div_ingredients.appendChild(h2_ingredients);
-      div_ingredients.appendChild(ul_listingre);
-
-      // create the div for the steps
-      let div_steps = document.createElement("div");
-      div_steps.classList.add("steps");
-
-      // create the heading for the steps
-      let h2_steps = document.createElement("h2");
-      // h2_steps.textContent = "STEPS:";
-
-      // create the ordered list for the steps
-      let ol_step = document.createElement("ol");
-      ol_step.classList.add("step");
-
-      // create the list items for the steps
-      let li_clean_wash_cut = document.createElement("li");
-      // li_clean_wash_cut.textContent = "Clean wash and cut the chicken as cubes";
-
-      let li_add_ingredients = document.createElement("li");
-      // li_add_ingredients.innerHTML = "Add all the other ingredients give above to chicken and mix well.<br> Add few drops of water if required";
-
-      let li_mix_well = document.createElement("li");
-      // li_mix_well.textContent = "Mix well so it is nicely combined";
-
-      let li_cook_chicken = document.createElement("li");
-      // li_cook_chicken.textContent = "Heat oil in kadai and cook the chicken till crispy and golden in color.";
-
-      let li_serve_hot
-      const edit = document.createElement("a")
-      edit.classList.add("edit");
-      const delete_com = document.createElement("a")
-      delete_com.classList.add("delete");
-      edit.appendChild(commentCard);
-      delete_com.appendChild(commentCard);
-}    
     </script>
     <footer>
         <div class="container">

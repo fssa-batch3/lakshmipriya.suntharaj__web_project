@@ -1,0 +1,246 @@
+<html lang="en">
+  <title>chickenfry</title>
+  <link rel="stylesheet" href="/assets/style/page4.style.css" />
+
+  <body>
+    <img
+      class="image"
+      src="https://hips.hearstapps.com/hmg-prod/images/baked-avocado-boats-1647351478.jpg?crop=1.00xw:0.752xh;0,0.118xh&resize=1200:*"
+      alt="chicken image"
+      id="food-img"
+    />
+
+    <div class="whole-content">
+      <div class="Ingredients">
+        <h2 id="food-heading">INGREDIENTS:</h2>
+        <ul class="listingre">
+          <li id="ingredient1">1/2kg chicken</li>
+          <!-- <li id="ingredient2">1/2tsb salt</li>
+          <li id="ingredient3">1/2tsb termeric powder</li>
+          <li id="ingredient4">2 1/2tsb kashmiri red chilli powder</li>
+          <li id="ingredient5">1table spoon Garam masala</li>
+          <li id="ingredient6">1tsb ginger garlic</li>
+          <li id="ingredient7">2 curry leaves</li>
+          <li id="ingredient8">4tablespoon curd</li>
+          <li id="ingredient9">1tablespoon lemon juice</li> -->
+        </ul>
+      </div>
+      <div class="steps">
+        <h2 id="steps">STEPS:</h2>
+        <ol class="step">
+          <li id="step1">Clean wash and cut the chicken as cubes</li>
+          <li id="step2">
+            Add all the other ingredients give above to chicken and mix well.<br />
+            Add few drops of water if required
+          </li>
+          <li id="step3">Mix well so it is nicely combined</li>
+          <li id="step4">
+            Heat oil in kadai and cook the chicken till crispy and golden in
+            color.
+          </li>
+          <li id="step5">Serve hot chicken fry.</li>
+          <!-- <li id="step6">Squeeze some lime juice and enjoy the tangy chicken fry.</li> -->
+        </ol>
+      </div>
+    </div>
+    <span class="addcomment">Add a comment</span>
+    <form id="com">
+      <textarea class="comment" id="comment"></textarea>
+      <br />
+      <button
+        id="send"
+        type="button"
+        class="btn"
+        value="send"
+        onclick="myFunction()"
+      >
+        Send
+      </button>
+      <!-- <button class="delete-button" data-comment-id="1">Delete Comment</button> -->
+    </form>
+    <!-- <div>
+    <input type="text" id="commentbox">
+  </div>  -->
+    <!-- <div class="comment-list">
+      <div class="comment-card" id="comment-card">
+        <div class="comment-content" id="comment-content">
+          <h3 id="userName"></h3>
+          <p id="userCom">
+            
+          </p>
+        </div>
+      </div>
+    </div> -->
+    <div class="cmt"></div>
+
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <h3>About Us</h3>
+            <p>
+              We are a team of food enthusiasts who love to share our favorite
+              recipes with others. Our mission is to inspire people to cook
+              delicious and healthy meals at home.
+            </p>
+          </div>
+          <div class="col-md-6">
+            <h3>Contact Us</h3>
+            <ul>
+              <li>
+                <a href="mailto:info@yourwebsite.com">info@yourwebsite.com</a>
+              </li>
+              <li>123 Main Street</li>
+              <li>City, State Zip</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script>
+      const recipeInfo = JSON.parse(localStorage.getItem("newRecipe"));
+      console.log(recipeInfo);
+
+      let urlSearch = window.location.search;
+      console.log(urlSearch);
+      let url_params = new URLSearchParams(urlSearch);
+      console.log(url_params);
+      let get_id = url_params.get("id");
+      console.log(get_id);
+
+      let recipeObj = recipeInfo.find(function (select_recipe) {
+        let id = select_recipe["recipe_id"];
+        console.log(id);
+        if (get_id == id) {
+          return true;
+        } else {
+          return false;
+        }
+      });
+      console.log(recipeObj);
+
+      const url = document
+        .getElementById("food-img")
+        .setAttribute("src", recipeObj.image_url);
+      const ingredient = (document.getElementById("ingredient1").innerHTML =
+        recipeObj["ingredients"]);
+      const step1 = (document.getElementById("step1").innerHTML =
+        recipeObj["Step1"]);
+      const step2 = (document.getElementById("step2").innerHTML =
+        recipeObj["Step2"]);
+      const step3 = (document.getElementById("step3").innerHTML =
+        recipeObj["Step3"]);
+      const step4 = (document.getElementById("step4").innerHTML =
+        recipeObj["Step4"]);
+      const step5 = (document.getElementById("step5").innerHTML =
+        recipeObj["Step5"]);
+    </script>
+    <script>
+
+            <!-- function myFunction() {
+              const comment = document.getElementById("comment").value;
+              const user = localStorage.getItem("register");
+              console.log(user);
+              console.log(comment);
+              console.log(JSON.parse(user));
+              console.log(JSON.parse(user)[0].getname);
+              let userComment = JSON.parse(localStorage.getItem("commentList"));
+
+              if (userComment === undefined || userComment === null) {
+                userComment = [];
+                localStorage.setItem("commentList", JSON.stringify(userComment));
+              }
+              let addComment = {
+                name: JSON.parse(user)[0].getname,
+                commentKey: comment,
+                comment_id: Date.now(),
+              };
+              userComment.push(addComment);
+              console.log(userComment);
+              localStorage.setItem("commentList", JSON.stringify(userComment));
+              // const commentList = document.getElementById("comment-list");
+              console.log(userComment);
+              for (let i = 0; i < userComment.length; i++) {
+                const element = userComment[i];
+                console.log(element);
+                const Comment_list = document.createElement("div");
+                Comment_list.classList.add("comment-list");
+                const commentCard = document.createElement("div");
+                commentCard.classList.add("comment-card");
+                const commandTitle = document.createElement("h3");
+                commandTitle.innerText = element.name;
+                const commandContent = document.createElement("p");
+                commandContent.innerText = element.commentKey;
+                const textArea = document.createElement("textarea");
+                textArea.classList.add("textarea");
+
+                const editButton = document.createElement("button");
+                editButton.innerText = "Edit";
+                editButton.setAttribute("data-comment-id", element.comment_id);
+                editButton.addEventListener("click", handleEditClick);
+
+                const deleteButton = document.createElement("button");
+                deleteButton.innerText = "Delete";
+                deleteButton.setAttribute("data-comment-id", element.comment_id);
+                deleteButton.addEventListener("click", handleDeleteClick);
+
+                commentCard.appendChild(commandTitle);
+                commentCard.appendChild(commandContent);
+                commentCard.appendChild(editButton);
+                commentCard.appendChild(deleteButton);
+                Comment_list.appendChild(commentCard);
+                textArea.appendChild(Comment_list);
+                document.querySelector(".cmt").prepend(Comment_list);
+                document.footer.prepend(Comment_list);
+
+                commentCard.appendChild(commandTitle);
+                commentCard.appendChild(commandContent);
+                Comment_list.appendChild(commentCard);
+
+                document.body.appendChild(Comment_list);
+              }
+            }
+
+      //       function handleEditClick(event) {
+      //         const commentId = event.target.getAttribute("data-comment-id");
+      //         const userComment = JSON.parse(localStorage.getItem("commentList"));
+      //         const commentIndex = userComment.findIndex(
+      //           (xyz) => xyz.comment_id === JSON.parse(commentId)
+      //         );
+      //         if (commentIndex === -1) {
+      //           console.error("Comment not found");
+      //           return;
+      //         }
+      //         const editedComment = prompt(
+      //           "Enter the edited comment:",
+      //           userComment[commentIndex].userComment
+      //         );
+      //         if (editedComment !== null && editedComment !== ""){
+      //           userComment[commentIndex].userComment = editedComment;
+      //           localStorage.setItem("commentList", JSON.stringify(userComment));
+      //           // location.reload();
+      //         }
+      //       }
+
+      //       const deleteButtons = document.querySelectorAll('.delete-button');
+
+      // deleteButtons.forEach(button => {
+      //   button.addEventListener('click', handleDeleteClick);
+      // });
+
+      // function handleDeleteClick(event) {
+      //   const commentId = event.target.getAttribute('data-comment-id');
+
+
+      //   let userComments = JSON.parse(localStorage.getItem('commentList'));
+
+      //   userComments = userComments.filter(comment => comment.comment_id !== commentId);
+      //   localStorage.setItem('commentList', JSON.stringify(userComments));
+
+
+      //   const commentElement = document.querySelector(`[data-comment-id="${commentId}"]`);
+      //   commentElement.remove();
+      // }
+    </script>
+  </body>
+</html>
