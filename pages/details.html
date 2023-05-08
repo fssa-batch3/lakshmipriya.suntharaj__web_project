@@ -137,7 +137,7 @@
     </script>
     <script>
 
-            <!-- function myFunction() {
+             function myFunction() {
               const comment = document.getElementById("comment").value;
               const user = localStorage.getItem("register");
               console.log(user);
@@ -201,46 +201,46 @@
               }
             }
 
-      //       function handleEditClick(event) {
-      //         const commentId = event.target.getAttribute("data-comment-id");
-      //         const userComment = JSON.parse(localStorage.getItem("commentList"));
-      //         const commentIndex = userComment.findIndex(
-      //           (xyz) => xyz.comment_id === JSON.parse(commentId)
-      //         );
-      //         if (commentIndex === -1) {
-      //           console.error("Comment not found");
-      //           return;
-      //         }
-      //         const editedComment = prompt(
-      //           "Enter the edited comment:",
-      //           userComment[commentIndex].userComment
-      //         );
-      //         if (editedComment !== null && editedComment !== ""){
-      //           userComment[commentIndex].userComment = editedComment;
-      //           localStorage.setItem("commentList", JSON.stringify(userComment));
-      //           // location.reload();
-      //         }
-      //       }
+            function handleEditClick(event) {
+              const commentId = event.target.getAttribute("data-comment-id");
+              const userComment = JSON.parse(localStorage.getItem("commentList"));
+              const commentIndex = userComment.findIndex(
+                (xyz) => xyz.comment_id === JSON.parse(commentId)
+              );
+              if (commentIndex === -1) {
+                console.error("Comment not found");
+                return;
+              }
+              const editedComment = prompt(
+                "Enter the edited comment:",
+                userComment[commentIndex].userComment
+              );
+              if (editedComment !== null && editedComment !== ""){
+                userComment[commentIndex].userComment = editedComment;
+                localStorage.setItem("commentList", JSON.stringify(userComment));
+                // location.reload();
+              }
+            }
 
-      //       const deleteButtons = document.querySelectorAll('.delete-button');
+            const deleteButtons = document.querySelectorAll('.delete-button');
 
-      // deleteButtons.forEach(button => {
-      //   button.addEventListener('click', handleDeleteClick);
-      // });
+      deleteButtons.forEach(button => {
+        button.addEventListener('click', handleDeleteClick);
+      });
 
-      // function handleDeleteClick(event) {
-      //   const commentId = event.target.getAttribute('data-comment-id');
-
-
-      //   let userComments = JSON.parse(localStorage.getItem('commentList'));
-
-      //   userComments = userComments.filter(comment => comment.comment_id !== commentId);
-      //   localStorage.setItem('commentList', JSON.stringify(userComments));
+      function handleDeleteClick(event) {
+        const commentId = event.target.getAttribute('data-comment-id');
 
 
-      //   const commentElement = document.querySelector(`[data-comment-id="${commentId}"]`);
-      //   commentElement.remove();
-      // }
+        let userComments = JSON.parse(localStorage.getItem('commentList'));
+
+        userComments = userComments.filter(comment => comment.comment_id !== commentId);
+        localStorage.setItem('commentList', JSON.stringify(userComments));
+
+
+        const commentElement = document.querySelector(`[data-comment-id="${commentId}"]`);
+        commentElement.remove();
+      }
     </script>
   </body>
 </html>
