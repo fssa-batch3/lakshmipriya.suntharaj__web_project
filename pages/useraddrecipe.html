@@ -1,7 +1,7 @@
 <html>
 
 <link rel="stylesheet" href="../assets/style/addrecipe.css">
-
+<a href=""></a>
 <body>
     <div class="contact-form">
       <span class="heading">Add New Recipe</span>
@@ -11,9 +11,25 @@
         <label for="head">recipe Name</label>
         <input type="text" required="" id="recipename">
         <label for="head">About</label>
-        <input type="text" required="" id="About">
-        <label for="head">Ingredients</label>
-        <input type="text" required="" id="Ingredients">
+        <input type="text"  id="About">
+        <label for="head">Ingredient</label>
+        <input type="text"  id="Ingredient">
+        <!-- <label for="head">Ingredient1</label>
+        <input type="text"  id="Ingredient1">
+        <label for="head">Ingredient2</label>
+        <input type="text"  id="Ingredient2">
+        <label for="head">Ingredient3</label>
+        <input type="text"  id="Ingredient3">
+        <label for="head">Ingredient4</label>
+        <input type="text"  id="Ingredient4">
+        <label for="head">Ingredient5</label>
+        <input type="text"  id="Ingredient5">
+        <label for="head">Ingredient6</label>
+        <input type="text"  id="Ingredient6">
+        <label for="head">Ingredient7</label>
+        <input type="text"  id="Ingredient7"> 
+        <label for="head">Ingredient8</label>
+        <input type="text" required="" id="Ingredient8">-->
         <label for="head">Step1</label>
         <input type="text" required="" id="Step1">
         <label for="head">Step2</label>
@@ -32,33 +48,58 @@
       </select>
         <button type="submit">Submit</button>
       </form>
+
     </div>
     <script>
       let recipe = document.getElementById("addrecipe")
       recipe.addEventListener("submit", function (event) {
         event.preventDefault();
+        
         let e = document.getElementById("Varities")
         let value = e.value
         let text = e.options[e.selectedIndex].text
         let array = [];
+
+
         if (localStorage.getItem("newRecipe") != null) {
           array = JSON.parse(localStorage.getItem("newRecipe"))
         }
-        let Image = document.getElementById("imgurl").value
-        let para = document.getElementById("recipename").value
-        let about = document.getElementById("About").value
-        let ingredients = document.getElementById("Ingredients").value
-        let Step1 = document.getElementById("Step1").value
-        let Step2 = document.getElementById("Step2").value
-        let Step3 = document.getElementById("Step3").value
-        let Step4 = document.getElementById("Step4").value
-        let Step5 = document.getElementById("Step5").value
-        let recipe_id = Date.now();
+
+
+        const Image = document.getElementById("imgurl").value
+        const para = document.getElementById("recipename").value
+        const about = document.getElementById("About").value
+        const ingredients = document.getElementById("Ingredient").value
+        // const ingre1 = document.getElementById("Ingredient1").value;
+        // console.log( ingredient1);
+        // const ingre2 = document.getElementById("Ingredient2").value
+        // const ingredient3 = document.getElementById("Ingredient3").value
+        // const ingredient4 = document.getElementById("Ingredient4").value
+        // const ingredient5 = document.getElementById("Ingredient5").value
+        // const ingredient6 = document.getElementById("Ingredient6").value
+        // const ingredient7 = document.getElementById("Ingredient7").value
+        // const ingredient8 = document.getElementById("Ingredient8").value
+        const Step1 = document.getElementById("Step1").value
+        const Step2 = document.getElementById("Step2").value
+        const Step3 = document.getElementById("Step3").value
+        const Step4 = document.getElementById("Step4").value
+        const Step5 = document.getElementById("Step5").value
+        const recipe_id = Date.now();
+
+
         let newrecipe = {
           image_url: Image,
           h2_cardtitle: para,
           message: about,
-          ingredients:Ingredients,
+          ingredients: ingredients,
+          // ingre1: Ingredient1,
+          // ingre2:Ingredient2,
+          // ingredient3:Ingredient3,
+          // ingredient4:Ingredient4,
+          // ingredient5:Ingredient5,
+          // ingredient6:Ingredient6,
+          // ingredient7:Ingredient7,
+          // ingredient8:Ingredient8,
           Step1:Step1,
           Step2:Step2,
           Step3:Step3,
@@ -70,7 +111,7 @@
         array.push(newrecipe);
         let imgabout = JSON.stringify(array);
         localStorage.setItem("newRecipe", imgabout);
-        window.location.href = "./non-veg.html";
+        window.location.href = "home.html";
         alert("submitted")
       });
      

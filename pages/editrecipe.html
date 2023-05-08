@@ -27,7 +27,7 @@
       <button type="submit">Submit</button>
     </form>
   </div>
-  
+
   <script>
     const array = JSON.parse(localStorage.getItem("newRecipe"));
     const url= window.location.search
@@ -48,14 +48,14 @@
 
 
         image.value = editrecipe["image_url"];
-        recipename.value = editrecipe["h2_cardtitle"]
-        About.value = editrecipe["message"]
-        Ingredients.value  = editrecipe["ingredients"]
-        Step1.value = editrecipe["Step1"]
-        Step2.value = editrecipe["Step2"]
-        Step3.value = editrecipe["Step3"]
-        Step4.value = editrecipe["Step4"]
-        Step5.value = editrecipe["Step5"]
+        recipename.value = editrecipe["h2_cardtitle"];
+        About.value = editrecipe["message"];
+        Ingredients.value  = editrecipe["ingredients"];
+        Step1.value = editrecipe["Step1"];
+        Step2.value = editrecipe["Step2"];
+        Step3.value = editrecipe["Step3"];
+        Step4.value = editrecipe["Step4"];
+        Step5.value = editrecipe["Step5"];
 
 
         let pro_info = document.getElementById("addrecipe");
@@ -72,7 +72,7 @@
         let Step4 = document.getElementById("Step4").value
         let Step5 = document.getElementById("Step4").value
 
-            let  editrecipeObject = {
+            let editrecipeObject = {
                imgurl,
                recipename,
                About,
@@ -95,10 +95,8 @@
             localStorage.setItem("newRecipe", JSON.stringify(array));
 
             alert("successfully changed");
-
-
             // location.reload()
-        }  );
+        });
 
   </script>
 </body>

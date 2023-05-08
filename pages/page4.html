@@ -6,39 +6,40 @@
     <img
       class="image"
       src="https://hips.hearstapps.com/hmg-prod/images/baked-avocado-boats-1647351478.jpg?crop=1.00xw:0.752xh;0,0.118xh&resize=1200:*"
-      alt="chicken image"
+      alt="chicken image" 
+      id="food-img"
     />
 
     <div class="whole-content">
       <div class="Ingredients">
-        <h2>INGREDIENTS:</h2>
+        <h2 id="food-heading">INGREDIENTS:</h2>
         <ul class="listingre">
-          <li>1/2kg chicken</li>
-          <li>1/2tsb salt</li>
-          <li>1/2tsb termeric powder</li>
-          <li>2 1/2tsb kashmiri red chilli powder</li>
-          <li>1table spoon Garam masala</li>
-          <li>1tsb ginger garlic</li>
-          <li>2 curry leaves</li>
-          <li>4tablespoon curd</li>
-          <li>1tablespoon lemon juice</li>
+          <li id="ingredient1">1/2kg chicken</li>
+          <!-- <li id="ingredient2">1/2tsb salt</li>
+          <li id="ingredient3">1/2tsb termeric powder</li>
+          <li id="ingredient4">2 1/2tsb kashmiri red chilli powder</li>
+          <li id="ingredient5">1table spoon Garam masala</li>
+          <li id="ingredient6">1tsb ginger garlic</li>
+          <li id="ingredient7">2 curry leaves</li>
+          <li id="ingredient8">4tablespoon curd</li>
+          <li id="ingredient9">1tablespoon lemon juice</li> -->
         </ul>
       </div>
       <div class="steps">
-        <h2>STEPS:</h2>
+        <h2 id="steps">STEPS:</h2>
         <ol class="step">
-          <li>Clean wash and cut the chicken as cubes</li>
-          <li>
+          <li id="step1">Clean wash and cut the chicken as cubes</li>
+          <li id="step2">
             Add all the other ingredients give above to chicken and mix well.<br />
             Add few drops of water if required
           </li>
-          <li>Mix well so it is nicely combined</li>
-          <li>
+          <li id="step3">Mix well so it is nicely combined</li>
+          <li id="step4">
             Heat oil in kadai and cook the chicken till crispy and golden in
             color.
           </li>
-          <li>Serve hot chicken fry.</li>
-          <li>Squeeze some lime juice and enjoy the tangy chicken fry.</li>
+          <li id="step5">Serve hot chicken fry.</li>
+          <!-- <li id="step6">Squeeze some lime juice and enjoy the tangy chicken fry.</li> -->
         </ol>
       </div>
     </div>
@@ -97,6 +98,77 @@
       </div>
     </footer>
     <script>
+      const recipeInfo = JSON.parse(localStorage.getItem("newRecipe"));
+        console.log(recipeInfo);
+
+        let urlSearch = window.location.search;
+        console.log(urlSearch);
+        let url_params = new URLSearchParams(urlSearch);
+        console.log(url_params);
+        let get_id = url_params.get("id");
+        console.log(get_id);
+
+        let recipeObj = recipeInfo.find(
+            function (select_recipe) {
+                let id = select_recipe["recipe_id"];
+                console.log(id);
+                if (get_id == id) {
+                    return true;
+                } else {
+                    return false;
+                }
+            })
+        console.log(recipeObj);
+
+        const url = document.getElementById("food-img").setAttribute("src", recipeObj.image_url);
+        const ingredient = document.getElementById("ingredient1").innerHTML = recipeObj["ingredients"];
+        const step1 = document.getElementById("step1").innerHTML = recipeObj["Step1"];
+        const step2 = document.getElementById("step2").innerHTML = recipeObj["Step2"];
+        const step3 = document.getElementById("step3").innerHTML = recipeObj["Step3"];
+        const step4 = document.getElementById("step4").innerHTML = recipeObj["Step4"];
+        const step5 = document.getElementById("step5").innerHTML = recipeObj["Step5"];
+        // const squarefeet = document.getElementById("squarefeet").innerHTML = recipeObj["designsquarefeet"];
+        // const ppsquarefeet = document.getElementById("ppsquarefeet").innerHTML = recipeObj["designppsquarefeet"];
+        // const dates = document.getElementById("dates").innerHTML = recipeObj["designdates"];
+        // const bathroom = document.getElementById("bathroom").innerHTML = recipeObj["designbathroom"];
+        // const bedroom = document.getElementById("bedroom").innerHTML = recipeObj["designbedroom"];
+        // const balcony = document.getElementById("balcony").innerHTML = recipeObj["designbalcony"];
+        // const para = document.getElementById("para").innerHTML = recipeObj["designpara"];
+        // const brief_para = document.getElementById("brief_para").innerHTML = recipeObj["designbriefpara"];
+    </script>
+    <!-- <script>
+
+
+
+
+
+// let params = window.location.search;
+//       console.log(params);
+//       let parameter = new URLSearchParams(params);
+    
+
+
+      document.getElementById("food-img")
+      document.getElementById("food-heading")
+    document.getElementById("ingredient1")
+    document.getElementById("ingredient2") 
+    document.getElementById("ingredient3")
+    document.getElementById("ingredient4")
+    document.getElementById("ingredient5")
+    document.getElementById("ingredient6")
+    document.getElementById("ingredient7")
+    document.getElementById("ingredient8")
+    document.getElementById("ingredient9")
+    document.getElementById("steps")
+    document.getElementById("step1")
+    document.getElementById("step2")
+    document.getElementById("step3")
+    document.getElementById("step4")
+    document.getElementById("step5")
+    
+ 
+
+    
       function myFunction() {
         const comment = document.getElementById("comment").value;
         const user = localStorage.getItem("register");
@@ -151,169 +223,163 @@
           Comment_list.appendChild(commentCard);
           textArea.appendChild(Comment_list);
           document.querySelector(".cmt").prepend(Comment_list);
-          // document.footer.prepend(Comment_list);
+          document.footer.prepend(Comment_list);
 
-          // commentCard.appendChild(commandTitle);
-          // commentCard.appendChild(commandContent);
-          // Comment_list.appendChild(commentCard);
+          commentCard.appendChild(commandTitle);
+          commentCard.appendChild(commandContent);
+          Comment_list.appendChild(commentCard);
 
-          // document.body.appendChild(Comment_list);
+          document.body.appendChild(Comment_list);
         }
       }
-      // function handleEditClick(event) {
-      //   const commentId = event.target.getAttribute("data-comment-id");
-      //   const userComment = JSON.parse(localStorage.getItem("commentList"));
-      //   const commentIndex = userComment.findIndex(comment => comment.comment_id === commentId);
-      //   const editedComment = prompt("Enter the edited comment:");
-      //   if (editedComment !== null && editedComment !== "") {
-      //     userComment[commentIndex].userComment = editedComment;
-      //     localStorage.setItem("commentList", JSON.stringify(userComment));
-      //     location.reload();
-      //   }
-      // }
+//       // function handleEditClick(event) {
+//       //   const commentId = event.target.getAttribute("data-comment-id");
+//       //   const userComment = JSON.parse(localStorage.getItem("commentList"));
+//       //   const commentIndex = userComment.findIndex(comment => comment.comment_id === commentId);
+//       //   const editedComment = prompt("Enter the edited comment:");
+//       //   if (editedComment !== null && editedComment !== "") {
+//       //     userComment[commentIndex].userComment = editedComment;
+//       //     localStorage.setItem("commentList", JSON.stringify(userComment));
+//       //     location.reload();
+//       //   }
+//       // }
 
-      function handleEditClick(event) {
-        const commentId = event.target.getAttribute("data-comment-id");
-        const userComment = JSON.parse(localStorage.getItem("commentList"));
-        const commentIndex = userComment.findIndex(
-          (xyz) => xyz.comment_id === JSON.parse(commentId)
-        );
-        if (commentIndex === -1) {
-          console.error("Comment not found");
-          return;
-        }
-        const editedComment = prompt(
-          "Enter the edited comment:",
-          userComment[commentIndex].userComment
-        );
-        if (editedComment !== null && editedComment !== ""){
-          userComment[commentIndex].userComment = editedComment;
-          localStorage.setItem("commentList", JSON.stringify(userComment));
-          // location.reload();
-        }
-      }
+//       function handleEditClick(event) {
+//         const commentId = event.target.getAttribute("data-comment-id");
+//         const userComment = JSON.parse(localStorage.getItem("commentList"));
+//         const commentIndex = userComment.findIndex(
+//           (xyz) => xyz.comment_id === JSON.parse(commentId)
+//         );
+//         if (commentIndex === -1) {
+//           console.error("Comment not found");
+//           return;
+//         }
+//         const editedComment = prompt(
+//           "Enter the edited comment:",
+//           userComment[commentIndex].userComment
+//         );
+//         if (editedComment !== null && editedComment !== ""){
+//           userComment[commentIndex].userComment = editedComment;
+//           localStorage.setItem("commentList", JSON.stringify(userComment));
+//           // location.reload();
+//         }
+//       }
 
-      // function handleDeleteClick(event) {
-      //   const commentId = event.target.getAttribute("data-comment-id");
-      //   let userComment = JSON.parse(localStorage.getItem("commentList"));
-      //   userComment = userComment.filter((xyz) => xyz.comment_id !== commentId);
-      //   localStorage.setItem("commentList", JSON.stringify(userComment));
-      //   // location.reload();
-      // }
-      const deleteButtons = document.querySelectorAll('.delete-button');
+    
+//       const deleteButtons = document.querySelectorAll('.delete-button');
 
-deleteButtons.forEach(button => {
-  button.addEventListener('click', handleDeleteClick);
-});
+// deleteButtons.forEach(button => {
+//   button.addEventListener('click', handleDeleteClick);
+// });
 
-function handleDeleteClick(event) {
-  const commentId = event.target.getAttribute('data-comment-id');
+// function handleDeleteClick(event) {
+//   const commentId = event.target.getAttribute('data-comment-id');
 
   
-  let userComments = JSON.parse(localStorage.getItem('commentList'));
+//   let userComments = JSON.parse(localStorage.getItem('commentList'));
 
-  userComments = userComments.filter(comment => comment.comment_id !== commentId);
-  localStorage.setItem('commentList', JSON.stringify(userComments));
+//   userComments = userComments.filter(comment => comment.comment_id !== commentId);
+//   localStorage.setItem('commentList', JSON.stringify(userComments));
 
 
-  const commentElement = document.querySelector(`[data-comment-id="${commentId}"]`);
-  commentElement.remove();
-}
-      // // create the outermost div element
-      // let div_card = document.createElement("div");
-      // div_card.classList.add("card");
+//   const commentElement = document.querySelector(`[data-comment-id="${commentId}"]`);
+//   commentElement.remove();
+// }
+//       // create the outermost div element
+//       let div_card = document.createElement("div");
+//       div_card.classList.add("card");
 
-      // // create the div for the whole content
-      // let div_whole_content = document.createElement("div");
-      // div_whole_content.classList.add("whole-content");
+//       // create the div for the whole content
+//       let div_whole_content = document.createElement("div");
+//       div_whole_content.classList.add("whole-content");
 
-      // // create the div for the ingredients
-      // let div_ingredients = document.createElement("div");
-      // div_ingredients.classList.add("Ingredients");
+//       // create the div for the ingredients
+//       let div_ingredients = document.createElement("div");
+//       div_ingredients.classList.add("Ingredients");
 
-      // // create the heading for the ingredients
-      // let h2_ingredients = document.createElement("h2");
-      // // h2_ingredients.textContent = "INGREDIENTS:";
+//       // create the heading for the ingredients
+//       let h2_ingredients = document.createElement("h2");
+//       // h2_ingredients.textContent = "INGREDIENTS:";
 
-      // // create the unordered list for the ingredients
-      // let ul_listingre = document.createElement("ul");
-      // // ul_listingre.classList.add("listingre");
+//       // create the unordered list for the ingredients
+//       let ul_listingre = document.createElement("ul");
+//       // ul_listingre.classList.add("listingre");
 
-      // // create the list items for the ingredients
-      // let li_chicken = document.createElement("li");
-      // // li_chicken.textContent = "1/2kg chicken";
+//       // create the list items for the ingredients
+//       let li_chicken = document.createElement("li");
+//       // li_chicken.textContent = "1/2kg chicken";
 
-      // let li_salt = document.createElement("li");
-      // // li_salt.textContent = "1/2tsb salt";
+//       let li_salt = document.createElement("li");
+//       // li_salt.textContent = "1/2tsb salt";
 
-      // let li_termeric_powder = document.createElement("li");
-      // // li_termeric_powder.textContent = "1/2tsb termeric powder";
+//       let li_termeric_powder = document.createElement("li");
+//       // li_termeric_powder.textContent = "1/2tsb termeric powder";
 
-      // let li_red_chilli_powder = document.createElement("li");
-      // // li_red_chilli_powder.textContent = "2 1/2tsb kashmiri red chilli powder";
+//       let li_red_chilli_powder = document.createElement("li");
+//       // li_red_chilli_powder.textContent = "2 1/2tsb kashmiri red chilli powder";
 
-      // let li_garam_masala = document.createElement("li");
-      // // li_garam_masala.textContent = "1table spoon Garam masala";
+//       let li_garam_masala = document.createElement("li");
+//       // li_garam_masala.textContent = "1table spoon Garam masala";
 
-      // let li_ginger_garlic = document.createElement("li");
-      // // li_ginger_garlic.textContent = "1tsb ginger garlic";
+//       let li_ginger_garlic = document.createElement("li");
+//       // li_ginger_garlic.textContent = "1tsb ginger garlic";
 
-      // let li_curry_leaves = document.createElement("li");
-      // // li_curry_leaves.textContent = "2 curry leaves";
+//       let li_curry_leaves = document.createElement("li");
+//       // li_curry_leaves.textContent = "2 curry leaves";
 
-      // let li_curd = document.createElement("li");
-      // // li_curd.textContent = "4tablespoon curd";
+//       let li_curd = document.createElement("li");
+//       // li_curd.textContent = "4tablespoon curd";
 
-      // let li_lemon_juice = document.createElement("li");
-      // // li_lemon_juice.textContent = "1tablespoon lemon juice";
+//       let li_lemon_juice = document.createElement("li");
+//       // li_lemon_juice.textContent = "1tablespoon lemon juice";
 
-      // // append the list items to the unordered list
-      // ul_listingre.appendChild(li_chicken);
-      // ul_listingre.appendChild(li_salt);
-      // ul_listingre.appendChild(li_termeric_powder);
-      // ul_listingre.appendChild(li_red_chilli_powder);
-      // ul_listingre.appendChild(li_garam_masala);
-      // ul_listingre.appendChild(li_ginger_garlic);
-      // ul_listingre.appendChild(li_curry_leaves);
-      // ul_listingre.appendChild(li_curd);
-      // ul_listingre.appendChild(li_lemon_juice);
+//       // append the list items to the unordered list
+//       ul_listingre.appendChild(li_chicken);
+//       ul_listingre.appendChild(li_salt);
+//       ul_listingre.appendChild(li_termeric_powder);
+//       ul_listingre.appendChild(li_red_chilli_powder);
+//       ul_listingre.appendChild(li_garam_masala);
+//       ul_listingre.appendChild(li_ginger_garlic);
+//       ul_listingre.appendChild(li_curry_leaves);
+//       ul_listingre.appendChild(li_curd);
+//       ul_listingre.appendChild(li_lemon_juice);
 
-      // // append the heading and unordered list to the ingredients div
-      // div_ingredients.appendChild(h2_ingredients);
-      // div_ingredients.appendChild(ul_listingre);
+//       // append the heading and unordered list to the ingredients div
+//       div_ingredients.appendChild(h2_ingredients);
+//       div_ingredients.appendChild(ul_listingre);
 
-      // // create the div for the steps
-      // let div_steps = document.createElement("div");
-      // div_steps.classList.add("steps");
+//       // create the div for the steps
+//       let div_steps = document.createElement("div");
+//       div_steps.classList.add("steps");
 
-      // // create the heading for the steps
-      // let h2_steps = document.createElement("h2");
-      // // h2_steps.textContent = "STEPS:";
+//       // create the heading for the steps
+//       let h2_steps = document.createElement("h2");
+//       // h2_steps.textContent = "STEPS:";
 
-      // // create the ordered list for the steps
-      // let ol_step = document.createElement("ol");
-      // ol_step.classList.add("step");
+//       // create the ordered list for the steps
+//       let ol_step = document.createElement("ol");
+//       ol_step.classList.add("step");
 
-      // // create the list items for the steps
-      // let li_clean_wash_cut = document.createElement("li");
-      // // li_clean_wash_cut.textContent = "Clean wash and cut the chicken as cubes";
+//       // create the list items for the steps
+//       let li_clean_wash_cut = document.createElement("li");
+//       // li_clean_wash_cut.textContent = "Clean wash and cut the chicken as cubes";
 
-      // let li_add_ingredients = document.createElement("li");
-      // // li_add_ingredients.innerHTML = "Add all the other ingredients give above to chicken and mix well.<br> Add few drops of water if required";
+//       let li_add_ingredients = document.createElement("li");
+//       // li_add_ingredients.innerHTML = "Add all the other ingredients give above to chicken and mix well.<br> Add few drops of water if required";
 
-      // let li_mix_well = document.createElement("li");
-      // // li_mix_well.textContent = "Mix well so it is nicely combined";
+//       let li_mix_well = document.createElement("li");
+//       // li_mix_well.textContent = "Mix well so it is nicely combined";
 
-      // let li_cook_chicken = document.createElement("li");
-      // // li_cook_chicken.textContent = "Heat oil in kadai and cook the chicken till crispy and golden in color.";
+//       let li_cook_chicken = document.createElement("li");
+//       // li_cook_chicken.textContent = "Heat oil in kadai and cook the chicken till crispy and golden in color.";
 
-      // let li_serve_hot
-      // const edit = document.createElement("a")
-      // edit.classList.add("edit");
-      // const delete_com = document.createElement("a")
-      // delete_com.classList.add("delete");
-      // edit.appendChild(commentCard);
-      // delete_com.appendChild(commentCard);
-    </script>
+//       let li_serve_hot
+//       const edit = document.createElement("a")
+//       edit.classList.add("edit");
+//       const delete_com = document.createElement("a")
+//       delete_com.classList.add("delete");
+//       edit.appendChild(commentCard);
+//       delete_com.appendChild(commentCard);
+//     </script> -->
   </body>
-</html>
+   </html>
