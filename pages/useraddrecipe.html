@@ -28,8 +28,6 @@
         <input type="text"  id="Ingredient7">
         <label for="head">Ingredient8</label>
         <input type="text"  id="Ingredient8">
-        
-        
         <label for="head">Step1</label>
         <input type="text" required="" id="Step1">
         <label for="head">Step2</label>
@@ -46,7 +44,7 @@
         <option value="2" id="Non-veg">Non-veg</option>
         <option value="3" id="Veg">Veg</option>
       </select>
-        <button type="submit">Submit</button>
+       <button type="submit">Submit</button>
       </form>
 
     </div>
@@ -60,12 +58,9 @@
         let text = e.options[e.selectedIndex].text
         let array = [];
 
-
         if (localStorage.getItem("newRecipe") != null) {
           array = JSON.parse(localStorage.getItem("newRecipe"))
         }
-
-
         const Image = document.getElementById("imgurl").value
         const para = document.getElementById("recipename").value
         const about = document.getElementById("About").value
@@ -78,20 +73,18 @@
         const ingredient7 = document.getElementById("Ingredient7").value
         const ingredient8 = document.getElementById("Ingredient8").value
 
-
         const Step1 = document.getElementById("Step1").value
         const Step2 = document.getElementById("Step2").value
         const Step3 = document.getElementById("Step3").value
         const Step4 = document.getElementById("Step4").value
         const Step5 = document.getElementById("Step5").value
         const recipe_id = Date.now();
-
-
+        
         let newrecipe = {
           image_url: Image,
           h2_cardtitle: para,
           message: about,
-          ingredients: ingredients,
+          ingredients:ingredients,
           ingredient2:ingredient2,
           ingredient3:ingredient3,
           ingredient4:ingredient4,

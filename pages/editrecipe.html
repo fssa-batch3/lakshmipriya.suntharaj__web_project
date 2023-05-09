@@ -1,7 +1,12 @@
-<html>
-
-<link rel="stylesheet" href="../assets/style/addrecipe.css">
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../assets/style/addrecipe.css">
+  <title>Document</title>
+</head>
 <body>
   <div class="contact-form">
     <span class="heading">Add New Recipe</span>
@@ -9,11 +14,25 @@
       <label for="image">Image Url</label>
       <input type="url" required="" id="imgurl">
       <label for="head">recipe Name</label>
-      <input type="text" required="" id="recipeName">
+      <input type="text" required="" id="recipename">
       <label for="head">About</label>
-      <input type="text" required="" id="About">
-      <label for="head">Ingredients</label>
-      <input type="text" required="" id="Ingredients">
+      <input type="text"  id="About">
+      <label for="head">Ingredient1</label>
+      <input type="text"  id="Ingredient">
+      <label for="head">Ingredient2</label>
+      <input type="text"  id="Ingredient2">
+      <label for="head">Ingredient3</label>
+      <input type="text"  id="Ingredient3">
+      <label for="head">Ingredient4</label>
+      <input type="text"  id="Ingredient4">
+      <label for="head">Ingredient5</label>
+      <input type="text"  id="Ingredient5">
+      <label for="head">Ingredient6</label>
+      <input type="text"  id="Ingredient6">
+      <label for="head">Ingredient7</label>
+      <input type="text"  id="Ingredient7">
+      <label for="head">Ingredient8</label>
+      <input type="text"  id="Ingredient8">
       <label for="head">Step1</label>
       <input type="text" required="" id="Step1">
       <label for="head">Step2</label>
@@ -24,82 +43,58 @@
       <input type="text" required="" id="Step4">
       <label for="head">Step5</label>
       <input type="text" required="" id="Step5"> 
+      <label for="head">Varities</label>
+      <select name="Varities" id="Varities">
+      <option value="1" id="snack">Snacks</option>
+      <option value="2" id="Non-veg">Non-veg</option>
+      <option value="3" id="Veg">Veg</option>
+    </select>
       <button type="submit">Submit</button>
     </form>
+
   </div>
-
   <script>
-    const array = JSON.parse(localStorage.getItem("newRecipe"));
-    const url= window.location.search
-    const Url_params = new URLSearchParams(url)
-    const get_id = Url_params.get("id")
-    console.log(array);
-    let editrecipe = array.find((recipe)=> recipe.recipe_id == get_id)
+const recipeInfo = JSON.parse(localStorage.getItem("newRecipe"));
+    console.log(recipeInfo);
 
-        let image = document.getElementById("imgurl");
-        let recipename = document.getElementById("recipeName");
-        let About = document.getElementById("About");
-        let Ingredients = document.getElementById("Ingredients");
-        let Step1 = document.getElementById("Step1");
-        let Step2 = document.getElementById("Step2");
-        let Step3 = document.getElementById("Step3");
-        let Step4 = document.getElementById("Step4");
-        let Step5 = document.getElementById("Step4");
+    let urlSearch = window.location.search;
+    console.log(urlSearch);
+    let url_params = new URLSearchParams(urlSearch);
+    console.log(url_params);
+    let get_id = url_params.get("id");
+    console.log(get_id);
+
+    let recipeObj = recipeInfo.find(function (select_recipe) {
+      let id = select_recipe["recipe_id"];
+      console.log(id);
+      if (get_id == id) {
+        return true;
+      } else {
+        return false;
+      }
+    });
+    console.log(recipeObj);
+
+    document.getElementById("imgurl").value = recipeObj["image_url"]
+    document.getElementById("recipename").value = recipeObj["h2_cardtitle"]
+    document.getElementById("About").value = recipeObj["message"]
+    document.getElementById("Ingredient1").value = recipeObj["ingredient1"]
+    document.getElementById("Ingredient2").value = recipeObj["ingredient2"]
+    document.getElementById("Ingredient3").value = recipeObj["ingredient3"]
+    document.getElementById("Ingredient4").value = recipeObj["ingredient4"]
+    document.getElementById("Ingredient5").value = recipeObj["ingredient5"]
+    document.getElementById("Ingredient6").value = recipeObj["ingredient6"]
+    document.getElementById("Ingredient7").value = recipeObj["ingredient7"]
+    document.getElementById("Ingredient8").value = recipeObj["ingredient8"]
 
 
-        image.value = editrecipe["image_url"];
-        recipename.value = editrecipe["h2_cardtitle"];
-        About.value = editrecipe["message"];
-        Ingredients.value  = editrecipe["ingredients"];
-        Step1.value = editrecipe["Step1"];
-        Step2.value = editrecipe["Step2"];
-        Step3.value = editrecipe["Step3"];
-        Step4.value = editrecipe["Step4"];
-        Step5.value = editrecipe["Step5"];
 
-
-        let pro_info = document.getElementById("addrecipe");
-        pro_info.addEventListener("submit", function (event) {
-            event.preventDefault();
-
-            let image = document.getElementById("imgurl").value
-        let recipename = document.getElementById("recipeName").value
-        let About = document.getElementById("About").value
-        let Ingredients = document.getElementById("Ingredients").value
-        let Step1 = document.getElementById("Step1").value
-        let Step2 = document.getElementById("Step2").value
-        let Step3 = document.getElementById("Step3").value
-        let Step4 = document.getElementById("Step4").value
-        let Step5 = document.getElementById("Step4").value
-
-            let editrecipeObject = {
-               imgurl,
-               recipename,
-               About,
-               Ingredients,
-               Step1,
-               Step2,
-               Step3,
-               Step4,
-               Step5
-            };
-
-            let checked_obj = Object.assign(editrecipe, editrecipeObject );
-            // console.log(checked_obj);
-
-            let index = user_details.indexOf(editrecipe);
-            // console.log(index);
-
-            user_details[index] = checked_obj;
-
-            localStorage.setItem("newRecipe", JSON.stringify(array));
-
-            alert("successfully changed");
-            // location.reload()
-        });
-
+    document.getElementById("Step1").value = recipeObj["Step1"]
+    document.getElementById("Step2").value = recipeObj["Step2"]
+    document.getElementById("Step3").value = recipeObj["Step3"]
+    document.getElementById("Step4").value = recipeObj["Step4"]
+    document.getElementById("Step5").value = recipeObj["Step5"]
+    
   </script>
-</body>
-
-
+  </body>
 </html>

@@ -5,11 +5,16 @@
   <body>
     <img
       class="image"
-      src="https://hips.hearstapps.com/hmg-prod/images/baked-avocado-boats-1647351478.jpg?crop=1.00xw:0.752xh;0,0.118xh&resize=1200:*"
+      src=""
       alt="chicken image"
       id="food-img"
     />
+    
 
+
+<button id="delete" onclick="deleteFunction()">
+  Delete
+</button>
     <div class="whole-content">
       <div class="Ingredients">
         <h2 id="food-heading">INGREDIENTS:</h2>
@@ -52,7 +57,7 @@
         type="button"
         class="btn"
         value="send"
-        onclick="myFunction()"
+        onclick="commandFunction()"
       >
         Send
       </button>
@@ -119,10 +124,14 @@
       });
       console.log(recipeObj);
 
+    
+
       const url = document
         .getElementById("food-img")
         .setAttribute("src", recipeObj.image_url);
       const ingredient = (document.getElementById("ingredient1").innerHTML =
+        recipeObj["ingredients"]);
+        const ingredient1 = (document.getElementById("ingredient1").innerHTML =
         recipeObj["ingredients"]);
       const step1 = (document.getElementById("step1").innerHTML =
         recipeObj["Step1"]);
@@ -137,7 +146,7 @@
     </script>
     <script>
 
-             function myFunction() {
+             function commandFunction() {
               const comment = document.getElementById("comment").value;
               const user = localStorage.getItem("register");
               console.log(user);
@@ -179,68 +188,80 @@
                 editButton.setAttribute("data-comment-id", element.comment_id);
                 editButton.addEventListener("click", handleEditClick);
 
-                const deleteButton = document.createElement("button");
-                deleteButton.innerText = "Delete";
-                deleteButton.setAttribute("data-comment-id", element.comment_id);
-                deleteButton.addEventListener("click", handleDeleteClick);
+                // const deleteButton = document.createElement("button");
+                // deleteButton.innerText = "Delete";
+                // deleteButton.setAttribute("data-comment-id", element.comment_id);
+                // deleteButton.addEventListener("click", handleDeleteClick);
 
                 commentCard.appendChild(commandTitle);
                 commentCard.appendChild(commandContent);
                 commentCard.appendChild(editButton);
-                commentCard.appendChild(deleteButton);
+                // commentCard.appendChild(deleteButton);
                 Comment_list.appendChild(commentCard);
                 textArea.appendChild(Comment_list);
                 document.querySelector(".cmt").prepend(Comment_list);
                 document.footer.prepend(Comment_list);
-
                 commentCard.appendChild(commandTitle);
                 commentCard.appendChild(commandContent);
                 Comment_list.appendChild(commentCard);
-
                 document.body.appendChild(Comment_list);
               }
             }
+            
+      //       function handleEditClick(event) {
+      //         const commentId = event.target.getAttribute("data-comment-id");
+      //         const userComment = JSON.parse(localStorage.getItem("commentList"));
+      //         const commentIndex = userComment.findIndex(
+      //           (xyz) => xyz.comment_id === JSON.parse(commentId)
+      //         );
+      //         if (commentIndex === -1) {
+      //           console.error("Comment not found");
+      //           return;
+      //         }
+      //         const editedComment = prompt(
+      //           "Enter the edited comment:",
+      //           userComment[commentIndex].userComment
+      //         );
+      //         if (editedComment !== null && editedComment !== ""){
+      //           userComment[commentIndex].userComment = editedComment;
+      //           localStorage.setItem("commentList", JSON.stringify(userComment));
+      //           // location.reload();
+      //         }
+      //       }
 
-            function handleEditClick(event) {
-              const commentId = event.target.getAttribute("data-comment-id");
-              const userComment = JSON.parse(localStorage.getItem("commentList"));
-              const commentIndex = userComment.findIndex(
-                (xyz) => xyz.comment_id === JSON.parse(commentId)
-              );
-              if (commentIndex === -1) {
-                console.error("Comment not found");
-                return;
-              }
-              const editedComment = prompt(
-                "Enter the edited comment:",
-                userComment[commentIndex].userComment
-              );
-              if (editedComment !== null && editedComment !== ""){
-                userComment[commentIndex].userComment = editedComment;
-                localStorage.setItem("commentList", JSON.stringify(userComment));
-                // location.reload();
-              }
-            }
+      //       const deleteButtons = document.querySelectorAll('.delete-button');
 
-            const deleteButtons = document.querySelectorAll('.delete-button');
+      // deleteButtons.forEach(button => {
+      //   button.addEventListener('click', handleDeleteClick);
+      // });
 
-      deleteButtons.forEach(button => {
-        button.addEventListener('click', handleDeleteClick);
-      });
-
-      function handleDeleteClick(event) {
-        const commentId = event.target.getAttribute('data-comment-id');
-
-
-        let userComments = JSON.parse(localStorage.getItem('commentList'));
-
-        userComments = userComments.filter(comment => comment.comment_id !== commentId);
-        localStorage.setItem('commentList', JSON.stringify(userComments));
+      // function handleDeleteClick(event) {
+      //   const commentId = event.target.getAttribute('data-comment-id');
 
 
-        const commentElement = document.querySelector(`[data-comment-id="${commentId}"]`);
-        commentElement.remove();
-      }
+      //   let userComments = JSON.parse(localStorage.getItem('commentList'));
+
+      //   userComments = userComments.filter(comment => comment.comment_id !== commentId);
+      //   localStorage.setItem('commentList', JSON.stringify(userComments));
+
+
+      //   const commentElement = document.querySelector(`[data-comment-id="${commentId}"]`);
+      //   commentElement.remove();
+      // }
+
+
+      let edit_btn = document.createElement("a")
+      edit_btn.innerText="Edit"
+      edit_btn.setAttribute("href", "./editrecipe.html?id="+get_id)
+      edit_btn.setAttribute("id", "delete")
+
+      document.querySelector(".container").appendChild(edit_btn)
     </script>
+
+    <!-- <script>
+    function editFunction(){
+
+      }
+    </script> -->
   </body>
 </html>
