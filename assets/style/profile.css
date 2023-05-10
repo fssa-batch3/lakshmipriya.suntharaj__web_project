@@ -10,29 +10,36 @@ label {
 
 input,textarea {
   padding: 0.5rem;
-  width: 600px;
+  width: 418px;
   font-size: 1rem;
   border-radius: 5px;
   border: 1px solid gray;
+
 }
 
 button {
   margin-top: 1rem;
   padding: 0.5rem 1rem;
-  background-color: blue;
-  color: white;
+  color: rgb(18, 17, 17);
   border-radius: 5px;
   border: none;
   cursor: pointer;
   justify-content: center;
   display: grid;
 }
+button:hover{
+  background-color: rgb(11, 95, 35);
+}
 .form-group {
   justify-content: center;
   display: grid;
+  padding: 6px;
 }
 .btn {
-  margin-left: 430px;
-  display: inline;
+  margin-left: 526px;
 
+  
+}
+#profileform{
+  margin-top: 229px;
 }

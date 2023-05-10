@@ -78,7 +78,7 @@ const recipeInfo = JSON.parse(localStorage.getItem("newRecipe"));
     document.getElementById("imgurl").value = recipeObj["image_url"]
     document.getElementById("recipename").value = recipeObj["h2_cardtitle"]
     document.getElementById("About").value = recipeObj["message"]
-    document.getElementById("Ingredient1").value = recipeObj["ingredient1"]
+    document.getElementById("Ingredient").value = recipeObj["ingredients"]
     document.getElementById("Ingredient2").value = recipeObj["ingredient2"]
     document.getElementById("Ingredient3").value = recipeObj["ingredient3"]
     document.getElementById("Ingredient4").value = recipeObj["ingredient4"]
@@ -86,9 +86,6 @@ const recipeInfo = JSON.parse(localStorage.getItem("newRecipe"));
     document.getElementById("Ingredient6").value = recipeObj["ingredient6"]
     document.getElementById("Ingredient7").value = recipeObj["ingredient7"]
     document.getElementById("Ingredient8").value = recipeObj["ingredient8"]
-
-
-
     document.getElementById("Step1").value = recipeObj["Step1"]
     document.getElementById("Step2").value = recipeObj["Step2"]
     document.getElementById("Step3").value = recipeObj["Step3"]

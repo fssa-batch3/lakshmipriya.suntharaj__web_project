@@ -1,11 +1,11 @@
 <html lang="en">
-  <title>chickenfry</title>
+  <title>Recipe details</title>
   <link rel="stylesheet" href="/assets/style/page4.style.css" />
 
   <body>
     <img
       class="image"
-      src=""
+      src="https://media.istockphoto.com/id/1223383996/photo/chef-tossing-flaming-vegetable.jpg?s=612x612&w=0&k=20&c=6K9jPlnfL6Rdf16-08RaK6DRfP03wy8pSZviicDpuVQ="
       alt="chicken image"
       id="food-img"
     />
@@ -20,14 +20,14 @@
         <h2 id="food-heading">INGREDIENTS:</h2>
         <ul class="listingre">
           <li id="ingredient1">1/2kg chicken</li>
-          <!-- <li id="ingredient2">1/2tsb salt</li>
+          <li id="ingredient2">1/2tsb salt</li>
           <li id="ingredient3">1/2tsb termeric powder</li>
           <li id="ingredient4">2 1/2tsb kashmiri red chilli powder</li>
           <li id="ingredient5">1table spoon Garam masala</li>
           <li id="ingredient6">1tsb ginger garlic</li>
           <li id="ingredient7">2 curry leaves</li>
           <li id="ingredient8">4tablespoon curd</li>
-          <li id="ingredient9">1tablespoon lemon juice</li> -->
+          <li id="ingredient9">1tablespoon lemon juice</li>
         </ul>
       </div>
       <div class="steps">
@@ -48,8 +48,9 @@
         </ol>
       </div>
     </div>
-    <span class="addcomment">Add a comment</span>
+    
     <form id="com">
+      <span class="addcomment">Add a comment</span>
       <textarea class="comment" id="comment"></textarea>
       <br />
       <button
@@ -101,7 +102,7 @@
           </div>
         </div>
       </div>
-    </footer>
+    </footer> 
     <script>
       const recipeInfo = JSON.parse(localStorage.getItem("newRecipe"));
       console.log(recipeInfo);
@@ -124,15 +125,27 @@
       });
       console.log(recipeObj);
 
-    
+1
 
       const url = document
         .getElementById("food-img")
         .setAttribute("src", recipeObj.image_url);
-      const ingredient = (document.getElementById("ingredient1").innerHTML =
+      const ingredient = (document.getElementById("ingredient").innerHTML =
         recipeObj["ingredients"]);
         const ingredient1 = (document.getElementById("ingredient1").innerHTML =
-        recipeObj["ingredients"]);
+        recipeObj["ingredient2 "]);
+        const ingredients3 = (document.getElementById("ingredient1").innerHTML =
+        recipeObj["ingredient3 "]);
+        const ingredients4 = (document.getElementById("ingredient1").innerHTML =
+        recipeObj["ingredient4"]);
+        const ingredients5 = (document.getElementById("ingredient1").innerHTML =
+        recipeObj["ingredient5"]);
+        const ingredients6 = (document.getElementById("ingredient1").innerHTML =
+        recipeObj["ingredient6"]);
+        const ingredients7 = (document.getElementById("ingredient1").innerHTML =
+        recipeObj["ingredient7"]);
+        const ingredients8 = (document.getElementById("ingredient1").innerHTML =
+        recipeObj["ingredient8"]);
       const step1 = (document.getElementById("step1").innerHTML =
         recipeObj["Step1"]);
       const step2 = (document.getElementById("step2").innerHTML =
@@ -183,10 +196,10 @@
                 const textArea = document.createElement("textarea");
                 textArea.classList.add("textarea");
 
-                const editButton = document.createElement("button");
-                editButton.innerText = "Edit";
-                editButton.setAttribute("data-comment-id", element.comment_id);
-                editButton.addEventListener("click", handleEditClick);
+                // const editButton = document.createElement("button");
+                // editButton.innerText = "Edit";
+                // editButton.setAttribute("data-comment-id", element.comment_id);
+                // editButton.addEventListener("click", handleEditClick);
 
                 // const deleteButton = document.createElement("button");
                 // deleteButton.innerText = "Delete";
@@ -195,7 +208,7 @@
 
                 commentCard.appendChild(commandTitle);
                 commentCard.appendChild(commandContent);
-                commentCard.appendChild(editButton);
+                // commentCard.appendChild(editButton);
                 // commentCard.appendChild(deleteButton);
                 Comment_list.appendChild(commentCard);
                 textArea.appendChild(Comment_list);

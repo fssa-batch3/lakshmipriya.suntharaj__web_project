@@ -45,29 +45,42 @@
   
   .contact-form input:focus, .contact-form textarea:focus {
     outline: none;
-    box-shadow: 0 0 5px #ff6384;
-    transform: scale(1.05);
-    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 0 5px #204b0d;
+    /* transform: scale(1.05);
+    transition: transform 0.3s ease-in-out; */
   }
   
   .contact-form button[type="submit"] {
-    background-color: #ff6384;
-    color: #fff;
-    border: none;
+    
+    color: #131313;
+  
     border-radius: 5px;
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
     margin-top: 22px;
+    width: 100px;
+  }
+  button:hover{
+    background-color: #166f28;
+    font-weight: bolder;
   }
   
-  .contact-form button[type="submit"]:hover {
-    transform: scale(1.1);
-    transition: transform 0.3s ease-in-out;
-  }
   
   #delete {
     position: absolute;
     top: 0;
     right: 0;
+  }
+  input{
+    width: 700px;
+  }
+  #Varities{
+    width: 700px;
+  }
+  #addrecipe{
+    margin-left: 400px;
+  }
+  .heading{
+    margin-left: 400px;
   }

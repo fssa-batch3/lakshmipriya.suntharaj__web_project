@@ -39,7 +39,7 @@
   
 }
 /* veg-btn */
-.veg-recipe {
+.Veg-Recipe {
     display: inline;
     float: right;
     margin-bottom: 30px;
@@ -128,7 +128,7 @@
 .about{
     
     font-size: large;
-    font-family: Comic Sans MS ;
+     font-family: Comic Sans MS ;
     line-height: 2.4;
     min-width: 300px;
     max-width: 500px;
@@ -138,7 +138,7 @@
 }
 body{
     background-color: #d8e1cc;
-    
+   
 }
 h2{
     font-weight: lighter;
