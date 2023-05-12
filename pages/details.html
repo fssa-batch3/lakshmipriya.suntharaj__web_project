@@ -1,6 +1,6 @@
 <html lang="en">
   <title>Recipe details</title>
-  <link rel="stylesheet" href="/assets/style/page4.style.css" />
+  <link rel="stylesheet" href="/assets/style/detail.css" />
 
   <body>
     <img
@@ -10,11 +10,13 @@
       id="food-img"
     />
     
+    
 
-
-<button id="delete" onclick="deleteFunction()">
+<!-- <button id="delete" onclick="deleteFunction()">
   Delete
-</button>
+</button> -->
+
+
     <div class="whole-content">
       <div class="Ingredients">
         <h2 id="food-heading">INGREDIENTS:</h2>
@@ -79,7 +81,7 @@
     </div> -->
     <div class="cmt"></div>
 
-    <footer>
+    <!-- <footer>
       <div class="container">
         <div class="row">
           <div class="col-md-6">
@@ -102,7 +104,7 @@
           </div>
         </div>
       </div>
-    </footer> 
+    </footer>  -->
     <script>
       const recipeInfo = JSON.parse(localStorage.getItem("newRecipe"));
       console.log(recipeInfo);
@@ -161,11 +163,19 @@
 
              function commandFunction() {
               const comment = document.getElementById("comment").value;
-              const user = localStorage.getItem("register");
+              let allDetails = JSON.parse(localStorage.getItem("register"))
+              const user = JSON.parse( localStorage.getItem("data"));
+              let selectedUser = allDetails.find(function (event) {
+        let emailValue = event["getEmail"];
+        if (user == emailValue) {
+          return true;
+        }
+      });
+      console.log(selectedUser)
               console.log(user);
               console.log(comment);
-              console.log(JSON.parse(user));
-              console.log(JSON.parse(user)[0].getname);
+              // console.log(JSON.parse(user));
+              // console.log(JSON.parse(user)[0].getname);
               let userComment = JSON.parse(localStorage.getItem("commentList"));
 
               if (userComment === undefined || userComment === null) {
@@ -173,7 +183,7 @@
                 localStorage.setItem("commentList", JSON.stringify(userComment));
               }
               let addComment = {
-                name: JSON.parse(user)[0].getname,
+                name: selectedUser["getname"],
                 commentKey: comment,
                 comment_id: Date.now(),
               };
@@ -213,7 +223,7 @@
                 Comment_list.appendChild(commentCard);
                 textArea.appendChild(Comment_list);
                 document.querySelector(".cmt").prepend(Comment_list);
-                document.footer.prepend(Comment_list);
+                // document.footer.prepend(Comment_list);
                 commentCard.appendChild(commandTitle);
                 commentCard.appendChild(commandContent);
                 Comment_list.appendChild(commentCard);
@@ -266,7 +276,7 @@
       let edit_btn = document.createElement("a")
       edit_btn.innerText="Edit"
       edit_btn.setAttribute("href", "./editrecipe.html?id="+get_id)
-      edit_btn.setAttribute("id", "delete")
+      edit_btn.setAttribute("id", "edit")
 
       document.querySelector(".container").appendChild(edit_btn)
     </script>

@@ -1,5 +1,5 @@
 .contact-form {
-    background-color: #f2f2f2;
+    
     padding: 20px;
     border-radius: 10px;
   }
@@ -62,7 +62,7 @@
     width: 100px;
   }
   button:hover{
-    background-color: #166f28;
+    background-color: #185829;
     font-weight: bolder;
   }
   
@@ -83,4 +83,8 @@
   }
   .heading{
     margin-left: 400px;
+  }
+  body{
+    font-family: Comic Sans Ms;
+    background-color: rgb(237, 246, 223);
   }
