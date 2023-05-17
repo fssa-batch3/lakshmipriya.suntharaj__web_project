@@ -143,10 +143,7 @@ img{
     cursor: pointer;
 
 }
-.header{
-    align-items: center;
-    display: flex;
-}
+
 .logo{
     border-radius: 25px;
 }
@@ -203,8 +200,6 @@ width: 50px;
    
 }
 .footer-col ul li:not(:last-child){
-
-
     margin-bottom: 10px;
 }
 .footer-col ul li a{
@@ -281,52 +276,7 @@ a{
 .head{
     border-style: groove;
 }
-footer {
-    background-color: #f2f2f2;
-    padding: 50px 0;
-    margin-top: 20px;
 
-  }
-  
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    
-  }
-  
-  .row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-  
-  .col-md-6 {
-    width: 50%;
-    padding: 0 20px;
-  }
-  
-  h3 {
-    font-size: 20px;
-    margin-bottom: 20px;
-  }
-  
-  ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  li {
-    margin-bottom: 10px;
-  }
-  
-  a {
-    color: #333;
-    text-decoration: none;
-  }
-  
-  a:hover {
-    color: #777;
-  }
   body{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
