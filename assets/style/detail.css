@@ -5,7 +5,7 @@
 h1{
     margin: auto;
     width: 865px;
-    font-family: Comic Sans Ms;
+    font-family: "Comic Sans MS";
 }
 body{
     background-color:  #d8e1cc;;
@@ -174,8 +174,7 @@ margin-left: 563px;
   #edit{
     border: 1px solid black;
   }
-  #delete,
-  #edit{
+  #delete{
     display: inline;
     margin-left: 648px;
     margin-bottom: 30px;
@@ -187,7 +186,7 @@ margin-left: 563px;
     background-color:  #184e26;
     color: white;
     font-weight: bolder;
-    font-family: Comic Sans Ms;
+    font-family: "Comic Sans MS";
     margin-right: 30px;
     margin-top: 15px;
   }
