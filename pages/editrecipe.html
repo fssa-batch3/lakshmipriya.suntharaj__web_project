@@ -9,7 +9,7 @@
 </head>
 <body>
   <div class="contact-form">
-    <span class="heading">Add New Recipe</span>
+    <span class="heading">Edit Recipe</span>
     <form id="addrecipe">
       <label for="image">Image Url</label>
       <input type="url" required="" id="imgurl">
@@ -64,7 +64,7 @@ const recipeInfo = JSON.parse(localStorage.getItem("newRecipe"));
     let get_id = url_params.get("id");
     console.log(get_id);
 
-    let recipeObj = recipeInfo.find(function (select_recipe) {
+    let recipeobj = recipeInfo.find(function (select_recipe) {
       let id = select_recipe["recipe_id"];
       console.log(id);
       if (get_id == id) {
@@ -73,24 +73,105 @@ const recipeInfo = JSON.parse(localStorage.getItem("newRecipe"));
         return false;
       }
     });
-    console.log(recipeObj);
+    console.log(recipeobj);
 
-    document.getElementById("imgurl").value = recipeObj["image_url"]
-    document.getElementById("recipename").value = recipeObj["h2_cardtitle"]
-    document.getElementById("About").value = recipeObj["message"]
-    document.getElementById("Ingredient").value = recipeObj["ingredients"]
-    document.getElementById("Ingredient2").value = recipeObj["ingredient2"]
-    document.getElementById("Ingredient3").value = recipeObj["ingredient3"]
-    document.getElementById("Ingredient4").value = recipeObj["ingredient4"]
-    document.getElementById("Ingredient5").value = recipeObj["ingredient5"]
-    document.getElementById("Ingredient6").value = recipeObj["ingredient6"]
-    document.getElementById("Ingredient7").value = recipeObj["ingredient7"]
-    document.getElementById("Ingredient8").value = recipeObj["ingredient8"]
-    document.getElementById("Step1").value = recipeObj["Step1"]
-    document.getElementById("Step2").value = recipeObj["Step2"]
-    document.getElementById("Step3").value = recipeObj["Step3"]
-    document.getElementById("Step4").value = recipeObj["Step4"]
-    document.getElementById("Step5").value = recipeObj["Step5"]
+
+    // let current_email = JSON.parse(localStorage.getItem("data"));
+    //     let user_details = JSON.parse(localStorage.getItem("register"));
+
+    //     let recipeObj = user_details.find(function (user) {
+    //         let check_email = user["getEmail"];
+    //         if (current_email === check_email) {
+    //             return true;
+    //         }
+    //     });
+
+    document.getElementById("imgurl").value = recipeobj["image_url"]
+    document.getElementById("recipename").value = recipeobj["h2_cardtitle"]
+    document.getElementById("About").value = recipeobj["message"]
+    document.getElementById("Ingredient").value = recipeobj["ingredients"]
+    document.getElementById("Ingredient2").value = recipeobj["ingredient2"]
+    document.getElementById("Ingredient3").value = recipeobj["ingredient3"]
+    document.getElementById("Ingredient4").value = recipeobj["ingredient4"]
+    document.getElementById("Ingredient5").value = recipeobj["ingredient5"]
+    document.getElementById("Ingredient6").value = recipeobj["ingredient6"]
+    document.getElementById("Ingredient7").value = recipeobj["ingredient7"]
+    document.getElementById("Ingredient8").value = recipeobj["ingredient8"]
+    document.getElementById("Step1").value = recipeobj["Step1"]
+    document.getElementById("Step2").value = recipeobj["Step2"]
+    document.getElementById("Step3").value = recipeobj["Step3"]
+    document.getElementById("Step4").value = recipeobj["Step4"]
+    document.getElementById("Step5").value = recipeobj["Step5"]
+    
+    let editForm = document.getElementById("addrecipe");
+    editForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+    // get data from edit form
+    let reUrl = document.getElementById("imgurl").value;
+    let reName = document.getElementById("recipename").value;
+    let reAbout = document.getElementById("About").value;
+    let reIngredient = document.getElementById("Ingredient").value;
+    let reIngredient2 = document.getElementById("Ingredient2").value;
+    let reIngredient3 = document.getElementById("Ingredient3").value;
+    let reIngredient4 = document.getElementById("Ingredient4").value;
+    let reIngredient5 = document.getElementById("Ingredient5").value;
+    let reIngredient6 = document.getElementById("Ingredient6").value;
+    let reIngredient7 = document.getElementById("Ingredient7").value;
+    let reIngredient8 = document.getElementById("Ingredient8").value;
+    let restep1 = document.getElementById("Step1").value;
+    let restep2 = document.getElementById("Step2").value;
+    let restep3 = document.getElementById("Step3").value;
+    let restep4 = document.getElementById("Step4").value;
+    let restep5 = document.getElementById("Step5").value;
+
+    let newrecipe_data = {
+        reUrl,
+        reName,
+        reAbout,
+        reIngredient,
+        reIngredient2,
+        reIngredient3,
+        reIngredient4,
+        reIngredient5,
+        reIngredient6,
+        reIngredient7,
+        reIngredient8,
+        restep1,
+        restep2,
+        restep3,
+        restep4,
+        restep5
+    };
+
+    let checked_obj = Object.assign(recipeobj, newrecipe_data);
+            // console.log(checked_obj);
+            let index = user_details.indexOf(recipeobj);
+            // console.log(index);
+            user_details[index] = checked_obj;
+            localStorage.setItem("register", JSON.stringify(user_details));
+            alert("successfully changed");
+            // location.reload()
+        });
+
+  
+
+    // let user_delete = document.getElementById("delete");
+    //     user_delete.addEventListener("click", function (event) {
+    //         event.preventDefault()
+    //         let Index= user_details.indexOf(user_obj)
+    //         let msg = confirm("Are you sure want to delete your account")
+    //         if (msg !== true) {
+    //             return
+    //         }
+    //         else {
+    //           user_details.splice(Index, 1);
+    //             console.log(user_details);
+    //             localStorage.setItem("register", JSON.stringify(user_details))
+    //             window.location.href = "../index.html";
+
+    //       }
+
+    //     });
     
   </script>
   </body>
