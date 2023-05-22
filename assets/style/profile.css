@@ -17,7 +17,7 @@ input,textarea {
 
 }
 
-button {
+.btn {
   margin-top: 1rem;
   padding: 0.5rem 1rem;
   color: rgb(18, 17, 17);
@@ -25,7 +25,30 @@ button {
   border: none;
   cursor: pointer;
   justify-content: center;
-  display: grid;
+  display: inline;
+  border: 2px solid green;
+}
+.delete-btn {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  color: rgb(18, 17, 17);
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  justify-content: center;
+  display: inline;
+  border: 2px solid green;
+}
+.log-btn{
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  color: rgb(18, 17, 17);
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  justify-content: center;
+  display: inline;
+  border: 2px solid green;
 }
 button:hover{
   background-color: rgb(11, 95, 35);
@@ -43,4 +66,7 @@ button:hover{
 }
 body{
   background-color:  #d8e1cc;
+}
+.logo{
+  border-radius: 25px;
 }

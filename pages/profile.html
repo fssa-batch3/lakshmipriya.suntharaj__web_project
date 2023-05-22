@@ -9,6 +9,7 @@
   <title>profile</title>
 </head>
 <body>
+    <!-- <img class="logo" src="../assets/images/yellow logo.png" height="50px" width="50px" alt="logo"> -->
   <form class="profile" id="profileform">
     <div class="form-group">
         <label for="name">Name:</label>
@@ -19,7 +20,8 @@
         <input disabled type="email" class="form-control personEmail" id="email" placeholder="Enter your email" />
     </div>
     <button type="submit" class="btn">Submit</button>
-    <button type="submit"  id ="delete" class="btn">Delete</button>
+    <button type="submit" class="delete-btn" id ="delete" >Delete</button>
+<button type="submit" class="log-btn" id ="logout" >Log Out</button>
 
     </form>
 <script>
@@ -78,6 +80,18 @@ let current_email = JSON.parse(localStorage.getItem("data"));
 
         });
         
+
+        let logout = document.getElementById("logout");
+        logout.addEventListener("click", function (event) {
+            event.preventDefault();
+            let msg = confirm("Are you sure you want to logout this account ?");
+            if (msg !== true) {
+                return;
+            } else {
+                localStorage.setItem("register", JSON.stringify(null));
+                window.location.href = "../index.html";
+            }
+        });
 
 </script>
 </body>
