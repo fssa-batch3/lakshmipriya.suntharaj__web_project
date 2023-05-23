@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <a href=""></a>
+    
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +11,10 @@
 <body>
     <!-- <img class="logo" src="../assets/images/yellow logo.png" height="50px" width="50px" alt="logo"> -->
   <form class="profile" id="profileform">
+    <div class="profiledetails">
     <div class="form-group">
+        <h1>Profile</h1>
+        
         <label for="name">Name:</label>
         <input type="text" class="form-control personName" id="name" placeholder="Enter your name" />
     </div>
@@ -22,7 +25,7 @@
     <button type="submit" class="btn">Submit</button>
     <button type="submit" class="delete-btn" id ="delete" >Delete</button>
 <button type="submit" class="log-btn" id ="logout" >Log Out</button>
-
+</div>
     </form>
 <script>
 let current_email = JSON.parse(localStorage.getItem("data"));
@@ -92,6 +95,13 @@ let current_email = JSON.parse(localStorage.getItem("data"));
                 window.location.href = "../index.html";
             }
         });
+
+
+ 
+
+
+
+
 
 </script>
 </body>

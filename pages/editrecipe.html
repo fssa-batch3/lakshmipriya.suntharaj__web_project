@@ -8,6 +8,7 @@
   <title>Document</title>
 </head>
 <body>
+  <a href=""></a>
   <div class="contact-form">
     <span class="heading">Edit Recipe</span>
     <form id="addrecipe">
@@ -51,7 +52,6 @@
     </select>
       <button type="submit">Submit</button>
     </form>
-
   </div>
   <script>
 const recipeInfo = JSON.parse(localStorage.getItem("newRecipe"));
@@ -119,41 +119,75 @@ const recipeInfo = JSON.parse(localStorage.getItem("newRecipe"));
     let reIngredient7 = document.getElementById("Ingredient7").value;
     let reIngredient8 = document.getElementById("Ingredient8").value;
     let restep1 = document.getElementById("Step1").value;
-    let restep2 = document.getElementById("Step2").value;
+    let restep2 = document.getElementById("Step2").value
     let restep3 = document.getElementById("Step3").value;
     let restep4 = document.getElementById("Step4").value;
     let restep5 = document.getElementById("Step5").value;
 
     let newrecipe_data = {
-        reUrl,
-        reName,
-        reAbout,
-        reIngredient,
-        reIngredient2,
-        reIngredient3,
-        reIngredient4,
-        reIngredient5,
-        reIngredient6,
-        reIngredient7,
-        reIngredient8,
-        restep1,
-        restep2,
-        restep3,
-        restep4,
-        restep5
+         image_url: reUrl,
+          h2_cardtitle: reName,
+          message: reAbout,
+          ingredients:reIngredient,
+          ingredient2:reIngredient2,
+          ingredient3:reIngredient3,
+          ingredient4:reIngredient4,
+          ingredient5:reIngredient5,
+          ingredient6:reIngredient6,
+          ingredient7:reIngredient7,
+          ingredient8:reIngredient8,
+          Step1:restep1,
+          Step2:restep2,
+          Step3:restep3,
+          Step4:restep4,
+          Step5:restep5,
+          // Varities:text,
+          // recipe_id:recipe_id,
     };
 
     let checked_obj = Object.assign(recipeobj, newrecipe_data);
             // console.log(checked_obj);
-            let index = user_details.indexOf(recipeobj);
+            let index = recipeInfo.indexOf(recipeobj);
             // console.log(index);
-            user_details[index] = checked_obj;
-            localStorage.setItem("register", JSON.stringify(user_details));
+            recipeInfo[index] = checked_obj;
+            localStorage.setItem("newRecipe", JSON.stringify(recipeInfo));
             alert("successfully changed");
             // location.reload()
+            window.location.href = "./non-veg.html"
         });
 
   
+        let recipeObj = recipeInfo.find(function (select_recipe) {
+      let id = select_recipe["recipe_id"];
+      console.log(id);
+      if (get_id == id) {
+        return true;
+      } else {
+        return false;
+      }
+    });
+    // console.log(recipeobj);
+
+
+
+        let recipe_delete = document.getElementById("delete");
+    recipe_delete.addEventListener("click", function (event) {
+            event.preventDefault()
+            let Index= recipeInfo.indexOf(recipeObj)
+            let msg = confirm("Are you sure want to delete your account")
+            if (msg !== true) {
+                return
+            }
+            else {
+              recipeObj.splice(Index, 1);
+                // console.log(user_details);
+                localStorage.setItem("newRecipe", JSON.stringify(recipeObj))
+                // localStorage.setItem("newRe", JSON.stringify(recipeobj))
+                window.location.href = "./non-veg.html";
+
+          }
+        });
+      
 
     // let user_delete = document.getElementById("delete");
     //     user_delete.addEventListener("click", function (event) {
@@ -172,6 +206,9 @@ const recipeInfo = JSON.parse(localStorage.getItem("newRecipe"));
     //       }
 
     //     });
+
+
+
     
   </script>
   </body>

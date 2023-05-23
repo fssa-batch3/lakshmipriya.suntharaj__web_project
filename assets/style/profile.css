@@ -10,7 +10,7 @@ label {
 
 input,textarea {
   padding: 0.5rem;
-  width: 418px;
+  width: 400px;
   font-size: 1rem;
   border-radius: 5px;
   border: 1px solid gray;
@@ -59,7 +59,7 @@ button:hover{
   padding: 6px;
 }
 .btn {
-  margin-left: 526px;
+  margin-left: 532px
 }
 #profileform{
   margin-top: 229px;
@@ -69,4 +69,7 @@ body{
 }
 .logo{
   border-radius: 25px;
+}
+.profiledetails{
+  
 }

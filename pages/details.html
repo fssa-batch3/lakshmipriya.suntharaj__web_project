@@ -59,8 +59,13 @@
     </div>
   </div>
     <form id="com">
+      <div class="comment-section">
+      <div>
       <span class="addcomment">Add a comment</span>
+    </div>
+    <div>
       <textarea class="comment" id="comment"></textarea>
+    </div>
       <br />
       <button
         id="send"
@@ -71,6 +76,7 @@
       >
         Send
       </button>
+    </div>
       <!-- <button class="delete-button" data-comment-id="1">Delete Comment</button> -->
     </form>
     <!-- <div>
@@ -259,13 +265,56 @@
       edit_btn.setAttribute("href", "./editrecipe.html?id="+get_id)
       edit_btn.setAttribute("id", "edit")
 
+      let delete_btn = document.createElement("a")
+      delete_btn.innerText="Delete"
+      delete_btn.setAttribute("onclick", "./editrecipe.html?id="+get_id)
+      delete_btn.setAttribute("id", "delete")
+
+
       document.querySelector(".whole-content").appendChild(edit_btn)
-    </script>
+      document.querySelector(".whole-content").appendChild(delete_btn)
 
-    <!-- <script>
-    function editFunction(){
 
-      }
-    </script> -->
+  //     function deleteRecipe(id) {
+  //       let recipeobj = recipeInfo.find(function (select_recipe) {
+  //     let id = select_recipe["recipe_id"];
+  //     console.log(id);
+  //     if (get_id == id) {
+  //       return true;
+  //     } else {
+  //       return false;
+  //     }
+  //   });
+  //   console.log(recipeobj);
+
+  // }
+
+    // let recipe_delete = document.getElementById("delete");
+    // recipe_delete.addEventListener("click", function (event) {
+    //         event.preventDefault()
+    //         let Index= recipeInfo.indexOf(recipeobj)
+    //         let msg = confirm("Are you sure want to delete your account")
+    //         if (msg !== true) {
+    //             return
+    //         }
+    //         else {
+    //           recipeobj.splice(Index, 1);
+    //             // console.log(user_details);
+    //             localStorage.setItem("newRecipe", JSON.stringify(recipeobj))
+    //             // localStorage.setItem("newRe", JSON.stringify(recipeobj))
+    //             window.location.href = "../index.html";
+
+    //       }
+    //     });
+      
+
+
+
+
+</script>
+
+
+
+
   </body>
 </html>
