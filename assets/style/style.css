@@ -6,7 +6,7 @@
 h1{
     margin: auto;
     text-align: center;
-    font-family: Comic Sans Ms;
+    
     font-size: xx-large;
     font-weight: bolder;
     padding-top: 50px;
@@ -17,7 +17,7 @@ h1{
     margin: auto;
     margin-left: 280px;
     padding-top: 40px;
-    font-family: Comic Sans Ms;
+    
 line-height: 1.8;
 position: relative;
     top: 28;
@@ -29,7 +29,7 @@ position: relative;
     margin: auto;
    margin-left: 180px;
     margin-top: 17px;
-    font-family: Comic Sans Ms;
+    
     font-size: x-large;
     font-weight: bolder;
     line-height: 1.2;
@@ -42,7 +42,7 @@ position: relative;
     margin: auto;
     margin-left: 850px;
     position: relative;
- font-family: Comic Sans Ms;
+ 
  bottom: 300px;
  font-size: x-large;
  font-weight: bold;  
@@ -54,7 +54,7 @@ position: relative;
     position: relative;
     margin-top: 19px;
     line-height: 2.5;
-    font-family: Comic Sans Ms;
+    
    bottom: 280px;
    margin-left: 900px
 }
@@ -87,7 +87,7 @@ body{
     text-align: center;
     padding-top: 20px;
     padding-bottom: 20px;
-    font-family: Comic Sans Ms;
+    
     font-size: x-large;
     font-weight: bold;
     bottom: 240px;

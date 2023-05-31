@@ -1,27 +1,215 @@
-<html>
-
-<link rel="stylesheet" href="../assets/style/addrecipe.css">
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../assets/style/addrecipe.css">
+  <title>Document</title>
+</head>
 <body>
+  <a href=""></a>
+  <div class="contact-form">
+    <span class="heading">Edit Recipe</span>
+    <form id="addrecipe">
+      <label for="image">Image Url</label>
+      <input type="url" required="" id="imgurl">
+      <label for="head">recipe Name</label>
+      <input type="text" required="" id="recipename">
+      <label for="head">About</label>
+      <input type="text"  id="About">
+      <label for="head">Ingredient1</label>
+      <input type="text"  id="Ingredient">
+      <label for="head">Ingredient2</label>
+      <input type="text"  id="Ingredient2">
+      <label for="head">Ingredient3</label>
+      <input type="text"  id="Ingredient3">
+      <label for="head">Ingredient4</label>
+      <input type="text"  id="Ingredient4">
+      <label for="head">Ingredient5</label>
+      <input type="text"  id="Ingredient5">
+      <label for="head">Ingredient6</label>
+      <input type="text"  id="Ingredient6">
+      <label for="head">Ingredient7</label>
+      <input type="text"  id="Ingredient7">
+      <label for="head">Ingredient8</label>
+      <input type="text"  id="Ingredient8">
+      <label for="head">Step1</label>
+      <input type="text" required="" id="Step1">
+      <label for="head">Step2</label>
+      <input type="text" required="" id="Step2">
+      <label for="head">Step3</label>
+      <input type="text" required="" id="Step3">
+      <label for="head">Step4</label>
+      <input type="text" required="" id="Step4">
+      <label for="head">Step5</label>
+      <input type="text" required="" id="Step5"> 
+      <label for="head">Varities</label>
+      <select name="Varities" id="Varities">
+      <option value="1" id="snack">Snacks</option>
+      <option value="2" id="Non-veg">Non-veg</option>
+      <option value="3" id="Veg">Veg</option>
+    </select>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+  <script>
+const recipeInfo = JSON.parse(localStorage.getItem("newRecipe"));
+    console.log(recipeInfo);
+
+    let urlSearch = window.location.search;
+    console.log(urlSearch);
+    let url_params = new URLSearchParams(urlSearch);
+    console.log(url_params);
+    let get_id = url_params.get("id");
+    console.log(get_id);
+
+    let recipeobj = recipeInfo.find(function (select_recipe) {
+      let id = select_recipe["recipe_id"];
+      console.log(id);
+      if (get_id == id) {
+        return true;
+      } else {
+        return false;
+      }
+    });
+    console.log(recipeobj);
+
+
+    // let current_email = JSON.parse(localStorage.getItem("data"));
+    //     let user_details = JSON.parse(localStorage.getItem("register"));
+
+    //     let recipeObj = user_details.find(function (user) {
+    //         let check_email = user["getEmail"];
+    //         if (current_email === check_email) {
+    //             return true;
+    //         }
+    //     });
+
+    document.getElementById("imgurl").value = recipeobj["image_url"]
+    document.getElementById("recipename").value = recipeobj["h2_cardtitle"]
+    document.getElementById("About").value = recipeobj["message"]
+    document.getElementById("Ingredient").value = recipeobj["ingredients"]
+    document.getElementById("Ingredient2").value = recipeobj["ingredient2"]
+    document.getElementById("Ingredient3").value = recipeobj["ingredient3"]
+    document.getElementById("Ingredient4").value = recipeobj["ingredient4"]
+    document.getElementById("Ingredient5").value = recipeobj["ingredient5"]
+    document.getElementById("Ingredient6").value = recipeobj["ingredient6"]
+    document.getElementById("Ingredient7").value = recipeobj["ingredient7"]
+    document.getElementById("Ingredient8").value = recipeobj["ingredient8"]
+    document.getElementById("Step1").value = recipeobj["Step1"]
+    document.getElementById("Step2").value = recipeobj["Step2"]
+    document.getElementById("Step3").value = recipeobj["Step3"]
+    document.getElementById("Step4").value = recipeobj["Step4"]
+    document.getElementById("Step5").value = recipeobj["Step5"]
+    
+    let editForm = document.getElementById("addrecipe");
+    editForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+    // get data from edit form
+    let reUrl = document.getElementById("imgurl").value;
+    let reName = document.getElementById("recipename").value;
+    let reAbout = document.getElementById("About").value;
+    let reIngredient = document.getElementById("Ingredient").value;
+    let reIngredient2 = document.getElementById("Ingredient2").value;
+    let reIngredient3 = document.getElementById("Ingredient3").value;
+    let reIngredient4 = document.getElementById("Ingredient4").value;
+    let reIngredient5 = document.getElementById("Ingredient5").value;
+    let reIngredient6 = document.getElementById("Ingredient6").value;
+    let reIngredient7 = document.getElementById("Ingredient7").value;
+    let reIngredient8 = document.getElementById("Ingredient8").value;
+    let restep1 = document.getElementById("Step1").value;
+    let restep2 = document.getElementById("Step2").value
+    let restep3 = document.getElementById("Step3").value;
+    let restep4 = document.getElementById("Step4").value;
+    let restep5 = document.getElementById("Step5").value;
+
+    let newrecipe_data = {
+         image_url: reUrl,
+          h2_cardtitle: reName,
+          message: reAbout,
+          ingredients:reIngredient,
+          ingredient2:reIngredient2,
+          ingredient3:reIngredient3,
+          ingredient4:reIngredient4,
+          ingredient5:reIngredient5,
+          ingredient6:reIngredient6,
+          ingredient7:reIngredient7,
+          ingredient8:reIngredient8,
+          Step1:restep1,
+          Step2:restep2,
+          Step3:restep3,
+          Step4:restep4,
+          Step5:restep5,
+          // Varities:text,
+          // recipe_id:recipe_id,
+    };
+
+    let checked_obj = Object.assign(recipeobj, newrecipe_data);
+            // console.log(checked_obj);
+            let index = recipeInfo.indexOf(recipeobj);
+            // console.log(index);
+            recipeInfo[index] = checked_obj;
+            localStorage.setItem("newRecipe", JSON.stringify(recipeInfo));
+            alert("successfully changed");
+            // location.reload()
+            window.location.href = "./non-veg.html"
+        });
 
   
+        let recipeObj = recipeInfo.find(function (select_recipe) {
+      let id = select_recipe["recipe_id"];
+      console.log(id);
+      if (get_id == id) {
+        return true;
+      } else {
+        return false;
+      }
+    });
+    // console.log(recipeobj);
 
-    <div class="contact-form">
-      <span class="heading">Add New Recipe</span>
-      <form id="addrecipe">
-        <label for="image">Image Url</label>
-        <input type="url" required="" id="imgurl">
-        <label for="head">recipe Name</label>
-        <input type="text" required="" id="h2_cardtitle">
-        <!-- <label for="name" id="h2">RecipeName</label>
-        <input type="text"> -->
-        <textarea id="message" name="message" required="" type="textarea"></textarea>
-        
-        <button type="submit">Edit</button>
-      </form>
-    </div>
-</body>
-<script>
+
+
+        let recipe_delete = document.getElementById("delete");
+    recipe_delete.addEventListener("click", function (event) {
+            event.preventDefault()
+            let Index= recipeInfo.indexOf(recipeObj)
+            let msg = confirm("Are you sure want to delete your account")
+            if (msg !== true) {
+                return
+            }
+            else {
+              recipeObj.splice(Index, 1);
+                // console.log(user_details);
+                localStorage.setItem("newRecipe", JSON.stringify(recipeObj))
+                // localStorage.setItem("newRe", JSON.stringify(recipeobj))
+                window.location.href = "./non-veg.html";
+
+          }
+        });
+      
+
+    // let user_delete = document.getElementById("delete");
+    //     user_delete.addEventListener("click", function (event) {
+    //         event.preventDefault()
+    //         let Index= user_details.indexOf(user_obj)
+    //         let msg = confirm("Are you sure want to delete your account")
+    //         if (msg !== true) {
+    //             return
+    //         }
+    //         else {
+    //           user_details.splice(Index, 1);
+    //             console.log(user_details);
+    //             localStorage.setItem("register", JSON.stringify(user_details))
+    //             window.location.href = "../index.html";
+
+    //       }
+
+    //     });
+
+
+
     
-</script>
+  </script>
+  </body>
 </html>

@@ -1,26 +1,75 @@
 form-group {
-    margin-bottom: 1rem;
-  }
+  margin-bottom: 1rem;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+label {
+  font-weight: bold;
+}
+
+input,textarea {
+  padding: 0.5rem;
+  width: 400px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid gray;
+
+}
+
+.btn {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  color: rgb(18, 17, 17);
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  justify-content: center;
+  display: inline;
+  border: 2px solid green;
+}
+.delete-btn {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  color: rgb(18, 17, 17);
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  justify-content: center;
+  display: inline;
+  border: 2px solid green;
+}
+.log-btn{
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  color: rgb(18, 17, 17);
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  justify-content: center;
+  display: inline;
+  border: 2px solid green;
+}
+button:hover{
+  background-color: rgb(11, 95, 35);
+}
+.form-group {
+  justify-content: center;
+  display: grid;
+  padding: 6px;
+}
+.btn {
+  margin-left: 532px
+}
+#profileform{
+  margin-top: 229px;
+}
+body{
+  background-color:  #d8e1cc;
+}
+.logo{
+  border-radius: 25px;
+}
+.profiledetails{
   
-  label {
-    font-weight: bold;
-  }
-  
-  input, textarea {
-    padding: 0.5rem;
-    width: 100%;
-    font-size: 1rem;
-    border-radius: 5px;
-    border: 1px solid gray;
-  }
-  
-  button {
-    margin-top: 1rem;
-    padding: 0.5rem 1rem;
-    background-color: blue;
-    color: white;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-  }
-  
+}

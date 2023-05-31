@@ -1,48 +1,34 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../assets/style/profile.css" />
+  <title>profile</title>
+</head>
 <body>
-    <link rel="stylesheet" href="../assets/style/profile.css" />
-    <form class="profile" id="profileform">
-        <div class="form-group">
-            <label for="name">Name:</label>
-            <input type="text" class="form-control personName" id="name" placeholder="Enter your name" />
-        </div>
-        <div class="form-group">
-            <label for="email">Email:</label>
-            <input disabled type="email" class="form-control personEmail" id="email" placeholder="Enter your email" />
-        </div>
-
-        <!-- <div class="form-group">
-          <label for="delete">Delete</label>
-          <input disabled type="delete" id="delete" class="form-control personEmail"  placeholder="Enter your email" />
-      </div> -->
-        <!-- <div class="form-group">
-    <label for="name">password:</label>
-    <input  type="text" class="form-control personpassword" id="password" placeholder="Enter your name">
-  </div> -->
-        <!-- <div class="form-group">
-    <label for="bio">Bio:</label>
-    <textarea class="form-control  personBio" id="bio" rows="3" placeholder="Enter a brief bio"></textarea>
-  </div> -->
-        <button type="submit" class="btn btn-primary">Submit</button>
-        <button type="submit"  id ="delete" class="btn btn-primary">Delete</button>
-
-        <!-- <div>
-<p>
-  NAME: <span class="form-control personEmail">S.lakshmipriya</span>
-</p>
-<p>
-  EMAIL: <span class="form-control personpassword">lakshmipriya@gmail.com</span>
-</p>
- 
-<p>
-  PASSWORD: <span class="form-control personpassword">1234</span>
-</p>
-</div> -->
+    <!-- <img class="logo" src="../assets/images/yellow logo.png" height="50px" width="50px" alt="logo"> -->
+  <form class="profile" id="profileform">
+    <div class="profiledetails">
+    <div class="form-group">
+        <h1>Profile</h1>
+        
+        <label for="name">Name:</label>
+        <input type="text" class="form-control personName" id="name" placeholder="Enter your name" />
+    </div>
+    <div class="form-group">
+        <label for="email">Email:</label>
+        <input disabled type="email" class="form-control personEmail" id="email" placeholder="Enter your email" />
+    </div>
+    <button type="submit" class="btn">Submit</button>
+    <button type="submit" class="delete-btn" id ="delete" >Delete</button>
+<button type="submit" class="log-btn" id ="logout" >Log Out</button>
+</div>
     </form>
-
-    <script>
-        let current_email = JSON.parse(localStorage.getItem("data"));
+<script>
+let current_email = JSON.parse(localStorage.getItem("data"));
         let user_details = JSON.parse(localStorage.getItem("register"));
 
         let user_obj = user_details.find(function (user) {
@@ -51,7 +37,7 @@
                 return true;
             }
         });
-        // console.log(user_obj);
+        console.log(user_obj);
 
         let name = document.getElementById("name");
         let email = document.getElementById("email");
@@ -70,23 +56,15 @@
                 getname,
                 getEmail,
             };
-
             let checked_obj = Object.assign(user_obj, user_object);
             // console.log(checked_obj);
-
             let index = user_details.indexOf(user_obj);
             // console.log(index);
-
             user_details[index] = checked_obj;
-
             localStorage.setItem("register", JSON.stringify(user_details));
-
             alert("successfully changed");
-
-
             // location.reload()
-        }
-        )
+        });
         let user_delete = document.getElementById("delete");
         user_delete.addEventListener("click", function (event) {
             event.preventDefault()
@@ -99,8 +77,52 @@
               user_details.splice(Index, 1);
                 console.log(user_details);
                 localStorage.setItem("register", JSON.stringify(user_details))
-                // location.reload()
-        
+                window.location.href = "../index.html";
+
           }
 
-        })
+        });
+        
+
+        let logout = document.getElementById("logout");
+        logout.addEventListener("click", function (event) {
+            event.preventDefault();
+            let msg = confirm("Are you sure you want to logout this account ?");
+            if (msg !== true) {
+                return;
+            } else {
+                localStorage.setItem("register", JSON.stringify(null));
+                window.location.href = "../index.html";
+            }
+        });
+
+
+ 
+
+
+
+
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        

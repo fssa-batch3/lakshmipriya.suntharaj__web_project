@@ -1,0 +1,160 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+h1{
+    margin: auto;
+    width: 865px;
+   
+}
+body{
+    background-color:  #d8e1cc;
+    overflow-x: hidden;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+ .image{
+  width: 750px;
+  height: 300px;
+  object-fit: cover;
+  object-position: 10% 50%;
+ }
+
+@media screen and (max-width:600px){
+    .steps{
+        line-height: normal;
+    }  
+}
+h2{
+margin-bottom: 20px;
+}
+.Ingredients{
+margin-left: 188px;
+margin-top: 70px;
+margin-top: 20px;
+}
+
+.steps{
+margin-left: 188px;
+margin-top: 42px;
+}
+.listingre{
+line-height: 1.8;
+margin-left: 60px
+}
+.step{
+    line-height: 1.8;
+    margin-left: 60px;
+    width: fit-content;
+}
+.comment {
+    width: 40%;
+    height: 100px;
+    padding: 10px;
+    background-color: #d0e2bc;
+    font: 1.4em/1.6em cursive;
+    color: #095484;
+    margin-left: 180px;
+  }
+  .addcomment{
+    margin: auto;
+    margin-left:200px;
+    line-height: 3.5;
+    font-size: x-large;
+  }
+  .btn{
+    margin-left:200px;
+    width: 100px;
+    height: 40px;
+    /* line-height: 3.2; */
+    margin-top: 10px;
+   padding: 10px 10px 10px 10px;
+    align-items: center;
+  }
+  #commentbox{
+    margin-left: 577px;
+    margin-top: 30px;
+    width: 40%;
+    height: 700px;
+  }
+ 
+  /* .whole-content{
+    outline-style: solid;
+  } */
+  .comment-card {
+    position: absolute;
+    top: 487px;
+    right: 26px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    width: 560px;
+margin-left: 563px;
+}
+
+.textarea{
+  height: 800px;
+  width: 1000px;
+}
+  .comment-card img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 20px;
+  }
+
+  .comment-content h3 {
+    margin: 0;
+    font-size: 1.2rem;
+  }
+
+  .comment-content p {
+    margin: 10px 0 0;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  #Varities{
+    height: 40px;
+  }
+  /* #delete button{
+    width:300px;
+    height:100px;
+  } */
+  #edit{
+    border: 1px solid black;
+    background-color: rgb(22, 80, 22);
+    color: #fff;
+
+  }
+  #delete{
+    border: 1px solid black;
+    margin-left: 20px;
+    background-color: rgb(22, 80, 22);
+    color: #fff;
+  }
+  /* #com{
+    float: right;
+    position: absolute;
+    top: 7px;
+    right: -273px;
+    font-size: 18px;
+} */
+
+.recipe-details{
+  margin: auto;
+  width: 50%;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  margin-right: 657px;
+}
+.comment-section{
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  height: fit-content;
+  width: fit-content;
+  position: relative;
+  bottom: 1140px;
+    left: 967px;
+}
